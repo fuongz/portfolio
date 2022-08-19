@@ -10,7 +10,7 @@ module.exports = {
           css: {
             a: {
               textDecoration: 'none',
-              color: colors.sky[500],
+              color: colors.black,
               borderBottom: '1px dashed',
               transition: 'all .2s ease-in-out',
             },
@@ -23,8 +23,8 @@ module.exports = {
         },
         dark: {
           css: {
-            color: 'white',
-            a: { color: colors.sky[500] },
+            color: '#bbb',
+            a: { color: colors.white },
             'a:hover': {
               color: colors.sky[300],
             },
