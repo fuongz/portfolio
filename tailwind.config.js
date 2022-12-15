@@ -25,6 +25,7 @@ module.exports = {
           css: {
             color: '#bbb',
             a: { color: colors.white },
+            'h1, h2, h3, h4, h5, h6': { color: colors.white },
             'a:hover': {
               color: colors.sky[300],
             },

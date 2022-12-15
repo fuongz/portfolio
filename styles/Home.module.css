@@ -7,3 +7,7 @@
     opacity: 0;
   }
 }
+
+.project__item {
+  @apply !border-none rounded-lg py-2 block;
+}
