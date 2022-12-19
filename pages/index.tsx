@@ -16,6 +16,7 @@ type Project = {
   name: string
   description: string
   url: string
+  extraLinks?: any
 }
 
 const Home: NextPage = () => {
@@ -59,6 +60,19 @@ const Home: NextPage = () => {
     },
   ]
 
+  const funProjects: Project[] = [
+    {
+      name: 'Enma',
+      description: 'Includes a lot of funny things for Her!',
+      url: 'https://enma.uagizo.com',
+    },
+    {
+      name: 'Note',
+      description: 'Clone of Notion. Forked from Dashibase/lotion',
+      url: 'https://enma.uagizo.com',
+    },
+  ]
+
   return (
     <>
       <Head>
@@ -86,8 +100,12 @@ const Home: NextPage = () => {
               Creator of{' '}
               <a href="https://app.phake.dev" target="_blank" rel="noopener noreferrer">
                 PhakeDev
-              </a>
-              .
+              </a>{' '}
+              and{' '}
+              <a href="https://github.com/fuongz" target="_blank" rel="noopener noreferrer">
+                UaGiZo.Com
+              </a>{' '}
+              (Ủa gì zợ!) .
             </p>
 
             <h2>List of my projects:</h2>
@@ -106,7 +124,17 @@ const Home: NextPage = () => {
             <h3>Boilerplate projects</h3>
             <div className="grid grid-cols-2 gap-4">
               {boilerplateProjects.map((project: Project, index: number) => (
-                <a key={`boilerplateProjects-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
+                <a key={`boilerplateProject-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
+                  {project.name}
+                  <span className="text-zinc-500 text-sm block">{project.description}</span>
+                </a>
+              ))}
+            </div>
+
+            <h3>Fun projects</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {funProjects.map((project: Project, index: number) => (
+                <a key={`funProject-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
                   {project.name}
                   <span className="text-zinc-500 text-sm block">{project.description}</span>
                 </a>

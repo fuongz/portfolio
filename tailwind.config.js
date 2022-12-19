@@ -24,7 +24,7 @@ module.exports = {
         dark: {
           css: {
             color: '#bbb',
-            a: { color: colors.white },
+            'a:not(.no-link)': { color: colors.white },
             'h1, h2, h3, h4, h5, h6': { color: colors.white },
             'a:hover': {
               color: colors.sky[300],
