@@ -83,11 +83,11 @@ const Home: NextPage = () => {
 
             <p>
               Creator of{' '}
-              <a href="https://app.phake.dev" target="_blank" rel="noopener noreferrer">
-                PhakeDev
+              <a href="https://phake.app" target="_blank" rel="noopener noreferrer">
+                PhakeLabs
               </a>{' '}
               and{' '}
-              <a href="https://github.com/fuongz" target="_blank" rel="noopener noreferrer">
+              <a href="#" target="_blank" rel="noopener noreferrer">
                 UaGiZo.Com
               </a>{' '}
               (Ủa gì zợ!) .
