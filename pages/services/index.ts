@@ -1,1 +1,1 @@
-export * from './fetcher.service'
+export { default } from './fetcher.service'
