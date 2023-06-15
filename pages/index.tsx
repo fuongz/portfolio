@@ -3,6 +3,9 @@ import { useTheme } from 'next-themes'
 import Head from 'next/head'
 import { Icon } from '@iconify/react'
 import styles from '@/styles/Home.module.css'
+import useSWR from 'swr'
+import fetcher from './services/fetcher.service'
+import { useMemo } from 'react'
 
 type Profile = {
   name: string
@@ -19,6 +22,14 @@ type Project = {
   extraLinks?: any
 }
 
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+}
+
 const Home: NextPage = () => {
   const { theme, setTheme } = useTheme()
   const profile: Profile = {
@@ -33,45 +44,19 @@ const Home: NextPage = () => {
     {
       name: 'PhakeApp',
       description: 'Collection of software development tools',
-      url: 'https://app.phake.dev',
+      url: 'https://phake.app',
     },
-  ]
-
-  const boilerplateProjects: Project[] = [
-    {
-      name: 'NextJs',
-      description: 'NextJs Starter Template',
-      url: 'https://nextjs.phake.dev',
-    },
-    {
-      name: 'VueJS',
-      description: 'Vite SSG + Vue3 + TypeScript + WindiCSS Starter Template',
-      url: 'https://github.com/phakedev/vue-template',
-    },
-    {
-      name: 'Flask',
-      description: 'Python3 + Flask Starter Template',
-      url: 'https://github.com/phakedev/flask-template',
-    },
-    {
-      name: 'NestJS',
-      description: 'NestJS + TypeORM + MySQL',
-      url: 'https://github.com/phakedev/nestjs-mysql-typeorm-template',
-    },
-  ]
-
-  const funProjects: Project[] = [
     {
       name: 'Enma',
       description: 'Includes a lot of funny things for Her!',
       url: 'https://enma.uagizo.com',
     },
-    {
-      name: 'Note',
-      description: 'Clone of Notion. Forked from Dashibase/lotion',
-      url: 'https://enma.uagizo.com',
-    },
   ]
+
+  const { data } = useSWR('https://api.github.com/orgs/phakelabs/repos', fetcher)
+  const boilerplates = useMemo(() => {
+    return data?.filter((repo: any) => repo.name.includes('-template')) || []
+  }, [data])
 
   return (
     <>
@@ -82,7 +67,7 @@ const Home: NextPage = () => {
         <link rel="canonical" href={process.env.NEXT_PUBLIC_ROOT_URL} />
       </Head>
 
-      <main className="container mx-auto px-4 py-4 md:p-0 flex items-center justify-center md:h-screen">
+      <main className="container my-8 mx-auto px-4 py-4 md:p-0 flex items-center justify-center">
         <div>
           <div className="prose-zinc prose dark:prose-dark">
             <h1 className="text-3xl font-medium mb-6">
@@ -123,21 +108,17 @@ const Home: NextPage = () => {
 
             <h3>Boilerplate projects</h3>
             <div className="grid grid-cols-2 gap-4">
-              {boilerplateProjects.map((project: Project, index: number) => (
-                <a key={`boilerplateProject-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
-                  {project.name}
-                  <span className="text-zinc-500 text-sm block">{project.description}</span>
-                </a>
-              ))}
-            </div>
+              {boilerplates.map((project: any, index: number) => (
+                <div key={`boilerplateProject-${index}`}>
+                  <a href={project.html_url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
+                    {project.name}
+                    <span className="text-zinc-500 text-sm block">{project.description}</span>
+                  </a>
 
-            <h3>Fun projects</h3>
-            <div className="grid grid-cols-2 gap-4">
-              {funProjects.map((project: Project, index: number) => (
-                <a key={`funProject-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
-                  {project.name}
-                  <span className="text-zinc-500 text-sm block">{project.description}</span>
-                </a>
+                  <div className="flex items-center flex-wrap gap-2">
+                    <span className="text-xs text-zinc-400 italic rounded">Last updated: {formatDate(project.updated_at)}</span>
+                  </div>
+                </div>
               ))}
             </div>
 
