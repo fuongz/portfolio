@@ -26,6 +26,7 @@ module.exports = {
             color: '#bbb',
             'a:not(.no-link)': { color: colors.white },
             'h1, h2, h3, h4, h5, h6': { color: colors.white },
+            blockquote: { color: colors.zinc[400] },
             'a:hover': {
               color: colors.sky[300],
             },

@@ -4,16 +4,8 @@ import Head from 'next/head'
 import { Icon } from '@iconify/react'
 import styles from '@/styles/Home.module.css'
 import useSWR from 'swr'
-import fetcher from '../services/fetcher.service'
+import fetcher from '@/services/fetcher.service'
 import { useMemo } from 'react'
-
-type Profile = {
-  name: string
-  facebook: string
-  github: string
-  twitter: string
-  email: string
-}
 
 type Project = {
   name: string
@@ -32,11 +24,8 @@ const formatDate = (date: string) => {
 
 const Home: NextPage = () => {
   const { theme, setTheme } = useTheme()
-  const profile: Profile = {
-    name: 'Phuong Phung',
-    facebook: 'phungthephuong',
-    github: 'fuongz',
-    twitter: 'fuongzt',
+  const profile: any = {
+    twitter: 'fuong_z',
     email: 'phuongthephung@gmail.com',
   }
 
@@ -54,6 +43,8 @@ const Home: NextPage = () => {
   ]
 
   const { data } = useSWR('https://api.github.com/orgs/phakelabs/repos', fetcher)
+  const { data: profileData } = useSWR('https://api.github.com/users/fuongz', fetcher)
+
   const boilerplates = useMemo(() => {
     return data?.filter((repo: any) => repo.name.includes('-template')) || []
   }, [data])
@@ -61,7 +52,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Phuong Phung - fugon11 - phuongphung.com</title>
+        <title>
+          {profileData?.name} - {profileData?.login} - phuongphung.com
+        </title>
         <meta property="og:title" content="Phuong Phung" />
         <meta name="twitter:title" content="Phuong Phung" />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_ROOT_URL} />
@@ -71,16 +64,17 @@ const Home: NextPage = () => {
         <div>
           <div className="prose-zinc prose dark:prose-dark">
             <h1 className="text-3xl font-medium mb-6">
-              Phuong Phung<span className={styles['anim-blink']}> _</span>
+              {profileData?.name} <span className="text-base text-zinc-400 font-normal italic">({profileData?.login})</span>
+              <span className={styles['anim-blink']}> _</span>
             </h1>
+            <blockquote>{profileData?.bio}</blockquote>
             <p>
-              Hey, I&#39;m {profile.name}, a software engineer who found his true passion in programming. Working at{' '}
+              Hey, I&#39;m {profileData?.name}, a software engineer who found his true passion in programming. Working at{' '}
               <a href="https://hiip.asia/" target="_blank" rel="noopener noreferrer">
                 Hiip
               </a>
               .
             </p>
-
             <p>
               Creator of{' '}
               <a href="https://phake.app" target="_blank" rel="noopener noreferrer">
@@ -124,7 +118,7 @@ const Home: NextPage = () => {
 
             <p className="mb-0 mt-12">
               Find me on{' '}
-              <a href={`https://github.com/${profile.github}`} rel="noopener noreferrer" target="_blank">
+              <a href={profileData?.html_url} rel="noopener noreferrer" target="_blank">
                 GitHub{' '}
               </a>
               ,{' '}
