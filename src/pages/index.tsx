@@ -22,10 +22,11 @@ const formatDate = (date: string) => {
   })
 }
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ profile: profileData, data }: any) => {
   const { theme, setTheme } = useTheme()
   const profile: any = {
     twitter: 'fuong_z',
+    facebook: 'phungthephuong',
     email: 'phuongthephung@gmail.com',
   }
 
@@ -42,9 +43,6 @@ const Home: NextPage = () => {
     },
   ]
 
-  const { data } = useSWR('https://api.github.com/orgs/phakelabs/repos', fetcher)
-  const { data: profileData } = useSWR('https://api.github.com/users/fuongz', fetcher)
-
   const boilerplates = useMemo(() => {
     return data?.filter((repo: any) => repo.name.includes('-template')) || []
   }, [data])
@@ -52,11 +50,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>
-          {profileData?.name} - {profileData?.login} - phuongphung.com
-        </title>
-        <meta property="og:title" content="Phuong Phung" />
-        <meta name="twitter:title" content="Phuong Phung" />
+        <title>Phương Phùng - fuongz - phuongphung.com</title>
+        <meta property="og:title" content="Phương Phùng - fuongz - phuongphung.com" />
+        <meta name="twitter:title" content="Phương Phùng - fuongz - phuongphung.com" />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_ROOT_URL} />
       </Head>
 
@@ -160,3 +156,14 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getStaticProps = async () => {
+  const profile = await fetcher('https://api.github.com/users/fuongz')
+  const data = await fetcher('https://api.github.com/orgs/phakelabs/repos')
+  return {
+    props: {
+      profile,
+      data: data.sort((a: any, b: any) => (a.updated_at > b.updated_at ? -1 : 1)),
+    },
+  }
+}
