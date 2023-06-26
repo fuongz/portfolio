@@ -23,7 +23,6 @@ const formatDate = (date: string) => {
 }
 
 const Home: NextPage = ({ profile: profileData, data }: any) => {
-  const { theme, setTheme } = useTheme()
   const profile: any = {
     twitter: 'fuong_z',
     facebook: 'phungthephuong',
@@ -134,20 +133,6 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
               </a>
               .
             </p>
-          </div>
-
-          <div className="mt-8 flex items-center justify-center">
-            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-              {theme === 'dark' ? (
-                <>
-                  <Icon icon="cil:moon" />
-                </>
-              ) : (
-                <>
-                  <Icon icon="cil:sun" />
-                </>
-              )}
-            </button>
           </div>
         </div>
       </main>
