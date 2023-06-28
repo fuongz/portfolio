@@ -1,3 +1,5 @@
+import PostList from '@/components/Post/PostList'
+import Container from '@/components/Shared/Container'
 import fs from 'fs'
 import matter from 'gray-matter'
 
@@ -6,8 +8,12 @@ interface BlogPageProps {
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
-  console.log(posts)
-  return <></>
+  return (
+    <Container>
+      <h1>Blog</h1>
+      <PostList posts={posts} />
+    </Container>
+  )
 }
 
 export default BlogPage
