@@ -1,0 +1,14 @@
+---
+title: 'How to order a string column that contains numeric values in SQL?'
+titleEn: 'How to order a string column that contains numeric values in SQL?'
+metaTitle: 'How to order a string column that contains numeric values in SQL?'
+metaDesc: 'How to order a string column that contains numeric values in SQL?'
+date: '2023-06-29'
+tags: ['mysql', 'sql']
+---
+
+## The Solution
+
+```sql
+ORDER BY CAST(`column` AS unsigned)
+```
