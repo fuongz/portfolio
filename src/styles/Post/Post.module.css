@@ -1,15 +1,15 @@
 .post__tags {
-  @apply flex gap-4;
+  @apply flex gap-2;
 }
 
 .post__tag {
-  @apply rounded-md px-2 py-0.5 text-sm bg-zinc-800;
-}
-
-.post__meta {
-  @apply flex items-center gap-4;
+  @apply rounded-md px-2 py-0.5 text-sm dark:bg-zinc-800 bg-zinc-200;
 }
 
 .post__date {
   @apply text-sm text-zinc-400;
+}
+
+.post__meta {
+  @apply flex items-center gap-4;
 }

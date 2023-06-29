@@ -1,6 +1,6 @@
-import styles from '@/styles/Post/PostList.module.css'
+import styles from '@/styles/PostList/PostList.module.css'
 import Post from './Post'
-import { Post as PostType } from './../../@types/Post'
+import { Post as PostType } from '../../@types/Post'
 
 interface PostListProps {
   posts: PostType[]

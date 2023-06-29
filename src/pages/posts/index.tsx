@@ -1,10 +1,12 @@
-import PostList from '@/components/Post/PostList'
+import type { Post as PostType } from './../../@types/Post'
+
+import PostList from '@/components/PostList/PostList'
 import Container from '@/components/Shared/Container'
 import fs from 'fs'
 import matter from 'gray-matter'
 
 interface BlogPageProps {
-  posts: any[]
+  posts: PostType[]
 }
 
 const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
@@ -22,10 +24,9 @@ export async function getStaticProps() {
   try {
     const files = fs.readdirSync('contents')
     const posts = files.map((fileName) => {
-      const slug = fileName.replace('.md', '')
+      const slug = fileName.replace('.mdx', '')
       const readFile = fs.readFileSync(`contents/${fileName}`, 'utf8')
       const { data: frontmatter } = matter(readFile)
-
       return {
         slug,
         frontmatter,
@@ -37,7 +38,6 @@ export async function getStaticProps() {
       },
     }
   } catch (err: any) {
-    console.log(err)
     return { props: {} }
   }
 }

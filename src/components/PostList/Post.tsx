@@ -1,5 +1,6 @@
-import styles from '@/styles/Post/Post.module.css'
+import styles from '@/styles/PostList/Post.module.css'
 import { Post as PostType } from '../../@types/Post'
+import Link from 'next/link'
 
 interface PostProps {
   post: PostType
@@ -9,7 +10,17 @@ const Post: React.FC<PostProps> = ({ post }) => {
   return (
     <div className={styles['post']}>
       <div className={styles['post__data']}>
-        <h3 className={styles['post__title']}>{post.frontmatter.title}</h3>
+        <Link
+          href={{
+            pathname: '/posts/[slug]',
+            query: {
+              slug: post.slug,
+            },
+          }}
+          className={styles['post__title']}
+        >
+          {post.frontmatter.title}
+        </Link>
         <div className={styles['post__meta']}>
           <div className={styles['post__date']}>{post.frontmatter.date}</div>
           <div className={styles['post__tags']}>

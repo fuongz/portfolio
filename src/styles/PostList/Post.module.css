@@ -1,0 +1,23 @@
+.post__title {
+  @apply dark:text-zinc-100 text-zinc-900 cursor-pointer transition-all duration-300 mb-4 inline-block text-xl font-semibold;
+}
+
+.post__title:hover {
+  @apply transition-all duration-300;
+}
+
+.post__tags {
+  @apply flex gap-2;
+}
+
+.post__tag {
+  @apply rounded-md px-2 py-0.5 text-sm dark:bg-zinc-800 bg-zinc-200;
+}
+
+.post__meta {
+  @apply flex items-center gap-4;
+}
+
+.post__date {
+  @apply text-sm text-zinc-400;
+}
