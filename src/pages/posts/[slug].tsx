@@ -6,6 +6,7 @@ import type { PostFrontmatter } from './../../@types/Post'
 import styles from '@/styles/Post/Post.module.css'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
+import highlightjs from 'markdown-it-highlightjs'
 
 interface SinglePostProps {
   frontmatter: PostFrontmatter
@@ -32,7 +33,7 @@ const SinglePost: NextPage<SinglePostProps> = ({ frontmatter, content }) => {
 
       <div
         dangerouslySetInnerHTML={{
-          __html: md().render(content),
+          __html: md().use(highlightjs, { inline: true }).render(content),
         }}
       ></div>
     </Container>

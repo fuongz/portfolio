@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import 'highlight.js/styles/github.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'next-themes'
 import NextNProgress from 'nextjs-progressbar'
