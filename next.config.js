@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     domains: ['www.gravatar.com'],
   },
+  env: {
+    NEXT_PUBLIC_ROOT_URL: process.env.NEXT_PUBLIC_ROOT_URL,
+  },
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)
     const rules = config.module.rules.find((r) => !!r.oneOf)
