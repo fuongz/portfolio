@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
 import Head from 'next/head'
 
-interface HomeProps {}
+interface HomeProps {
+  data?: any
+}
 
 const Home: NextPage<HomeProps> = ({}) => {
   return (

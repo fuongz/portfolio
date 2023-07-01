@@ -28,7 +28,8 @@ function SiteMap() {
   // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res }: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getServerSideProps = ({ res }: any) => {
   const paths = getAllPosts()
 
   // We generate the XML sitemap with the posts data

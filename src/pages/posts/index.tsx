@@ -4,6 +4,7 @@ import PostList from '@/components/PostList/PostList'
 import Container from '@/components/Shared/Container'
 import fs from 'fs'
 import matter from 'gray-matter'
+import Head from 'next/head'
 
 interface BlogPageProps {
   posts: PostType[]
@@ -11,10 +12,15 @@ interface BlogPageProps {
 
 const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   return (
-    <Container>
-      <h1>Blog</h1>
-      <PostList posts={posts} />
-    </Container>
+    <>
+      <Head>
+        <title>Posts - fuongz - phuongphung.com</title>
+      </Head>
+      <Container>
+        <h1>Blog</h1>
+        <PostList posts={posts} />
+      </Container>
+    </>
   )
 }
 

@@ -3,7 +3,9 @@ import { Icon } from '@iconify/react'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
-interface HeaderProps {}
+interface HeaderProps {
+  data?: any
+}
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const { theme, setTheme, systemTheme } = useTheme()
