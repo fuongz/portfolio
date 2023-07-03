@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import NextNProgress from 'nextjs-progressbar'
 import Header from '@/components/Shared/Header'
 import Head from 'next/head'
+import { Analytics } from '@vercel/analytics/react'
 
 interface SEOMeta {
   name?: string
@@ -75,7 +76,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         {meta.map(({ name, content, property, key }) => (
           <meta key={key} name={name} property={property} content={content} />
         ))}
@@ -84,6 +88,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <NextNProgress options={{ easing: 'ease', speed: 500 }} />
         <Header />
         <Component {...pageProps} />
+        <Analytics />
       </ThemeProvider>
     </>
   )
