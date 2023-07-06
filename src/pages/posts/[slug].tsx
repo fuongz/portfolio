@@ -10,6 +10,7 @@ import highlightjs from 'markdown-it-highlightjs'
 import { NextSeo } from 'next-seo'
 import { getCanonicalUrl } from 'utils/seo-helper'
 import Link from 'next/link'
+import Tag from '@/components/Shared/Tag'
 
 interface SinglePostProps {
   frontmatter: PostFrontmatter
@@ -33,12 +34,7 @@ const SinglePost: NextPage<SinglePostProps> = ({ frontmatter, content }) => {
           <div className={styles['post__tags']}>
             {frontmatter.tags.length > 0 &&
               frontmatter.tags.map((tag) => (
-                <span
-                  key={`tag-${router.query.slug}-${tag}`}
-                  className={styles['post__tag']}
-                >
-                  {tag}
-                </span>
+                <Tag value={tag} key={`tag-${router.query.slug}-${tag}`} />
               ))}
           </div>
         </div>

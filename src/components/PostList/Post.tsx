@@ -1,6 +1,7 @@
 import styles from '@/styles/PostList/Post.module.css'
 import { Post as PostType } from '../../@types/Post'
 import Link from 'next/link'
+import Tag from '../Shared/Tag'
 
 interface PostProps {
   post: PostType
@@ -26,9 +27,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
           <div className={styles['post__tags']}>
             {post.frontmatter.tags.length > 0 &&
               post.frontmatter.tags.map((tag) => (
-                <span key={`tag-${post.slug}-${tag}`} className={styles['post__tag']}>
-                  {tag}
-                </span>
+                <Tag value={tag} key={`tag-${post.slug}-${tag}`} />
               ))}
           </div>
         </div>
