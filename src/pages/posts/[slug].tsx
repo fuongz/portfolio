@@ -7,6 +7,9 @@ import styles from '@/styles/Post/Post.module.css'
 import { useRouter } from 'next/router'
 import md from 'markdown-it'
 import highlightjs from 'markdown-it-highlightjs'
+import { NextSeo } from 'next-seo'
+import { getCanonicalUrl } from 'utils/seo-helper'
+import Link from 'next/link'
 
 interface SinglePostProps {
   frontmatter: PostFrontmatter
@@ -17,26 +20,40 @@ const SinglePost: NextPage<SinglePostProps> = ({ frontmatter, content }) => {
   const router = useRouter()
 
   return (
-    <Container>
-      <h1>{frontmatter.title}</h1>
-      <div className={styles['post__meta']}>
-        <div className={styles['post__date']}>{frontmatter.date}</div>
-        <div className={styles['post__tags']}>
-          {frontmatter.tags.length > 0 &&
-            frontmatter.tags.map((tag) => (
-              <span key={`tag-${router.query.slug}-${tag}`} className={styles['post__tag']}>
-                {tag}
-              </span>
-            ))}
+    <>
+      <NextSeo
+        title={frontmatter.title}
+        description={frontmatter.metaDesc}
+        canonical={getCanonicalUrl('posts', router?.query?.slug as string)}
+      />
+      <Container>
+        <h1>{frontmatter.title}</h1>
+        <div className={styles['post__meta']}>
+          <div className={styles['post__date']}>{frontmatter.date}</div>
+          <div className={styles['post__tags']}>
+            {frontmatter.tags.length > 0 &&
+              frontmatter.tags.map((tag) => (
+                <span
+                  key={`tag-${router.query.slug}-${tag}`}
+                  className={styles['post__tag']}
+                >
+                  {tag}
+                </span>
+              ))}
+          </div>
         </div>
-      </div>
 
-      <div
-        dangerouslySetInnerHTML={{
-          __html: md().use(highlightjs, { inline: true }).render(content),
-        }}
-      ></div>
-    </Container>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: md().use(highlightjs, { inline: true }).render(content),
+          }}
+        />
+
+        <Link href="/posts" className={styles['post__go-back']}>
+          {'<--'} Back to Posts
+        </Link>
+      </Container>
+    </>
   )
 }
 
@@ -62,7 +79,11 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params: { slug } }: { params: { slug: string } }) {
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: string }
+}) {
   try {
     const fileName = fs.readFileSync(`contents/${slug}.mdx`, 'utf-8')
     const { data: frontmatter, content } = matter(fileName)

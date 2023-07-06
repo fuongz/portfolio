@@ -7,10 +7,16 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
-          <meta name="robots" content="all" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin={''} />
-          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin={''}
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+          />
 
           <Script id="google-tag-manager" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,7 +26,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-WQ5GTT6');`}
           </Script>
 
-          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"></Script>
+          <Script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"
+          ></Script>
           <Script id="google-analytic-manager" strategy="afterInteractive">
             {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

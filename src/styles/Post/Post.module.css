@@ -13,3 +13,7 @@
 .post__meta {
   @apply flex items-center gap-4;
 }
+
+.post__go-back {
+  @apply text-blue-500 text-center mx-auto inline-block;
+}

@@ -4,7 +4,8 @@ import PostList from '@/components/PostList/PostList'
 import Container from '@/components/Shared/Container'
 import fs from 'fs'
 import matter from 'gray-matter'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
+import { getCanonicalUrl, getPageTitle } from 'utils/seo-helper'
 
 interface BlogPageProps {
   posts: PostType[]
@@ -13,11 +14,18 @@ interface BlogPageProps {
 const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   return (
     <>
-      <Head>
-        <title>Posts - fuongz - phuongphung.com</title>
-      </Head>
+      <NextSeo
+        title={getPageTitle('Posts')}
+        description={'All fuongz articles.'}
+        canonical={getCanonicalUrl('posts')}
+      />
       <Container>
-        <h1>Blog</h1>
+        <div className="flex gap-2">
+          <h1>Blog</h1>
+          <p className="text-sm font-medium text-zinc-400 italic">
+            ({posts.length} posts)
+          </p>
+        </div>
         <PostList posts={posts} />
       </Container>
     </>

@@ -15,13 +15,10 @@ module.exports = {
           css: {
             a: {
               textDecoration: 'none',
-              color: colors.black,
-              borderBottom: '1px dashed',
               transition: 'all .2s ease-in-out',
             },
             'a:hover': {
-              color: colors.sky[700],
-              borderBottomStyle: 'solid',
+              textDecoration: 'underline',
               transition: 'all .2s ease-in-out',
             },
           },
