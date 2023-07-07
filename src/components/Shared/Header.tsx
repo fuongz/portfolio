@@ -20,11 +20,26 @@ const Header: React.FC<HeaderProps> = ({}) => {
         <Link href="/posts" className={styles['header-menu__item']}>
           Blog
         </Link>
-        <a href="https://github.com/fuongz" rel="noopener noreferrer" target="_blank" className={styles['header-menu__item']}>
+        <a
+          href="https://github.com/fuongz"
+          rel="noopener noreferrer"
+          target="_blank"
+          className={styles['header-menu__item']}
+        >
           <Icon icon="mdi:github" width={20} height={20} />
         </a>
-        <button onClick={() => setTheme(theme === 'dark' || (theme === 'system' && systemTheme === 'dark') ? 'light' : 'dark')} className={styles['header-menu__item']}>
-          {theme === 'dark' || (theme === 'system' && systemTheme === 'dark') ? (
+        <button
+          onClick={() =>
+            setTheme(
+              theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
+                ? 'light'
+                : 'dark'
+            )
+          }
+          className={styles['header-menu__item']}
+        >
+          {theme === 'dark' ||
+          (theme === 'system' && systemTheme === 'dark') ? (
             <>
               <Icon icon="tabler:moon-filled" />
             </>

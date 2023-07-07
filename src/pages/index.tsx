@@ -47,8 +47,14 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
     <>
       <Head>
         <title>Phương Phùng - fuongz - phuongphung.com</title>
-        <meta property="og:title" content="Phương Phùng - fuongz - phuongphung.com" />
-        <meta name="twitter:title" content="Phương Phùng - fuongz - phuongphung.com" />
+        <meta
+          property="og:title"
+          content="Phương Phùng - fuongz - phuongphung.com"
+        />
+        <meta
+          name="twitter:title"
+          content="Phương Phùng - fuongz - phuongphung.com"
+        />
         <link rel="canonical" href={process.env.NEXT_PUBLIC_ROOT_URL} />
       </Head>
 
@@ -56,20 +62,32 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
         <div>
           <div className="prose-zinc prose dark:prose-dark">
             <h1 className="text-3xl font-medium mb-6">
-              {profileData?.name} <span className="text-base text-zinc-400 font-normal italic">({profileData?.login})</span>
+              {profileData?.name}{' '}
+              <span className="text-base text-zinc-400 font-normal italic">
+                ({profileData?.login})
+              </span>
               <span className={styles['anim-blink']}> _</span>
             </h1>
             <blockquote>{profileData?.bio}</blockquote>
             <p>
-              Hey, I&#39;m {profileData?.name}, a software engineer who found his true passion in programming. Working at{' '}
-              <a href="https://hiip.asia/" target="_blank" rel="noopener noreferrer">
+              Hey, I&#39;m {profileData?.name}, a software engineer who found
+              his true passion in programming. Working at{' '}
+              <a
+                href="https://hiip.asia/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Hiip
               </a>
               .
             </p>
             <p>
               Creator of{' '}
-              <a href="https://phake.app" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://phake.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 PhakeLabs
               </a>{' '}
               and{' '}
@@ -85,9 +103,17 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
 
             <div className="grid grid-cols-2 gap-4">
               {sideProjects.map((project: Project, index: number) => (
-                <a key={`sideProjects-${index}`} href={project.url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
+                <a
+                  key={`sideProjects-${index}`}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles['project__item']}
+                >
                   {project.name}
-                  <span className="text-zinc-500 text-sm block">{project.description}</span>
+                  <span className="text-zinc-500 text-sm block">
+                    {project.description}
+                  </span>
                 </a>
               ))}
             </div>
@@ -96,13 +122,22 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
             <div className="grid grid-cols-2 gap-4">
               {boilerplates.map((project: any, index: number) => (
                 <div key={`boilerplateProject-${index}`}>
-                  <a href={project.html_url} target="_blank" rel="noopener noreferrer" className={styles['project__item']}>
+                  <a
+                    href={project.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles['project__item']}
+                  >
                     {project.name}
-                    <span className="text-zinc-500 text-sm block">{project.description}</span>
+                    <span className="text-zinc-500 text-sm block">
+                      {project.description}
+                    </span>
                   </a>
 
                   <div className="flex items-center flex-wrap gap-2">
-                    <span className="text-xs text-zinc-400 italic rounded">Last updated: {formatDate(project.updated_at)}</span>
+                    <span className="text-xs text-zinc-400 italic rounded">
+                      Last updated: {formatDate(project.updated_at)}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -110,22 +145,38 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
 
             <p className="mb-0 mt-12">
               Find me on{' '}
-              <a href={profileData?.html_url} rel="noopener noreferrer" target="_blank">
+              <a
+                href={profileData?.html_url}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 GitHub{' '}
               </a>
               ,{' '}
-              <a href={`https://www.facebook.com/${profile.facebook}`} rel="noopener noreferrer" target="_blank">
+              <a
+                href={`https://www.facebook.com/${profile.facebook}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 Facebook{' '}
               </a>
               ,{' '}
-              <a href={`https://twitter.com/${profile.twitter}`} rel="noopener noreferrer" target="_blank">
+              <a
+                href={`https://twitter.com/${profile.twitter}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 Twitter{' '}
               </a>
               .
             </p>
             <p className="mt-0">
               Mail me at{' '}
-              <a href={`mailto:${profile.email}`} target="_blank" rel="noopener noreferrer">
+              <a
+                href={`mailto:${profile.email}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {profile.email}
               </a>
               .
@@ -145,7 +196,9 @@ export const getStaticProps = async () => {
   return {
     props: {
       profile,
-      data: data.sort((a: any, b: any) => (a.updated_at > b.updated_at ? -1 : 1)),
+      data: data.sort((a: any, b: any) =>
+        a.updated_at > b.updated_at ? -1 : 1
+      ),
     },
   }
 }
