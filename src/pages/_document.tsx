@@ -18,6 +18,12 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
 
+          <Script
+            async
+            src="https://analytics.umami.is/script.js"
+            data-website-id="c5ba75a5-e8f2-4345-b594-afb017b9704d"
+          ></Script>
+
           <Script id="google-tag-manager" strategy="afterInteractive">
             {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
