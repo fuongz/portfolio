@@ -35,7 +35,7 @@ const Tag: React.FC<TagProps> = ({ value, count, hasActiveState }) => {
       key={`tag-${randomId}-${value}`}
       className={`cursor-pointer hover:underline text-sm text-blue-400 px-2 py-0.5 rounded font-semibold ${
         isActive && hasActiveState && hasActiveState === true
-          ? 'bg-blue-50'
+          ? 'bg-blue-50 dark:bg-blue-900 dark:text-white'
           : ''
       }`}
       href={href}

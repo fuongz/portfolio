@@ -28,6 +28,11 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
 
   const sideProjects: Project[] = [
     {
+      name: 'Just Random Quote Tab',
+      description: 'Nothing. Just a NewTab extension with random quote!',
+      url: 'https://chrome.google.com/webstore/detail/just-random-quote-tab/jfflfcaobccnpijfocpfcholcpnkeomg?hl=en&authuser=0',
+    },
+    {
       name: 'PhakeApp',
       description: 'Collection of software development tools',
       url: 'https://phake.app',
@@ -99,9 +104,11 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
 
             <h2>List of my projects:</h2>
 
-            <h3>Side projects</h3>
+            <h3 className="border-l-2 border-zinc-500 pl-4 border-dashed inline-block">
+              Side projects
+            </h3>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 pl-4">
               {sideProjects.map((project: Project, index: number) => (
                 <a
                   key={`sideProjects-${index}`}
@@ -118,8 +125,10 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
               ))}
             </div>
 
-            <h3>Boilerplate projects</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <h3 className="border-l-2 border-zinc-500 pl-4 border-dashed inline-block">
+              Boilerplate projects
+            </h3>
+            <div className="grid grid-cols-2 gap-4  pl-4">
               {boilerplates.map((project: any, index: number) => (
                 <div key={`boilerplateProject-${index}`}>
                   <a

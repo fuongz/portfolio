@@ -9,5 +9,5 @@
 }
 
 .project__item {
-  @apply !border-none rounded-lg py-2 block;
+  @apply !border-none rounded-lg py-2 block hover:no-underline;
 }
