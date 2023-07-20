@@ -25,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
           rel="noopener noreferrer"
           target="_blank"
           className={styles['header-menu__item']}
+          aria-label="Read more about Fuongz github"
         >
           <Icon icon="mdi:github" width={20} height={20} />
         </a>
@@ -37,6 +38,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
             )
           }
           className={styles['header-menu__item']}
+          aria-label="Update theme"
         >
           {theme === 'dark' ||
           (theme === 'system' && systemTheme === 'dark') ? (

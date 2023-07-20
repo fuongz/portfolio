@@ -68,7 +68,7 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
           <div className="prose-zinc prose dark:prose-dark">
             <h1 className="text-3xl font-medium mb-6">
               {profileData?.name}{' '}
-              <span className="text-base text-zinc-400 font-normal italic">
+              <span className="text-base text-zinc-500 font-normal italic">
                 ({profileData?.login})
               </span>
               <span className={styles['anim-blink']}> _</span>
@@ -144,7 +144,7 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
                   </a>
 
                   <div className="flex items-center flex-wrap gap-2">
-                    <span className="text-xs text-zinc-400 italic rounded">
+                    <span className="text-xs text-zinc-500 italic rounded">
                       Last updated: {formatDate(project.updated_at)}
                     </span>
                   </div>
