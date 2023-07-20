@@ -3,13 +3,19 @@ const EXTERNAL_DATA_URL = process.env.NEXT_PUBLIC_ROOT_URL
 
 function generateSiteMap(paths: string[]) {
   return `<?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
      <!--We manually set the two URLs we know already-->
      <url>
        <loc>${EXTERNAL_DATA_URL}</loc>
      </url>
      <url>
        <loc>${EXTERNAL_DATA_URL}/posts</loc>
+     </url>
+     <url>
+       <loc>${EXTERNAL_DATA_URL}/posts?tag=mysql</loc>
+     </url>
+     <url>
+       <loc>${EXTERNAL_DATA_URL}/posts?tag=php</loc>
      </url>
      ${paths
        .map((path) => {

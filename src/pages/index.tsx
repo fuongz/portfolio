@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import fetcher from '@/services/fetcher.service'
 import { useMemo } from 'react'
+import { NextSeo } from 'next-seo'
 
 type Project = {
   name: string
@@ -50,18 +50,11 @@ const Home: NextPage = ({ profile: profileData, data }: any) => {
 
   return (
     <>
-      <Head>
-        <title>Phương Phùng - fuongz - phuongphung.com</title>
-        <meta
-          property="og:title"
-          content="Phương Phùng - fuongz - phuongphung.com"
-        />
-        <meta
-          name="twitter:title"
-          content="Phương Phùng - fuongz - phuongphung.com"
-        />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_ROOT_URL} />
-      </Head>
+      <NextSeo
+        title="Phương Phùng - fuongz - phuongphung.com"
+        description="phuongphung.com"
+        canonical={process.env.NEXT_PUBLIC_ROOT_URL}
+      />
 
       <main className="container my-8 mx-auto px-4 py-4 md:p-0 flex items-center justify-center">
         <div>
