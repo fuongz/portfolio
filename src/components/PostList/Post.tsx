@@ -1,10 +1,9 @@
+import { Post } from '@/lib/sanity/sanity.queries'
 import styles from '@/styles/PostList/Post.module.css'
-import { Post as PostType } from '../../@types/Post'
 import Link from 'next/link'
-import Tag from '../Shared/Tag'
 
 interface PostProps {
-  post: PostType
+  post: Post
 }
 
 const Post: React.FC<PostProps> = ({ post }) => {
@@ -13,22 +12,17 @@ const Post: React.FC<PostProps> = ({ post }) => {
       <div className={styles['post__data']}>
         <Link
           href={{
-            pathname: '/posts/[slug]',
-            query: {
-              slug: post.slug,
-            },
+            pathname: `/posts/${post.slug}`,
           }}
           className={styles['post__title']}
         >
-          {post.frontmatter.title}
+          {post.title}
         </Link>
         <div className={styles['post__meta']}>
-          <div className={styles['post__date']}>{post.frontmatter.date}</div>
-          <div className={styles['post__tags']}>
-            {post.frontmatter.tags.length > 0 &&
-              post.frontmatter.tags.map((tag) => (
-                <Tag value={tag} key={`tag-${post.slug}-${tag}`} />
-              ))}
+          <div className={styles['post__date']}>
+            {new Intl.DateTimeFormat('en-US').format(
+              new Date(post.publishedAt as string)
+            )}
           </div>
         </div>
       </div>

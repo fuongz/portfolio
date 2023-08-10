@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import { randomString } from 'utils/string-helper'
+import { randomString } from 'lib/string-helper'
 
 interface TagProps {
   value: string

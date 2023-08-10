@@ -1,6 +1,4 @@
 import styles from '@/styles/SharedComponents/Header.module.css'
-import { Icon } from '@iconify/react'
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
 
 interface HeaderProps {
@@ -8,8 +6,6 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({}) => {
-  const { theme, setTheme, systemTheme } = useTheme()
-
   return (
     <header className={styles['header']}>
       <div className={styles['header-menu']}>
@@ -27,30 +23,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
           className={styles['header-menu__item']}
           aria-label="Read more about Fuongz github"
         >
-          <Icon icon="mdi:github" width={20} height={20} />
+          Github
         </a>
-        <button
-          onClick={() =>
-            setTheme(
-              theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
-                ? 'light'
-                : 'dark'
-            )
-          }
-          className={styles['header-menu__item']}
-          aria-label="Update theme"
-        >
-          {theme === 'dark' ||
-          (theme === 'system' && systemTheme === 'dark') ? (
-            <>
-              <Icon icon="tabler:moon-filled" />
-            </>
-          ) : (
-            <>
-              <Icon icon="tabler:sun-filled" />
-            </>
-          )}
-        </button>
       </div>
     </header>
   )

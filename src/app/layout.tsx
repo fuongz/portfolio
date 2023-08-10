@@ -1,12 +1,29 @@
+import NextTopLoader from 'nextjs-toploader'
 import Header from '@/components/Shared/Header'
-import { Inter } from 'next/font/google'
+import { Metadata } from 'next'
 import Script from 'next/script'
+import { Space_Grotesk } from 'next/font/google'
+import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
-const inter = Inter({ display: 'swap', weight: ['300', '400', '500', '600', '700'], subsets: ['vietnamese', 'latin'] })
+const fontFamily = Space_Grotesk({
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+})
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Phương Phùng - fuongz - phuongphung.com',
+  description: 'phuongphung.com',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
+    <html lang="en" className={fontFamily.className}>
       <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,7 +32,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WQ5GTT6');`}
         </Script>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"></Script>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"
+        ></Script>
         <Script id="google-analytic-manager" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -25,9 +45,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 `}
         </Script>
       </head>
-      <body suppressHydrationWarning={true} className={inter.className}>
+      <body suppressHydrationWarning={true}>
+        <NextTopLoader easing="ease" speed={500} />
         <Header />
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   )
