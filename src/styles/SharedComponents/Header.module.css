@@ -1,5 +1,5 @@
 .header {
-  @apply mx-auto text-base p-4 px-8 flex items-center justify-end fixed top-0 w-full;
+  @apply mx-auto text-base p-4 md:px-8 flex items-center justify-center md:justify-end fixed bg-white top-0 w-full;
 }
 
 .header-menu {

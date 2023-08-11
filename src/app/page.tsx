@@ -13,7 +13,7 @@ export default function Page() {
   }
 
   return (
-    <div className="container h-screen mx-auto px-4 py-4 md:p-0 flex items-center justify-center">
+    <div className="container md:h-screen mx-auto mt-24 md:mt-0 px-4 py-4 md:p-0 flex items-center justify-center">
       <div className="prose">
         <h1 className="text-3xl font-medium mb-6">
           Phuong Phung{' '}
