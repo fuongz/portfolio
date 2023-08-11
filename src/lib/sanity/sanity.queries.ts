@@ -3,27 +3,49 @@ import { groq } from 'next-sanity'
 const postFields = groq`
   _id,
   title,
-  date,
   _updatedAt,
   publishedAt,
-  excerpt,
-  coverImage,
+  mainImage,
   "slug": slug.current,
   body,
-  "author": author->{name, picture},
+  categories[]->{
+    _id,
+    "slug": slug.current,
+    title,
+    description
+  },
+  "author": author->{name, slug, image, bio},
+  overview
 `
 
-export const settingsQuery = groq`*[_type == "settings"][0]`
+export const categoriesQuery = groq`
+*[_type == "category"] | order(_updatedAt desc) {
+  "slug": slug.current,
+  title,
+  _updatedAt
+}
+`
 
 export const indexQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
+*[_type == "post"] | order(_updatedAt desc) {
+  ${postFields}
+}`
+
+export const postByCategoryQuery = groq`
+*[_type == "post" && $category in categories[]->slug.current] | order(_updatedAt desc) {
   ${postFields}
 }`
 
 export const sitemapQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
-  "slug": slug.current,
-  publishedAt
+{
+  "posts": *[_type == "post"] | order(_updatedAt desc) {
+    "slug": slug.current,
+    publishedAt
+  },
+  "categories": *[_type == "category"] | order(_updatedAt desc) {
+    "slug": slug.current,
+    publishedAt
+  }
 }
 `
 
@@ -33,7 +55,7 @@ export const postAndMoreStoriesQuery = groq`
     content,
     ${postFields}
   },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
+  "morePosts": *[_type == "post" && slug.current != $slug] | order(_updatedAt desc) [0...2] {
     content,
     ${postFields}
   }
@@ -58,20 +80,18 @@ export interface Post {
   _id: string
   title?: string
   coverImage?: any
-  date?: string
   _updatedAt?: string
   publishedAt?: string
-  excerpt?: string
   author?: Author
   slug?: string
-  content?: any
   body?: any
+  overview?: string
 }
 
-export interface Settings {
+export interface Category {
+  _id: string
+  slug?: string
   title?: string
-  description?: any[]
-  ogImage?: {
-    title?: string
-  }
+  description?: string
+  _updatedAt?: string
 }

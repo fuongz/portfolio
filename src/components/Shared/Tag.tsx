@@ -1,27 +1,27 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useMemo } from 'react'
 import { randomString } from 'lib/string-helper'
+import { useSearchParams } from 'next/navigation'
 
 interface TagProps {
-  value: string
+  value: string | undefined
   count?: number
   hasActiveState?: boolean
 }
 
 const Tag: React.FC<TagProps> = ({ value, count, hasActiveState }) => {
   const randomId = randomString(10)
-  const router = useRouter()
+  const query = useSearchParams()
   const isActive = useMemo(() => {
-    return !(!router?.query?.tag || value !== router?.query?.tag)
-  }, [value, router.query.tag])
+    return !(!query.get('category') || value !== query.get('category'))
+  }, [value, query])
 
   const href = useMemo(() => {
     if (!isActive) {
       return {
         pathname: '/posts',
         query: {
-          tag: value,
+          category: value,
         },
       }
     } else {
@@ -32,10 +32,10 @@ const Tag: React.FC<TagProps> = ({ value, count, hasActiveState }) => {
   }, [isActive, value])
   return (
     <Link
-      key={`tag-${randomId}-${value}`}
+      key={`category-${randomId}-${value}`}
       className={`cursor-pointer hover:underline text-sm text-blue-400 px-2 py-0.5 rounded font-semibold ${
         isActive && hasActiveState && hasActiveState === true
-          ? 'bg-blue-50 dark:bg-blue-900 dark:text-white'
+          ? 'bg-blue-500 text-white dark:bg-blue-900 dark:text-white'
           : ''
       }`}
       href={href}

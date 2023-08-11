@@ -6,7 +6,7 @@ import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 
-const fontFamily = Space_Grotesk({
+const sansSerifFont = Space_Grotesk({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
@@ -14,7 +14,8 @@ const fontFamily = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Phương Phùng - fuongz - phuongphung.com',
-  description: 'phuongphung.com',
+  description:
+    'Personal website of Phuong Phung, topics: technology, slice of life. This index page is a categorized list of phuongphung.com pages.',
 }
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={fontFamily.className}>
+    <html lang="en" className={sansSerifFont.className}>
       <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

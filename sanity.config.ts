@@ -7,7 +7,7 @@ import { schema } from './sanity/schema'
 import { markdownSchema } from 'sanity-plugin-markdown/next'
 
 export default defineConfig({
-  basePath: '/_admin',
+  basePath: '/admin',
   projectId,
   dataset,
   schema,
