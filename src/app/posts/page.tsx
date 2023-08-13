@@ -1,4 +1,5 @@
 import PostsPage from '@/components/pages/posts/PostsPage'
+import { defineMetadata } from '@/lib/metadata-helper'
 import {
   getAllCategories,
   getAllPosts,
@@ -13,9 +14,20 @@ interface PostsIndexRouteProps {
   }
 }
 
-export const metadata: Metadata = {
-  title: 'Posts - fuongz - phuongphung.com',
-  description: 'All posts written by Phuong Phung.',
+export async function generateMetadata({
+  searchParams,
+}: PostsIndexRouteProps): Promise<Metadata> {
+  let title: string = 'Posts - phuongphung.com'
+  let description: string = 'All posts written by Phuong Phung.'
+  if (searchParams && searchParams.category) {
+    title = `${searchParams.category} - phuongphung.com`
+    description = `All posts about ${searchParams.category} written by Phuong Phung.`
+  }
+
+  return defineMetadata({
+    title,
+    description,
+  })
 }
 
 export default async function PostsIndexRoute({
