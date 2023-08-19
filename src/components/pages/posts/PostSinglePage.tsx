@@ -2,6 +2,7 @@
 
 import highlightjs from 'markdown-it-highlightjs'
 import md from 'markdown-it'
+import Giscus from '@giscus/react'
 
 import styles from '@/styles/Post/Post.module.css'
 import 'highlight.js/styles/atom-one-dark.css'
@@ -32,6 +33,24 @@ export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
           __html: md().use(highlightjs, { inline: true }).render(data.body),
         }}
       />
+
+      <div className="mb-4">
+        <Giscus
+          id="comments"
+          repo="fuongz/portfolio"
+          repoId="R_kgDOHLRfsw"
+          category="Announcements"
+          categoryId="DIC_kwDOHLRfs84CYtu9"
+          mapping="specific"
+          term="Welcome to phuongphung.com!"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme="light"
+          lang="en"
+          loading="lazy"
+        />
+      </div>
 
       <Link href="/posts" className={styles['post__go-back']}>
         {'<--'} Back to Posts

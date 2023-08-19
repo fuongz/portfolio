@@ -17,3 +17,7 @@
 .post__go-back {
   @apply text-blue-500 text-center mx-auto inline-block;
 }
+
+.post__comments {
+  @apply container mx-auto;
+}
