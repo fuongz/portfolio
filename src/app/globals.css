@@ -6,6 +6,36 @@ body {
   @apply antialiased tracking-tight;
 }
 
+/* Code */
 pre {
   padding: 0 !important;
+}
+
+pre code {
+  @apply relative !pt-8;
+}
+
+code::after {
+  font-size: 12px;
+  @apply text-black font-semibold px-4 py-0 rounded-b top-0 absolute left-4;
+}
+
+code.language-php::after {
+  content: 'PHP';
+  @apply bg-blue-300;
+}
+
+code.language-javascript::after {
+  content: 'Javascript';
+  @apply bg-yellow-300;
+}
+
+code.language-txt::after {
+  content: 'Text';
+  @apply bg-zinc-300;
+}
+
+code.language-sql::after {
+  content: 'SQL';
+  @apply bg-orange-300;
 }
