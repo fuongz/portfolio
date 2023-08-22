@@ -1,5 +1,5 @@
 .post__title {
-  @apply dark:text-zinc-100 text-zinc-900 cursor-pointer transition-all duration-300 mb-2 inline-block text-xl font-semibold;
+  @apply text-zinc-900 cursor-pointer transition-all duration-300 mb-2 inline-block text-xl font-semibold;
 }
 
 .post__title:hover {
@@ -20,4 +20,8 @@
 
 .post__date {
   @apply text-sm text-zinc-400 font-mono font-semibold;
+}
+
+:global(.dark) .post__title {
+  @apply text-zinc-100;
 }

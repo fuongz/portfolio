@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <div className="container md:h-screen mx-auto mt-24 md:mt-0 px-4 py-4 md:p-0 flex items-center justify-center">
-      <div className="prose">
+      <div className="prose dark:prose-invert">
         <h1 className="text-3xl font-medium mb-6">
           Phuong Phung{' '}
           <span className="text-lg text-zinc-500 font-normal">(fuongz)</span>

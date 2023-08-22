@@ -10,12 +10,15 @@ import 'highlight.js/styles/atom-one-dark.css'
 import Container from '@/components/Shared/Container'
 import { Post } from '@/lib/sanity/sanity.queries'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
 
 export interface PostSinglePageProps {
   data: Post
 }
 
 export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
+  const { theme } = useTheme()
+
   return (
     <Container>
       <h1>{data.title}</h1>
@@ -46,7 +49,7 @@ export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
           reactionsEnabled="1"
           emitMetadata="0"
           inputPosition="top"
-          theme="light"
+          theme={theme === 'system' ? 'dark' : theme}
           lang="en"
           loading="lazy"
         />

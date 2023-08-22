@@ -1,5 +1,6 @@
 import styles from '@/styles/SharedComponents/Header.module.css'
 import Link from 'next/link'
+import ThemeSwitch from './ThemeSwitch'
 
 interface HeaderProps {
   data?: any
@@ -25,6 +26,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
         >
           Github
         </a>
+
+        <ThemeSwitch />
       </div>
     </header>
   )

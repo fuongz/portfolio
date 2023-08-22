@@ -1,10 +1,12 @@
+import './globals.css'
+
 import NextTopLoader from 'nextjs-toploader'
 import Header from '@/components/Shared/Header'
 import { Metadata } from 'next'
 import Script from 'next/script'
 import { Space_Grotesk } from 'next/font/google'
-import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
+import Providers from './providers'
 
 const sansSerifFont = Space_Grotesk({
   display: 'swap',
@@ -24,7 +26,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={sansSerifFont.className}>
+    <html
+      lang="en"
+      className={sansSerifFont.className}
+      suppressHydrationWarning={true}
+    >
       <head>
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -48,8 +54,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </head>
       <body suppressHydrationWarning={true}>
         <NextTopLoader easing="ease" speed={500} />
-        <Header />
-        <main>{children}</main>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
         <Analytics />
       </body>
     </html>
