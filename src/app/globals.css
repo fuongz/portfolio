@@ -39,3 +39,8 @@ code.language-sql::after {
   content: 'SQL';
   @apply bg-orange-300;
 }
+
+code.language-bash::after {
+  content: 'BashScript';
+  @apply bg-purple-300;
+}

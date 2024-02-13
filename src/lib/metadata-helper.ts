@@ -23,7 +23,6 @@ export function defineMetadata({
 
   return {
     title: metaTitle || 'Fuongz - phuongphung.com',
-    themeColor: '#000',
     description,
     openGraph: imageUrl
       ? {
