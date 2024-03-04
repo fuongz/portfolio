@@ -8,6 +8,7 @@ import {
   Category,
   categoriesQuery,
   postByCategoryQuery,
+  latestPostQuery,
 } from './sanity.queries'
 import { createClient, type SanityClient } from 'next-sanity'
 
@@ -40,6 +41,10 @@ export async function getAllCategories(
   client: SanityClient
 ): Promise<Category[]> {
   return (await client.fetch(categoriesQuery)) || []
+}
+
+export async function getLatestPost(client: SanityClient): Promise<Post> {
+  return (await client.fetch(latestPostQuery)) || null
 }
 
 export async function getAllPosts(

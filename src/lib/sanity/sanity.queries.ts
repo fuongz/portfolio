@@ -31,6 +31,11 @@ export const indexQuery = groq`
   ${postFields}
 }`
 
+export const latestPostQuery = groq`
+*[_type == "post" && "regex" in categories[]->slug.current] | order(_updatedAt desc) [0] {
+  ${postFields}
+}`
+
 export const postByCategoryQuery = groq`
 *[_type == "post" && $category in categories[]->slug.current] | order(_updatedAt desc) {
   ${postFields}
