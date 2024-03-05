@@ -15,10 +15,11 @@ module.exports = {
           css: {
             a: {
               textDecoration: 'none',
+              borderBottom: '1px dashed',
               transition: 'all .2s ease-in-out',
             },
             'a:hover': {
-              textDecoration: 'underline',
+              borderBottomStyle: 'solid',
               transition: 'all .2s ease-in-out',
             },
           },

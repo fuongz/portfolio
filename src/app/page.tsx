@@ -1,14 +1,10 @@
-import { getClient, getLatestPost } from '@/lib/sanity/sanity.client'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-import Link from 'next/link'
-dayjs.extend(relativeTime)
+'use client'
 
 interface Contact {
   [key: string]: string
 }
 
-export default async function Page() {
+export default function Page() {
   const contacts: Contact = {
     twitter: 'fuong_z',
     facebook: 'phungthephuong',
@@ -16,46 +12,27 @@ export default async function Page() {
     github: 'fuongz',
   }
 
-  const client = getClient()
-  const latestPost = await getLatestPost(client)
-
-  let latestWatchEvents: any = null
-  let latestPushEvents: any = null
-
-  const githubEvents = await fetch(
-    `https://api.github.com/users/${contacts.github}/events/public`
-  ).then((res) => res.json())
-
-  if (githubEvents) {
-    githubEvents.forEach((event: any) => {
-      if (event.type === 'WatchEvent' && !latestWatchEvents) {
-        latestWatchEvents = event
-      }
-
-      if (event.type === 'PushEvent' && !latestPushEvents) {
-        latestPushEvents = event
-      }
-    })
-  }
-
   return (
     <div className="container md:h-screen mx-auto mt-24 md:mt-0 px-4 py-4 md:p-0 flex items-center justify-center">
       <div className="prose dark:prose-invert">
-        <h1 className="text-3xl font-medium mb-6">
+        <h1 className="text-3xl font-semibold mb-6">
           Phuong Phung{' '}
           <span className="text-lg text-zinc-500 font-normal">(fuongz)</span>
         </h1>
         <p>
-          Hey, I&#39;m a software engineer who found his true passion in
-          programming.
+          A <span className="font-semibold">software engineer</span> who found
+          his true passion in programming.
         </p>
-        <p>I currently live and work in Ho Chi Minh, Vietnam 🇻🇳.</p>
+        <p>
+          I currently based in{' '}
+          <span className="font-semibold">HCMC, Vietnam</span> 🇻🇳.
+        </p>
 
         <ul>
           <li>
             Working at{' '}
             <a
-              href="https://hiip.asia/"
+              href="https://hiip.asia/?rel=phuongphung.com"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -65,56 +42,10 @@ export default async function Page() {
           </li>
         </ul>
 
-        <p className="font-bold">Latest changes:</p>
-
-        {!!latestPost && (
-          <>
-            <p className="bg-zinc-100 dark:bg-zinc-800 px-4 py-2 rounded text-sm font-mono">
-              {dayjs(latestPost?._updatedAt).fromNow()} ⎯ Published post{' '}
-              <Link href={`/posts/${latestPost?.slug}`}>
-                {latestPost?.title}
-              </Link>{' '}
-              →
-            </p>
-          </>
-        )}
-
-        {!!latestPushEvents && (
-          <>
-            <p className="bg-zinc-100 dark:bg-zinc-800 px-4 py-2 rounded text-sm font-mono">
-              {dayjs(latestPushEvents?.created_at).fromNow()} ⎯{' '}
-              <a
-                href={`https://github.com/${latestPushEvents.repo.name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {latestPushEvents?.payload.commits?.[0]?.message}
-              </a>{' '}
-              →
-            </p>
-          </>
-        )}
-
-        {!!latestWatchEvents && (
-          <>
-            <p className="bg-zinc-100 dark:bg-zinc-800 px-4 py-2 rounded text-sm font-mono">
-              {dayjs(latestWatchEvents?.created_at).fromNow()} ⎯ Starred{' '}
-              <a
-                href={`https://github.com/${latestWatchEvents.repo.name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {latestWatchEvents?.repo.name}
-              </a>{' '}
-              →
-            </p>
-          </>
-        )}
-
         <p>
           Find me on{' '}
           <a
-            href={`https://github.com/${contacts.github}`}
+            href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -134,7 +65,7 @@ export default async function Page() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Twitter{' '}
+            X{' '}
           </a>
           .
         </p>
