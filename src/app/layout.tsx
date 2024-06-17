@@ -4,13 +4,20 @@ import NextTopLoader from 'nextjs-toploader'
 import Header from '@/components/Shared/Header'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { Space_Grotesk } from 'next/font/google'
+import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Providers from './providers'
 
 const sansSerifFont = Space_Grotesk({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+})
+
+const monoFont = Space_Mono({
+  variable: '--font-mono',
+  display: 'swap',
+  weight: ['400', '700'],
   subsets: ['latin'],
 })
 
@@ -51,7 +58,7 @@ gtag('config', 'G-4R32XCF1J4');
 `}
         </Script>
       </head>
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} className={monoFont.variable}>
         <NextTopLoader easing="ease" speed={500} />
         <Providers>
           <Header />

@@ -13,6 +13,7 @@ pre {
 
 pre code {
   @apply relative !pt-8;
+  font-family: var(--font-mono) !important;
 }
 
 code::after {
