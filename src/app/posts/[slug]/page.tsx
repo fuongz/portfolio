@@ -1,4 +1,4 @@
-import PostSinglePageComponent from '@/components/pages/posts/PostSinglePage'
+import PostSinglePageComponent from '@/components/pages/writing/PostSinglePage'
 import { defineMetadata } from '@/lib/metadata-helper'
 import { getClient } from '@/lib/sanity/sanity.client'
 import {

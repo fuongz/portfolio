@@ -1,5 +1,5 @@
 .post__title {
-  @apply text-zinc-900 cursor-pointer transition-all duration-300 mb-2 inline-block text-xl font-semibold;
+  @apply no-underline text-zinc-900 cursor-pointer transition-all duration-300 mb-2 inline-block text-xl font-semibold;
 }
 
 .post__title:hover {

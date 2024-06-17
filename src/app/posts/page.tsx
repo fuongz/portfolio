@@ -1,4 +1,4 @@
-import PostsPage from '@/components/pages/posts/PostsPage'
+import WritingPage from '@/components/pages/writing/WritingPage'
 import { defineMetadata } from '@/lib/metadata-helper'
 import {
   getAllCategories,
@@ -40,5 +40,5 @@ export default async function PostsIndexRoute({
   if (!data) {
     notFound()
   }
-  return <PostsPage data={data} categories={categories} />
+  return <WritingPage data={data} categories={categories} />
 }

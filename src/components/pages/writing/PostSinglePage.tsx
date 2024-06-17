@@ -5,7 +5,7 @@ import md from 'markdown-it'
 import Giscus from '@giscus/react'
 
 import styles from '@/styles/Post/Post.module.css'
-import 'highlight.js/styles/atom-one-dark.css'
+import 'highlight.js/styles/github-dark-dimmed.css'
 
 import Container from '@/components/Shared/Container'
 import { Post } from '@/lib/sanity/sanity.queries'
@@ -33,7 +33,9 @@ export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
       <div
         className={styles['post__body']}
         dangerouslySetInnerHTML={{
-          __html: md().use(highlightjs, { inline: true }).render(data.body),
+          __html: md()
+            .use(highlightjs, { inline: true, styles })
+            .render(data.body),
         }}
       />
 

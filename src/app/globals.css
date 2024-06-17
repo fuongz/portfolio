@@ -17,7 +17,7 @@ pre code {
 
 code::after {
   font-size: 12px;
-  @apply text-black font-semibold px-4 py-0 rounded-b top-0 absolute left-4;
+  @apply text-black text-xs font-semibold px-4 py-0.5 rounded-b top-0 absolute left-4;
 }
 
 code.language-php::after {
@@ -25,9 +25,19 @@ code.language-php::after {
   @apply bg-blue-300;
 }
 
+code.language-json::after {
+  content: 'JSON';
+  @apply bg-[#FBC02D];
+}
+
 code.language-javascript::after {
   content: 'Javascript';
   @apply bg-yellow-300;
+}
+
+code.language-typescript::after {
+  content: 'TypeScript';
+  @apply bg-[#2F74C0] text-white;
 }
 
 code.language-txt::after {

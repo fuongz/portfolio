@@ -5,16 +5,16 @@ import Container from '@/components/Shared/Container'
 import Tag from '@/components/Shared/Tag'
 import { Category, Post } from '@/lib/sanity/sanity.queries'
 
-export interface PostsPageProps {
+export interface WritingPageProps {
   data: Post[] | []
   categories: Category[] | []
 }
 
-export default function PostsPage({ data, categories }: PostsPageProps) {
+export default function WritingPage({ data, categories }: WritingPageProps) {
   return (
     <Container>
       <div className="flex gap-4">
-        <h1>Blog</h1>
+        <h1>Posts</h1>
         <p className="text-base font-normal text-zinc-400 italic">
           ({data.length} posts)
         </p>

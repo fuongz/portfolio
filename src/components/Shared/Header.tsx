@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({}) => {
         </Link>
 
         <Link href="/posts" className={styles['header-menu__item']}>
-          Blog
+          Posts
         </Link>
         <a
           href="https://github.com/fuongz"

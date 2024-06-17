@@ -45,10 +45,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         ></Script>
         <Script id="google-analytic-manager" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4R32XCF1J4');
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4R32XCF1J4');
 `}
         </Script>
       </head>

@@ -1,4 +1,4 @@
-import { Post } from '@/lib/sanity/sanity.queries'
+import type { Post } from '@/lib/sanity/sanity.queries'
 import styles from '@/styles/PostList/Post.module.css'
 import Link from 'next/link'
 
