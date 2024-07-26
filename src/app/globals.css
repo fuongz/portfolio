@@ -16,14 +16,27 @@ pre code {
   font-family: var(--font-mono) !important;
 }
 
+code {
+  @apply rounded-md;
+}
+
 code::after {
   font-size: 12px;
   @apply text-black text-xs font-semibold px-4 py-0.5 rounded-b top-0 absolute left-4;
 }
 
+code::before {
+  content: '' !important;
+}
+
 code.language-php::after {
   content: 'PHP';
   @apply bg-blue-300;
+}
+
+code.language-python::after {
+  content: 'Python';
+  @apply bg-[#F7E072];
 }
 
 code.language-json::after {

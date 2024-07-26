@@ -8,3 +8,12 @@ export const randomString = (length: number) => {
   }
   return result
 }
+
+export const extractStringInsideSymbol = (
+  str: string,
+  start: string,
+  end: string
+) => {
+  const urlRegex = `\\${start}(.*)\\${end}`
+  return str.match(urlRegex)?.[1] || null
+}

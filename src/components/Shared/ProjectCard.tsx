@@ -1,7 +1,8 @@
 import { ReactElement, useMemo } from 'react'
 import { FiChrome } from 'react-icons/fi'
-import { IoLogoPython } from 'react-icons/io'
+import { IoLogoGithub, IoLogoPython } from 'react-icons/io'
 import { GoFileCode, GoLog, GoRepo, GoStar, GoStopwatch } from 'react-icons/go'
+import Link from 'next/link'
 
 interface ProjectWebsiteProps {
   type: string | null
@@ -15,6 +16,9 @@ const ProjectWebsite: React.FC<ProjectWebsiteProps> = ({ type, url }) => {
     if (type === 'pypi') {
       return 'PyPI'
     }
+    if (type === 'github') {
+      return 'GitHub'
+    }
     return null
   }, [type])
   const typeIcon = useMemo(() => {
@@ -23,6 +27,9 @@ const ProjectWebsite: React.FC<ProjectWebsiteProps> = ({ type, url }) => {
     }
     if (type === 'pypi') {
       return <IoLogoPython />
+    }
+    if (type === 'github') {
+      return <IoLogoGithub />
     }
     return null
   }, [type])
@@ -90,13 +97,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
     <div className="border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/50 rounded-md p-4 border block">
       <div className="flex w-full items-center justify-between gap-x-3 gap-y-2">
         <GoRepo className="shrink-0" />
-        <a
-          href={`${data.htmlUrl}?ref=phuongphung.com`}
-          target="_blank"
+        <Link
+          href={`/projects/${data.name}`}
           className="grow hover:underline text-foreground font-bold tracking-tight text-pretty text-lg !leading-snug truncate"
         >
           {data.name}
-        </a>
+        </Link>
       </div>
       <p className="text-sm text-zinc-600 dark:text-zinc-400 my-4">
         {data.description}
@@ -118,15 +124,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
             </li>
           ))}
       </ul>
-
-      {data.type !== null && (
-        <div className="mt-4">
-          <h3 className="text-xs font-semibold">Website</h3>
-          <div className="flex items-center gap-2 mt-2">
+      <div className="mt-4">
+        <h3 className="text-xs font-semibold">Website</h3>
+        <div className="flex items-center gap-2 mt-2">
+          <ProjectWebsite url={data.htmlUrl} type="github" />
+          {data.type !== null && (
             <ProjectWebsite url={data.homepage} type={data.type} />
-          </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   )
 }
