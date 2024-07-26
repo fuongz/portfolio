@@ -12,11 +12,7 @@ export default async function fetcher(
       opts.responseHeaders = options.responseHeaders
     }
   }
-  const r = await axios.get(url, {
-    headers: {
-      Authorization: 'Bearer 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',
-    },
-  })
+  const r = await axios.get(url)
   if (opts.responseHeaders === true) return [r.data, { ...r.headers }]
   return r.data
 }
