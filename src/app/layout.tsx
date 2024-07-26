@@ -4,20 +4,20 @@ import NextTopLoader from 'nextjs-toploader'
 import Header from '@/components/Shared/Header'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { Space_Grotesk, Space_Mono } from 'next/font/google'
+import { DM_Mono, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Providers from './providers'
 
-const sansSerifFont = Space_Grotesk({
+const sansSerifFont = DM_Sans({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 })
 
-const monoFont = Space_Mono({
+const monoFont = DM_Mono({
   variable: '--font-mono',
   display: 'swap',
-  weight: ['400', '700'],
+  weight: ['300', '400', '500'],
   subsets: ['latin'],
 })
 

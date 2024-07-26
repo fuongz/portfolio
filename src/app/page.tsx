@@ -159,13 +159,13 @@ export default function Page() {
               <a
                 href="https://openalternative.co?ref=phuongphung.com"
                 target="_blank"
-                className="text-zinc-100 font-semibold"
+                className="text-zinc-700 dark:text-zinc-100 font-semibold"
               >
                 OpenAlternative.co
               </a>
             </p>
           </div>
-          <div className="my-4 grid grid-cols-2 gap-4">
+          <div className="my-4 grid md:grid-cols-2 gap-4">
             {projects &&
               projects.length > 0 &&
               projects.map((project) => (
