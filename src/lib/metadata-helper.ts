@@ -7,11 +7,13 @@ export function defineMetadata({
   description,
   image,
   title,
+  keywords = '',
 }: {
   baseTitle?: string
   description?: string
   image?: Image
   title?: string
+  keywords?: string
 }) {
   const metaTitle = [
     ...(title ? [title] : []),
@@ -22,8 +24,9 @@ export function defineMetadata({
     image && urlForImage(image)?.width(1200).height(627).fit('crop').url()
 
   return {
-    title: metaTitle || 'Fuongz - phuongphung.com',
+    title: `${metaTitle} - fuongz - phuongphung.com`,
     description,
+    keywords,
     openGraph: imageUrl
       ? {
           images: [imageUrl],

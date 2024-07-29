@@ -8,9 +8,10 @@ interface HomePageProps {}
 
 export async function generateMetadata({}: HomePageProps): Promise<Metadata> {
   return defineMetadata({
-    title: 'Phương Phùng - fuongz - phuongphung.com',
+    title: 'Phương Phùng',
     description:
-      'Personal website of Phuong Phung, topics: technology, slice of life. This index page is a categorized list of phuongphung.com pages.',
+      'Personal website of Phuong Phung, topics: technology, slice of life.',
+    keywords: 'phuong phung, technology, tech blog',
   })
 }
 

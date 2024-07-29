@@ -45,7 +45,7 @@ const ProjectWebsite: React.FC<ProjectWebsiteProps> = ({ type, url }) => {
       className="flex items-center gap-2 dark:bg-zinc-800 dark:border-zinc-700 border px-2 py-1 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-700 transition hover:transition"
     >
       {typeIcon}
-      <span className="text-xs text-zinc-600 dark:text-zinc-200 font-medium">
+      <span className="text-xs text-zinc-600 dark:text-zinc-200 font-bold">
         {typeText}
       </span>
     </a>
@@ -125,7 +125,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
           ))}
       </ul>
       <div className="mt-4">
-        <h3 className="text-xs font-semibold">Website</h3>
+        <div className="text-xs font-semibold">Website</div>
         <div className="flex items-center gap-2 mt-2">
           <ProjectWebsite url={data.htmlUrl} type="github" />
           {data.type !== null && (

@@ -18,6 +18,7 @@ import { transformInfo } from '@/lib/project-helper'
 import { useMemo } from 'react'
 import { LANGUAGE_COLORS } from '@/lib/language-helper'
 import { number_format } from '@/lib/number-helper'
+import { IoLogoGithub } from 'react-icons/io'
 
 const fromBinary = (encoded: string) =>
   decodeURIComponent(escape(atob(encoded)))
@@ -60,6 +61,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
     },
   ]
 
+  console.log(info)
+
   return (
     <div className="container max-w-4xl mx-auto mt-24 mb-8 px-4 py-4 lg:p-0">
       <div>
@@ -73,9 +76,9 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
         <div className="md:grid md:grid-cols-12 gap-6">
           <div className="mb-8 md:mb-0 md:col-span-4 md:order-2">
             <div className="sticky top-16 border dark:border-zinc-800 dark:bg-zinc-900 border-zinc-200 rounded-lg p-4">
-              <h3 className="dark:text-zinc-100 text-zinc-600 font-semibold mb-2">
+              <div className="dark:text-zinc-100 text-zinc-600 font-semibold mb-2">
                 Project details
-              </h3>
+              </div>
 
               <ul className="w-full text-sm mt-auto">
                 {metadata &&
@@ -103,9 +106,9 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
               </ul>
 
               <div className="mt-4">
-                <h3 className="dark:text-zinc-100 text-zinc-600 font-semibold mb-2">
+                <div className="dark:text-zinc-100 text-zinc-600 font-semibold mb-2">
                   Written in:
-                </h3>
+                </div>
                 <ul>
                   {languages &&
                     Object.keys(languages).map((langKey) => (
@@ -131,6 +134,19 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
                       </li>
                     ))}
                 </ul>
+              </div>
+
+              <div className="mt-4">
+                <a
+                  href={info.html_url}
+                  target="_blank"
+                  className="inline-flex grow-1 items-center gap-2 dark:bg-zinc-100 dark:border-zinc-200 dark:text-zinc-900 border px-4 py-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-300 transition hover:transition"
+                >
+                  <IoLogoGithub />
+                  <span className="text-sm text-zinc-600 dark:text-zinc-900 font-medium">
+                    View repository
+                  </span>
+                </a>
               </div>
             </div>
           </div>

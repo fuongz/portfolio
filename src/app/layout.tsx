@@ -24,7 +24,7 @@ const monoFont = DM_Mono({
 export const metadata: Metadata = {
   title: 'Phương Phùng - fuongz - phuongphung.com',
   description:
-    'Personal website of Phuong Phung, topics: technology, slice of life. This index page is a categorized list of phuongphung.com pages.',
+    'Personal website of Phuong Phung, topics: technology, slice of life.',
 }
 
 export default function RootLayout({

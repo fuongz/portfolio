@@ -135,7 +135,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = ({ projects }) => {
         {listProjects && listProjects.length > 0 && (
           <div className="mt-8">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold">Projects</h3>
+              <h2 className="text-lg font-semibold">Projects</h2>
               <p className="mt-2 text-xs text-zinc-400 text-right">
                 Inspired by{' '}
                 <a
