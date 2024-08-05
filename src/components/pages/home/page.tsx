@@ -44,6 +44,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = ({ projects }) => {
             (e: { name: string; update_at: string; description: string }) =>
               e.name === name
           )
+          const spdx_id = foundRepo.license ? foundRepo.license.spdx_id : null
           return {
             name,
             stargazersCount: parseInt(foundRepo.stargazers_count, 10),
@@ -52,7 +53,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = ({ projects }) => {
             description: foundRepo.description,
             homepage: foundRepo.homepage,
             language: foundRepo.language,
-            license: foundRepo.license.spdx_id,
+            license: spdx_id,
             htmlUrl: foundRepo.html_url,
             type: getTypeFromHomepage(foundRepo.homepage),
           }

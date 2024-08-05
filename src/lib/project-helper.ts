@@ -39,7 +39,7 @@ export const transformInfo = (
   description: project.description,
   homepage: project.homepage,
   language: project.language,
-  license: project.license.spdx_id,
+  license: project.license ? project.license.spdx_id : null,
   htmlUrl: project.html_url,
   type: getTypeFromHomepage(project.homepage),
 })
