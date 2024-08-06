@@ -21,7 +21,9 @@ export default async function PageDetailRoute({
     pageData = await Promise.all([
       fetcher(`https://api.github.com/repos/fuongz/${slug}`),
       fetcher(`https://api.github.com/repos/fuongz/${slug}/languages`),
-      fetcher(`https://api.github.com/repos/fuongz/${slug}/contents/README.md`),
+      fetcher(
+        `https://api.github.com/repos/fuongz/${slug}/contents/README.md`
+      ).catch(() => null),
       fetcher(
         `https://api.github.com/repos/fuongz/${slug}/commits?sha=main&per_page=1&page=1`,
         {

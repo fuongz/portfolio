@@ -61,8 +61,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
     },
   ]
 
-  console.log(info)
-
   return (
     <div className="container max-w-4xl mx-auto mt-24 mb-8 px-4 py-4 lg:p-0">
       <div>
@@ -152,14 +150,18 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({
           </div>
 
           <div className="col-span-8 md:order-1">
-            <div
-              className={`prose dark:prose-invert ${markdownStyles.wrapper}`}
-              dangerouslySetInnerHTML={{
-                __html: md()
-                  .use(highlightjs, { inline: true, styles: markdownStyles })
-                  .render(fromBinary(readme.content)),
-              }}
-            />
+            {readme ? (
+              <div
+                className={`prose dark:prose-invert ${markdownStyles.wrapper}`}
+                dangerouslySetInnerHTML={{
+                  __html: md()
+                    .use(highlightjs, { inline: true, styles: markdownStyles })
+                    .render(fromBinary(readme.content)),
+                }}
+              />
+            ) : (
+              <p className="text-lg text-zinc-400">Coming soon...</p>
+            )}
           </div>
         </div>
       </div>
