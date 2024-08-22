@@ -68,3 +68,9 @@ code.language-bash::after {
   content: 'BashScript';
   @apply bg-purple-300;
 }
+
+code.language-docker::after,
+code.language-dockerfile::after {
+  content: 'Dockerfile';
+  @apply bg-[#384d54] text-white;
+}

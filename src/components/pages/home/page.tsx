@@ -63,7 +63,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = ({ projects }) => {
   }, [projects])
 
   return (
-    <div className="container max-w-2xl mx-auto mt-24 mb-8 px-4 py-4 md:p-0">
+    <div className="container max-w-5xl mx-auto mt-24 mb-8 px-4 py-4 md:p-0">
       <div>
         <div className="prose dark:prose-invert">
           <h1 className="text-3xl font-semibold mb-6">
@@ -148,7 +148,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = ({ projects }) => {
                 </a>
               </p>
             </div>
-            <div className="my-4 grid md:grid-cols-2 gap-4">
+            <div className="my-4 grid md:grid-cols-3 gap-4">
               {listProjects.map((project) => (
                 <ProjectCard key={project.name} data={project} />
               ))}

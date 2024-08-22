@@ -19,7 +19,7 @@ export default function WritingPage({ data, categories }: WritingPageProps) {
           ({data.length} posts)
         </p>
       </div>
-      <div className="mb-4 flex gap-4 items-center border-b dark:border-b-zinc-900 pb-2">
+      <div className="mb-4 flex flex-wrap w-full gap-4 items-center border-b dark:border-b-zinc-900 pb-2">
         <span className="text-sm font-semibold">Categories:</span>
         {categories &&
           categories.length > 0 &&
