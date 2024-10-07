@@ -1,0 +1,10 @@
+.wrapper {
+}
+
+.wrapper a {
+  @apply transition;
+}
+
+.wrapper a:hover {
+  @apply text-white underline transition;
+}

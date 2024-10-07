@@ -9,8 +9,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      typography: (theme) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
             a: {
