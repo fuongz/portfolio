@@ -6,5 +6,5 @@
 }
 
 .wrapper a:hover {
-  @apply text-white underline transition;
+  @apply dark:text-white text-zinc-800 underline transition;
 }

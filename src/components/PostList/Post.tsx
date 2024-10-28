@@ -15,11 +15,12 @@ const Post: React.FC<PostProps> = ({ post }) => {
             pathname: `/posts/${post.slug}`,
           }}
           className={styles['post__title']}
+          title={post.title}
         >
           {post.title}
         </Link>
         <div className={styles['post__meta']}>
-          <div className={styles['post__date']}>
+          <div className={styles['post__date']} title={post.publishedAt}>
             {new Intl.DateTimeFormat('en-US').format(
               new Date(post.publishedAt as string)
             )}

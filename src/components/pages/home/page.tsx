@@ -25,18 +25,18 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
       </h1>
 
       <h4 className="mb-2 font-semibold">About me</h4>
-      <p className="text-zinc-300">
+      <p className="dark:text-zinc-300 text-zinc-500">
         A software engineer who found his true passion in programming.
       </p>
 
       <h4 className="mt-4 mb-2 font-semibold">Now</h4>
-      <p className="flex items-center gap-2 text-zinc-300">
+      <p className="flex items-center gap-2 dark:text-zinc-300 text-zinc-500">
         - Working at{' '}
         <a
           href="https://hiip.asia/?rel=phuongphung.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 bg-zinc-800 shadow rounded-md px-1.5 py-0.25 hover:underline transition hover:transition hover:text-zinc-100"
+          className="inline-flex items-center gap-1 dark:bg-zinc-800 bg-zinc-100 dark:shadow rounded-md px-1.5 py-0.25 hover:underline transition hover:transition hover:dark:text-zinc-100 hover:text-zinc-800"
         >
           <Image
             className="inline"
@@ -50,7 +50,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
         .
       </p>
 
-      <p className="mt-6 text-zinc-300">
+      <p className="mt-6 dark:text-zinc-300 text-zinc-500">
         Find me on{' '}
         <a
           href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
@@ -77,7 +77,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
         </a>
         .
       </p>
-      <p className="mt-4 text-zinc-300">
+      <p className="mt-4 dark:text-zinc-300 text-zinc-500">
         Mail me at{' '}
         <a
           href={`mailto:${contacts.email}`}

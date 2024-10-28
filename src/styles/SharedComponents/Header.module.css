@@ -11,11 +11,19 @@
 }
 
 .header-menu__item {
-  @apply text-zinc-600 font-medium cursor-pointer transition-all duration-300;
+  @apply text-zinc-400 cursor-pointer transition-all duration-300;
+}
+
+.header-menu__item--is-active {
+  @apply font-medium text-zinc-900 underline decoration-solid transition-all;
 }
 
 :global(.dark) .header-menu__item {
   @apply text-zinc-200;
+}
+
+:global(.dark) .header-menu__item--is-active {
+  @apply text-white;
 }
 
 .header-menu__item:hover {
@@ -23,5 +31,5 @@
 }
 
 :global(.dark) .header-menu__item:hover {
-  @apply text-zinc-400;
+  @apply text-white;
 }

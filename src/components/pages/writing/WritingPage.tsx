@@ -14,13 +14,9 @@ export default function WritingPage({ data, categories }: WritingPageProps) {
   return (
     <Container>
       <div className="flex gap-4">
-        <h1>Posts</h1>
-        <p className="text-base font-normal text-zinc-400 italic">
-          ({data.length} posts)
-        </p>
+        <h1>Notes</h1>
       </div>
       <div className="mb-4 flex flex-wrap w-full gap-4 items-center border-b dark:border-b-zinc-900 pb-2">
-        <span className="text-sm font-semibold">Categories:</span>
         {categories &&
           categories.length > 0 &&
           categories.map((tag, index: number) => (
