@@ -1,9 +1,10 @@
 .header {
-  @apply mx-auto text-base p-4 md:px-8 flex items-center justify-center md:justify-end fixed bg-white top-0 w-full;
+  @apply mx-auto text-base px-4 py-2 z-50 md:px-8 flex items-center justify-center md:justify-end fixed bg-white top-0 w-full;
 }
 
 :global(.dark) .header {
   background-color: #121212;
+  @apply border-b border-zinc-800;
 }
 
 .header-menu {

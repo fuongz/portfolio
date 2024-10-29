@@ -40,7 +40,7 @@ const Tag: React.FC<TagProps> = ({ value, count, hasActiveState }) => {
       }`}
       href={href}
     >
-      {value} {!!count && <>({count})</>}
+      #{value} {!!count && <>({count})</>}
     </Link>
   )
 }

@@ -13,7 +13,7 @@ export interface WritingPageProps {
 
 export default function WritingPage({ data, categories }: WritingPageProps) {
   return (
-    <Container>
+    <Container isProse>
       <AnimatedGroup
         variants={{
           container: {
@@ -43,7 +43,7 @@ export default function WritingPage({ data, categories }: WritingPageProps) {
         <div className="flex gap-4">
           <h1>Notes</h1>
         </div>
-        <div className="mb-4 flex flex-wrap w-full gap-4 items-center border-b dark:border-b-zinc-900 pb-2">
+        <div className="mb-4 flex flex-wrap w-full gap-1 xl:gap-4 items-center border-b dark:border-b-zinc-900 pb-2">
           {categories &&
             categories.length > 0 &&
             categories.map((tag, index: number) => (

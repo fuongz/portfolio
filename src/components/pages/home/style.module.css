@@ -6,5 +6,9 @@
 }
 
 .wrapper a:hover {
-  @apply dark:text-white text-zinc-800 underline transition;
+  @apply text-zinc-800 underline transition;
+}
+
+:global(.dark) a:hover {
+  @apply text-white;
 }

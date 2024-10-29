@@ -11,9 +11,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({}) => {
   const pathName = usePathname()
-
-  console.log(pathName)
-
   return (
     <header className={styles['header']}>
       <div className={styles['header-menu']}>

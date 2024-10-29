@@ -62,11 +62,7 @@ gtag('config', 'G-4R32XCF1J4');
         <NextTopLoader easing="ease" speed={500} />
         <Providers>
           <Header />
-          <main>
-            <div className="container mx-auto mt-24 mb-8 px-4 py-4 md:p-0">
-              {children}
-            </div>
-          </main>
+          <main className="md:mt-0 mt-16">{children}</main>
         </Providers>
         <Analytics />
       </body>
