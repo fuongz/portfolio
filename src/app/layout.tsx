@@ -22,7 +22,7 @@ const monoFont = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Phương Phùng - fuongz - phuongphung.com',
+  title: 'fuongz',
   description:
     'Personal website of Phuong Phung, topics: technology, slice of life.',
 }

@@ -24,7 +24,7 @@ export function defineMetadata({
     image && urlForImage(image)?.width(1200).height(627).fit('crop').url()
 
   return {
-    title: `${metaTitle} - fuongz - phuongphung.com`,
+    title: metaTitle,
     description,
     keywords,
     openGraph: imageUrl

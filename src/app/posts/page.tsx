@@ -17,13 +17,12 @@ interface PostsIndexRouteProps {
 export async function generateMetadata({
   searchParams,
 }: PostsIndexRouteProps): Promise<Metadata> {
-  let title: string = 'Posts - phuongphung.com'
-  let description: string = 'All posts written by Phuong Phung.'
+  let title: string = 'Notes'
+  let description: string = 'All notes written by Phuong Phung.'
   if (searchParams && searchParams.category) {
     title = `${searchParams.category} - phuongphung.com`
-    description = `All posts about ${searchParams.category} written by Phuong Phung.`
+    description = `All notes about ${searchParams.category} written by Phuong Phung.`
   }
-
   return defineMetadata({
     title,
     description,
