@@ -13,7 +13,6 @@ interface HomePageRouteProps {}
 
 const HomePageRoute: React.FC<HomePageRouteProps> = () => {
   const contacts: Contact = {
-    twitter: 'fuong_z',
     facebook: 'phungthephuong',
     email: 'phuongthephung@gmail.com',
     github: 'fuongz',
@@ -50,19 +49,19 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
       >
         <h1 className="text-3xl font-semibold mb-6">
           Phuong Phung{' '}
-          <span className="text-lg text-zinc-500 font-normal">(🇻🇳 fuongz)</span>
+          <span className="text-lg text-zinc-600 font-normal">(🇻🇳 fuongz)</span>
         </h1>
 
         <div>
-          <h4 className="mb-2 font-semibold">About me</h4>
-          <p className="dark:text-zinc-300 text-zinc-500">
+          <div className="mb-2 font-semibold">About me</div>
+          <p className="dark:text-zinc-300 text-zinc-600">
             A software engineer who found his true passion in programming.
           </p>
         </div>
 
         <div>
-          <h4 className="mt-4 mb-2 font-semibold">Now</h4>
-          <p className="flex items-center gap-2 dark:text-zinc-300 text-zinc-500">
+          <div className="mt-4 mb-2 font-semibold">Now</div>
+          <p className="flex items-center gap-2 dark:text-zinc-300 text-zinc-600">
             - Working at{' '}
             <a
               href="https://hiip.asia/?rel=phuongphung.com"
@@ -84,7 +83,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
         </div>
 
         <div>
-          <p className="mt-6 dark:text-zinc-300 text-zinc-500">
+          <p className="mt-6 dark:text-zinc-300 text-zinc-600">
             Find me on{' '}
             <a
               href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
@@ -101,17 +100,9 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
             >
               Facebook{' '}
             </a>
-            ,{' '}
-            <a
-              href={`https://x.com/${contacts.twitter}`}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              X
-            </a>
             .
           </p>
-          <p className="mt-4 dark:text-zinc-300 text-zinc-500">
+          <p className="mt-4 dark:text-zinc-300 text-zinc-600">
             Mail me at{' '}
             <a
               href={`mailto:${contacts.email}`}

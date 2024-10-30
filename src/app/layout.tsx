@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 import Script from 'next/script'
 import { DM_Mono, DM_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import { VercelToolbar } from '@vercel/toolbar/next'
 import Providers from './providers'
 
 const sansSerifFont = DM_Sans({
@@ -32,6 +33,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const shouldInjectToolbar = process.env.NODE_ENV === 'development'
   return (
     <html
       lang="en"
@@ -62,9 +64,12 @@ gtag('config', 'G-4R32XCF1J4');
         <NextTopLoader easing="ease" speed={500} />
         <Providers>
           <Header />
-          <main className="md:mt-0 mt-16">{children}</main>
+          <main role="main" className="md:mt-0 mt-16">
+            {children}
+          </main>
         </Providers>
         <Analytics />
+        {shouldInjectToolbar && <VercelToolbar />}
       </body>
     </html>
   )
