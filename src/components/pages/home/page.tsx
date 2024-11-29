@@ -80,6 +80,19 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
             </a>
             .
           </p>
+
+          <p className="flex mt-1 items-center gap-2 dark:text-zinc-300 text-zinc-600">
+            - Creator of {' '}
+            <a
+              href="https://image.phake.app/?rel=phuongphung.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex font-semibold items-center gap-1 dark:bg-zinc-800 bg-zinc-100 dark:shadow rounded-md px-1.5 py-0.25 hover:underline transition hover:transition hover:dark:text-zinc-100 hover:text-zinc-800"
+            >
+              image-proxy
+            </a>, a simple image converter API.
+            .
+          </p>
         </div>
 
         <div>
