@@ -21,7 +21,7 @@ export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
   const { theme } = useTheme()
 
   return (
-    <Container isProse>
+    <Container prose>
       <AnimatedGroup
         variants={{
           container: {

@@ -49,7 +49,9 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
       >
         <h1 className="text-3xl font-semibold mb-6">
           Phuong Phung{' '}
-          <span className="text-lg text-zinc-600 font-normal">(🇻🇳 fuongz)</span>
+          <span className="text-lg text-zinc-600 dark:text-zinc-400 font-normal">
+            (🇻🇳 fuongz)
+          </span>
         </h1>
 
         <div>
@@ -81,17 +83,17 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
             .
           </p>
 
-          <p className="flex mt-1 items-center gap-2 dark:text-zinc-300 text-zinc-600">
-            - Creator of {' '}
+          <p className="flex mt-2 items-center gap-2 dark:text-zinc-300 text-zinc-600">
+            - Creator of{' '}
             <a
               href="https://image.phake.app/?rel=phuongphung.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex font-semibold items-center gap-1 dark:bg-zinc-800 bg-zinc-100 dark:shadow rounded-md px-1.5 py-0.25 hover:underline transition hover:transition hover:dark:text-zinc-100 hover:text-zinc-800"
+              className="inline-flex items-center gap-1 dark:bg-zinc-800 bg-zinc-100 dark:shadow rounded-md px-1.5 py-0.25 hover:underline transition hover:transition hover:dark:text-zinc-100 hover:text-zinc-800"
             >
               image-proxy
-            </a>, a simple image converter API.
-            .
+            </a>
+            , a simple image converter API.
           </p>
         </div>
 
@@ -102,6 +104,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
               href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
               rel="noopener noreferrer"
               target="_blank"
+              className="border-b border-dash"
             >
               GitHub{' '}
             </a>
@@ -110,6 +113,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
               href={`https://www.facebook.com/${contacts.facebook}`}
               rel="noopener noreferrer"
               target="_blank"
+              className="border-b border-dash"
             >
               Facebook{' '}
             </a>
@@ -121,6 +125,7 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
               href={`mailto:${contacts.email}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="border-b border-dash"
             >
               {contacts.email}
             </a>

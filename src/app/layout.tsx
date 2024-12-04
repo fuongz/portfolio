@@ -4,14 +4,14 @@ import NextTopLoader from 'nextjs-toploader'
 import Header from '@/components/Shared/Header'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { DM_Mono, DM_Sans } from 'next/font/google'
+import { DM_Mono, Maven_Pro } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import Providers from './providers'
 
-const sansSerifFont = DM_Sans({
+const sansSerifFont = Maven_Pro({
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
 })
 

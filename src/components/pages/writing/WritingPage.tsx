@@ -13,7 +13,7 @@ export interface WritingPageProps {
 
 export default function WritingPage({ data, categories }: WritingPageProps) {
   return (
-    <Container isProse>
+    <Container prose>
       <AnimatedGroup
         variants={{
           container: {
