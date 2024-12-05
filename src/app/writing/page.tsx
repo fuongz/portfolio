@@ -8,32 +8,7 @@ export default async function BlogPage() {
 
   return (
     <Container prose lg>
-      <AnimatedGroup
-        variants={{
-          container: {
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.05,
-              },
-            },
-          },
-          item: {
-            hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
-            visible: {
-              opacity: 1,
-              y: 0,
-              filter: 'blur(0px)',
-              transition: {
-                duration: 1,
-                type: 'spring',
-                bounce: 0.3,
-              },
-            },
-          },
-        }}
-      >
+      <AnimatedGroup>
         <h1>Writing</h1>
 
         {articles &&

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from './style.module.css'
 import { AnimatedGroup } from '@/components/core/Animation/animated-group'
 import Container from '@/components/Shared/Container'
+import { TextScramble } from '@/components/core/Animation/text-scramble'
 
 interface Contact {
   [key: string]: string
@@ -20,35 +21,9 @@ const HomePageRoute: React.FC<HomePageRouteProps> = () => {
 
   return (
     <Container>
-      <AnimatedGroup
-        className={styles.wrapper}
-        variants={{
-          container: {
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.05,
-              },
-            },
-          },
-          item: {
-            hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
-            visible: {
-              opacity: 1,
-              y: 0,
-              filter: 'blur(0px)',
-              transition: {
-                duration: 1,
-                type: 'spring',
-                bounce: 0.3,
-              },
-            },
-          },
-        }}
-      >
-        <h1 className="text-3xl font-semibold mb-6">
-          Phuong Phung{' '}
+      <AnimatedGroup className={styles.wrapper}>
+        <h1 className="text-3xl font-semibold mb-6 flex items-center gap-1">
+          <TextScramble>Phuong Phung</TextScramble>{' '}
           <span className="text-lg text-zinc-600 dark:text-zinc-400 font-normal">
             (🇻🇳 fuongz)
           </span>

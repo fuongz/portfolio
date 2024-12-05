@@ -1,5 +1,6 @@
 .header {
   @apply mx-auto text-base px-4 py-2 z-50 md:px-8 flex items-center justify-center md:justify-end fixed bg-white top-0 w-full;
+  @apply flex items-center;
 }
 
 :global(.dark) .header {
@@ -7,20 +8,16 @@
   @apply border-b border-zinc-800;
 }
 
-.header-menu {
-  @apply flex gap-4 items-center;
-}
-
 .header-menu__item {
-  @apply text-zinc-600 cursor-pointer transition-all duration-300;
+  @apply text-zinc-400 px-4 py-2 cursor-pointer transition-all duration-300;
 }
 
 .header-menu__item--is-active {
-  @apply font-medium text-zinc-900 underline decoration-solid transition-all;
+  @apply text-zinc-900 underline decoration-solid transition-all;
 }
 
 :global(.dark) .header-menu__item {
-  @apply text-zinc-200;
+  @apply text-zinc-400;
 }
 
 :global(.dark) .header-menu__item--is-active {

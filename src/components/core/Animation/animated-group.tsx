@@ -15,6 +15,7 @@ type PresetType =
   | 'bounce'
   | 'rotate'
   | 'swing'
+  | 'simple'
 
 type AnimatedGroupProps = {
   children: ReactNode
@@ -34,11 +35,6 @@ const defaultContainerVariants: Variants = {
       staggerChildren: 0.1,
     },
   },
-}
-
-const defaultItemVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
 }
 
 const presetVariants: Record<
@@ -135,6 +131,30 @@ const presetVariants: Record<
       },
     },
   },
+  simple: {
+    container: {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.05,
+        },
+      },
+    },
+    item: {
+      hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
+      visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+          duration: 1,
+          type: 'spring',
+          bounce: 0.3,
+        },
+      },
+    },
+  },
 }
 
 function AnimatedGroup({
@@ -145,7 +165,7 @@ function AnimatedGroup({
 }: AnimatedGroupProps) {
   const selectedVariants = preset
     ? presetVariants[preset]
-    : { container: defaultContainerVariants, item: defaultItemVariants }
+    : presetVariants['simple']
   const containerVariants = variants?.container || selectedVariants.container
   const itemVariants = variants?.item || selectedVariants.item
 

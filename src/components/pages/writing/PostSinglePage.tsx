@@ -22,32 +22,7 @@ export default function PostSinglePageComponent({ data }: PostSinglePageProps) {
 
   return (
     <Container prose>
-      <AnimatedGroup
-        variants={{
-          container: {
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                staggerChildren: 0.05,
-              },
-            },
-          },
-          item: {
-            hidden: { opacity: 0, y: 40, filter: 'blur(4px)' },
-            visible: {
-              opacity: 1,
-              y: 0,
-              filter: 'blur(0px)',
-              transition: {
-                duration: 1,
-                type: 'spring',
-                bounce: 0.3,
-              },
-            },
-          },
-        }}
-      >
+      <AnimatedGroup>
         <h1>{data.title}</h1>
         <div className={styles['post__meta']}>
           <div className={styles['post__date']}>
