@@ -5,7 +5,7 @@ import Link from 'next/link'
 import ThemeSwitch from './ThemeSwitch'
 import AnimatedBackground from '../core/Animation/animated-background'
 import { usePathname } from 'next/navigation'
-import { IoIosHome, IoIosPaper, IoLogoGithub } from 'react-icons/io'
+import { IoIosHome, IoLogoGithub } from 'react-icons/io'
 
 interface HeaderProps {
   data?: any
@@ -24,11 +24,6 @@ const Header: React.FC<HeaderProps> = ({}) => {
       label: 'Home',
       value: '/',
       icon: <IoIosHome />,
-    },
-    {
-      label: 'Notes',
-      value: '/posts',
-      icon: <IoIosPaper />,
     },
     {
       label: 'Github',

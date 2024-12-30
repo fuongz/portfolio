@@ -5,7 +5,6 @@
 
 :global(.dark) .header {
   background-color: #121212;
-  @apply border-b border-zinc-800;
 }
 
 .header-menu__item {

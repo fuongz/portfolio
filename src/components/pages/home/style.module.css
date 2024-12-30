@@ -5,10 +5,6 @@
   @apply transition;
 }
 
-.wrapper a:hover {
-  @apply text-zinc-800 underline transition;
-}
-
 :global(.dark) .wrapper a:hover {
   @apply text-white;
 }
