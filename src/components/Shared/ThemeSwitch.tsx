@@ -25,8 +25,12 @@ const ThemeSwitchButton = ({
   return (
     <span
       className={mc(
-        ['text-zinc-900 rounded-full p-2 dark:text-zinc-200 cursor-pointer'],
-        [active ? 'dark:bg-zinc-200 dark:text-zinc-900 bg-zinc-300' : '']
+        ['text-zinc-900 rounded-full p-1 dark:text-zinc-200 cursor-pointer'],
+        [
+          active
+            ? 'dark:bg-violet-700 dark:text-white bg-orange-100 text-orange-600'
+            : '',
+        ]
       )}
       onClick={() => onClick?.()}
     >
@@ -46,8 +50,10 @@ export default function ThemeSwitch() {
   return (
     <div
       className={mc(
-        ['bg-zinc-100 gap-1 flex p-1 rounded-full'],
-        ['dark:bg-zinc-700']
+        [
+          'bg-zinc-100 border dark:border-zinc-700 gap-1 flex p-0.5 rounded-full',
+        ],
+        ['dark:bg-zinc-800']
       )}
     >
       {ThemeIcons &&

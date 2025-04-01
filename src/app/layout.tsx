@@ -1,17 +1,16 @@
 import './globals.css'
 
 import NextTopLoader from 'nextjs-toploader'
-import Header from '@/components/Shared/Header'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { DM_Mono, Maven_Pro } from 'next/font/google'
+import { DM_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import Providers from './providers'
 
-const sansSerifFont = Maven_Pro({
+const sansSerifFont = Inter({
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 })
 
@@ -63,7 +62,6 @@ gtag('config', 'G-4R32XCF1J4');
       <body suppressHydrationWarning={true} className={monoFont.variable}>
         <NextTopLoader easing="ease" speed={500} />
         <Providers>
-          <Header />
           <main role="main" className="md:mt-0 mt-16">
             {children}
           </main>
