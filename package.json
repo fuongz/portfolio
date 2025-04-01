@@ -10,40 +10,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^16.0.1",
-    "@giscus/react": "^3.1.0",
-    "@sanity/client": "^6.28.4",
-    "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^3.81.0",
+    "@tailwindcss/postcss": "^4.0.17",
     "@vercel/analytics": "^1.5.0",
-    "@vercel/kv": "^3.0.0",
     "@vercel/toolbar": "^0.1.36",
     "axios": "^1.8.4",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "easymde": "^2.20.0",
     "framer-motion": "^12.6.2",
-    "gray-matter": "^4.0.3",
-    "highlight.js": "^11.11.1",
-    "markdown-it": "^14.1.0",
-    "markdown-it-highlightjs": "^4.2.0",
     "next": "^15.2.4",
-    "next-sanity": "^9.9.6",
     "next-seo": "^6.6.0",
     "next-themes": "^0.4.6",
     "nextjs-toploader": "^3.8.16",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
-    "sanity": "^3.81.0",
-    "sanity-plugin-markdown": "^5.1.0",
-    "styled-components": "^6.1.16",
-    "swr": "^2.3.3",
     "tailwind-merge": "^3.1.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
-    "@types/markdown-it": "^14.1.2",
     "@types/node": "22.13.14",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
@@ -57,5 +41,5 @@
     "tailwindcss": "^4.0.17",
     "typescript": "5.8.2"
   },
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+  "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6"
 }

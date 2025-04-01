@@ -4,8 +4,8 @@ import styles from './style.module.css'
 import { AnimatedGroup } from '@/components/core/Animation/animated-group'
 import Container from '@/components/Shared/Container'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
-import { IoMdImage, IoIosHeart, IoIosAnalytics, IoIosPin } from 'react-icons/io'
-import ThemeSwitch from '@/components/Shared/ThemeSwitch'
+import { IoMdImage, IoIosAnalytics, IoIosPin } from 'react-icons/io'
+import { Copyright } from '@/components/layout'
 
 interface Contact {
   [key: string]: string
@@ -23,7 +23,7 @@ const HomePageRoute: React.FC = () => {
       url: 'https://bieudovang.net/',
       icon: <IoIosAnalytics />,
       description: 'Việt Nam gold/currencies price charts!',
-      title: 'bieudovang',
+      title: 'Biểu Đồ Vàng',
       technologies: ['js', 'hono', 'cloudflare', 'vercel'],
     },
     {
@@ -31,14 +31,14 @@ const HomePageRoute: React.FC = () => {
       icon: <IoIosPin />,
       description:
         'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
-      title: 'mavel',
+      title: 'Mavel',
       technologies: ['js', 'python', 'supabase', 'vercel'],
     },
     {
       url: 'https://image.phake.app/',
       icon: <IoMdImage />,
       description: 'A simple image converter API.',
-      title: 'image-proxy',
+      title: 'Image-Proxy',
       technologies: ['python'],
     },
   ]
@@ -53,15 +53,11 @@ const HomePageRoute: React.FC = () => {
           </span>
         </h1>
 
-        <div className="flex mb-8">
-          <ThemeSwitch />
-        </div>
-
         <div>
-          <div className="mb-2 font-semibold text-black dark:text-white">
+          <div className="mb-4 font-semibold text-black dark:text-white">
             About me
           </div>
-          <p className="dark:text-zinc-400 text-zinc-600">
+          <p className="dark:text-zinc-400 text-zinc-500">
             A software engineer who found his true passion in programming.
           </p>
         </div>
@@ -75,23 +71,19 @@ const HomePageRoute: React.FC = () => {
                 key={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:transition group transition cursor-pointer"
+                className="hover:transition group transition cursor-pointer not-last:border-b dark:border-zinc-800 border-zinc-100 pb-2"
               >
-                <div className="mb-0.5 group-hover:underline font-medium">
+                <div className="mb-1 text-zinc-800 dark:text-zinc-200 group-hover:underline font-medium flex gap-2 items-center">
+                  {project.icon}
                   {project.title}
                 </div>
-                <p className="dark:text-zinc-400 text-zinc-600">
+                <p className="dark:text-zinc-400 text-sm text-zinc-500">
                   {project.description}
                 </p>
-                <div className="flex gap-2 flex-wrap mt-1">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={`${project.url}-${tech}`}
-                      className="dark:text-zinc-500 text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="flex gap-2 flex-wrap mt-2">
+                  <span className="dark:text-zinc-500 text-zinc-400 text-sm font-mono">
+                    {project.technologies.join(', ')}
+                  </span>
                 </div>
               </a>
             ))}
@@ -135,12 +127,7 @@ const HomePageRoute: React.FC = () => {
           </p>
         </div>
 
-        <div className="mt-12 flex flex-col items-start gap-4 justify-center pt-4">
-          <p className="text-zinc-500 text-sm">
-            Built with <IoIosHeart className="inline-block text-red-500" /> by
-            fuongz.
-          </p>
-        </div>
+        <Copyright />
       </AnimatedGroup>
     </Container>
   )

@@ -9,7 +9,7 @@ interface ContainerProps {
 const Container: React.FC<ContainerProps> = ({ children, prose, lg }) => {
   return (
     <div
-      className={`container max-w-5xl md:my-24 mb-4 mx-auto px-4 py-4 xl:p-0 ${prose ? 'prose dark:prose-invert' : ''} ${lg ? 'prose-lg' : ''}`}
+      className={`container max-w-xl md:my-24 mb-4 mx-auto px-4 py-4 xl:p-0 ${prose ? 'prose dark:prose-invert' : ''} ${lg ? 'prose-lg' : ''}`}
     >
       {children}
     </div>

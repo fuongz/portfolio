@@ -6,5 +6,5 @@
 }
 
 :global(.dark) .wrapper a:hover {
-  @apply text-white;
+  color: #fff;
 }
