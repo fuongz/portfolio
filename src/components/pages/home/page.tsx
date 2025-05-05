@@ -4,7 +4,8 @@ import styles from './style.module.css'
 import { AnimatedGroup } from '@/components/core/Animation/animated-group'
 import Container from '@/components/Shared/Container'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
-import { IoMdImage, IoIosAnalytics, IoIosPin } from 'react-icons/io'
+import { IoMdImage, IoIosAnalytics, IoIosPin, IoIosHeart } from 'react-icons/io'
+import { TbBrandOpenai } from 'react-icons/tb'
 import { Copyright } from '@/components/layout'
 
 interface Contact {
@@ -20,11 +21,26 @@ const HomePageRoute: React.FC = () => {
 
   const projects = [
     {
+      url: 'https://www.trinhvaphuong.com/',
+      icon: <IoIosHeart />,
+      description: 'My wedding website.',
+      title: 'Trinh & Phương',
+      technologies: ['js', 'cloudflare', 'vercel'],
+    },
+    {
+      url: 'https://github.com/phake-studio/mcp-dichvucong',
+      icon: <TbBrandOpenai />,
+      description:
+        'MCP (Model Context Protocol) Server for Dịch Vụ Công - Việt Nam!',
+      title: 'Dịch Vụ Công - MCP Server',
+      technologies: ['js'],
+    },
+    {
       url: 'https://bieudovang.net/',
       icon: <IoIosAnalytics />,
       description: 'Việt Nam gold/currencies price charts!',
       title: 'Biểu Đồ Vàng',
-      technologies: ['js', 'hono', 'cloudflare', 'vercel'],
+      technologies: ['nextjs', 'hono', 'cloudflare', 'vercel'],
     },
     {
       url: 'https://mavel.phake.app/',
@@ -32,14 +48,14 @@ const HomePageRoute: React.FC = () => {
       description:
         'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
       title: 'Mavel',
-      technologies: ['js', 'python', 'supabase', 'vercel'],
+      technologies: ['nextjs', 'python', 'supabase', 'vercel'],
     },
     {
       url: 'https://image.phake.app/',
       icon: <IoMdImage />,
       description: 'A simple image converter API.',
       title: 'Image-Proxy',
-      technologies: ['python'],
+      technologies: ['python', 'docker'],
     },
   ]
 
@@ -58,7 +74,15 @@ const HomePageRoute: React.FC = () => {
             About me
           </div>
           <p className="dark:text-zinc-400 text-zinc-500">
-            A software engineer who found his true passion in programming.
+            A software engineer who found his true passion in programming. I
+            share insights through{' '}
+            <a
+              href="https://blog.phuongphung.com?ref=phuongphung.com"
+              className="hover:transition transition underline"
+            >
+              my blog
+            </a>
+            .
           </p>
         </div>
 
