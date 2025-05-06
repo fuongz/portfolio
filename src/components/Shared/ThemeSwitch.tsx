@@ -28,7 +28,7 @@ const ThemeSwitchButton = ({
         ['rounded-full p-1 cursor-pointer'],
         [
           active
-            ? 'dark:bg-violet-700 dark:text-white bg-orange-100 text-orange-600'
+            ? 'dark:bg-violet-700 dark:text-white bg-blue-100 text-blue-600'
             : 'text-zinc-400 dark:text-zinc-200',
         ]
       )}

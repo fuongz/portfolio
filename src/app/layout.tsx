@@ -3,7 +3,7 @@ import './globals.css'
 import NextTopLoader from 'nextjs-toploader'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { DM_Mono, Inter } from 'next/font/google'
+import { Bricolage_Grotesque, DM_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { VercelToolbar } from '@vercel/toolbar/next'
 import Providers from './providers'
@@ -11,6 +11,12 @@ import Providers from './providers'
 const sansSerifFont = Inter({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+})
+
+const displayFont = Bricolage_Grotesque({
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-serif',
   subsets: ['latin'],
 })
 
@@ -59,7 +65,10 @@ gtag('config', 'G-4R32XCF1J4');
 `}
         </Script>
       </head>
-      <body suppressHydrationWarning={true} className={monoFont.variable}>
+      <body
+        suppressHydrationWarning={true}
+        className={`${monoFont.variable} ${displayFont.variable} relative`}
+      >
         <NextTopLoader easing="ease" speed={500} />
         <Providers>
           <main role="main" className="md:mt-0 mt-16">

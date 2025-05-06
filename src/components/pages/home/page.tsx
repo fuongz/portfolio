@@ -25,7 +25,7 @@ const HomePageRoute: React.FC = () => {
       icon: <IoIosHeart />,
       description: 'My wedding website.',
       title: 'Trinh & Phương',
-      technologies: ['js', 'cloudflare', 'vercel'],
+      technologies: ['nextjs', 'cloudflare', 'vercel'],
     },
     {
       url: 'https://github.com/phake-studio/mcp-dichvucong',
@@ -33,14 +33,14 @@ const HomePageRoute: React.FC = () => {
       description:
         'MCP (Model Context Protocol) Server for Dịch Vụ Công - Việt Nam!',
       title: 'Dịch Vụ Công - MCP Server',
-      technologies: ['js'],
+      technologies: ['nodejs'],
     },
     {
       url: 'https://bieudovang.net/',
       icon: <IoIosAnalytics />,
       description: 'Việt Nam gold/currencies price charts!',
       title: 'Biểu Đồ Vàng',
-      technologies: ['nextjs', 'hono', 'cloudflare', 'vercel'],
+      technologies: ['nextjs', 'hono', 'cloudflare', 'vercel', 'sqlite'],
     },
     {
       url: 'https://mavel.phake.app/',
@@ -63,16 +63,13 @@ const HomePageRoute: React.FC = () => {
     <Container>
       <AnimatedGroup className={styles.wrapper}>
         <h1 className="text-3xl font-semibold mb-4 flex items-center gap-1">
-          <TextScramble>Phuong Phung</TextScramble>{' '}
-          <span className="text-lg text-zinc-600 dark:text-zinc-400 font-normal">
+          <TextScramble className="font-serif">Phuong Phung</TextScramble>{' '}
+          <span className="text-lg font-serif ml-2 text-zinc-600 dark:text-zinc-400 font-normal">
             (🇻🇳 fuongz)
           </span>
         </h1>
 
         <div>
-          <div className="mb-4 font-semibold text-black dark:text-white">
-            About me
-          </div>
           <p className="dark:text-zinc-400 text-zinc-500">
             A software engineer who found his true passion in programming. I
             share insights through{' '}
@@ -87,21 +84,20 @@ const HomePageRoute: React.FC = () => {
         </div>
 
         <div className="mt-12">
-          <div className="mb-4 font-semibold">Projects</div>
-          <div className="flex flex-col gap-4">
+          <div className="mb-4 font-semibold text-xl font-serif">Projects</div>
+          <div className="grid grid-cols-1 gap-4">
             {projects.map((project) => (
               <a
                 href={`${project.url}?rel=phuongphung.com`}
                 key={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:transition group transition cursor-pointer not-last:border-b dark:border-zinc-800 border-zinc-100 pb-2"
+                className="hover:transition group transition cursor-pointer rounded-md"
               >
-                <div className="mb-1 text-zinc-800 dark:text-zinc-200 group-hover:underline font-medium flex gap-2 items-center">
-                  {project.icon}
+                <div className="mb-1 font-serif text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 dark:text-blue-200 group-hover:underline font-semibold flex gap-2 items-center">
                   {project.title}
                 </div>
-                <p className="dark:text-zinc-400 text-sm text-zinc-500">
+                <p className="dark:text-zinc-400 text-sm text-zinc-500 font-serif">
                   {project.description}
                 </p>
                 <div className="flex gap-2 flex-wrap mt-2">
@@ -115,14 +111,14 @@ const HomePageRoute: React.FC = () => {
         </div>
 
         <div className="mt-12">
-          <div className="mb-4 font-semibold">Connect</div>
+          <div className="mb-4 font-semibold font-serif text-xl">Connect</div>
           <p className="mt-2 dark:text-zinc-400 text-zinc-600">
             Find me on{' '}
             <a
               href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
               rel="noopener noreferrer"
               target="_blank"
-              className="dark:text-white text-black font-mono font-medium hover:underline"
+              className="dark:text-white text-black font-serif font-medium hover:underline"
             >
               GitHub
             </a>
@@ -131,7 +127,7 @@ const HomePageRoute: React.FC = () => {
               href={`https://www.facebook.com/${contacts.facebook}`}
               rel="noopener noreferrer"
               target="_blank"
-              className="dark:text-white text-black font-mono font-medium hover:underline"
+              className="dark:text-white text-black font-serif font-medium hover:underline"
             >
               Facebook
             </a>
@@ -143,7 +139,7 @@ const HomePageRoute: React.FC = () => {
               href={`mailto:${contacts.email}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="dark:text-white text-black font-mono font-medium hover:underline"
+              className="dark:text-white text-black font-serif font-medium hover:underline"
             >
               {contacts.email}
             </a>
