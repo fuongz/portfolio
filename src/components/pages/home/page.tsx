@@ -6,6 +6,8 @@ import Container from '@/components/Shared/Container'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
 import { IoMdImage, IoIosAnalytics, IoIosPin, IoIosHeart } from 'react-icons/io'
 import { TbBrandOpenai } from 'react-icons/tb'
+import { BsBoxSeam } from 'react-icons/bs'
+import { IoShareSocialOutline } from 'react-icons/io5'
 import { Copyright } from '@/components/layout'
 
 interface Contact {
@@ -84,7 +86,10 @@ const HomePageRoute: React.FC = () => {
         </div>
 
         <div className="mt-12">
-          <div className="mb-4 font-semibold text-xl font-serif">Projects</div>
+          <div className="mb-4 text-zinc-600 font-semibold text-xl font-serif flex gap-2 items-center">
+            <BsBoxSeam />
+            Projects
+          </div>
           <div className="grid grid-cols-1 gap-4">
             {projects.map((project) => (
               <a
@@ -94,10 +99,10 @@ const HomePageRoute: React.FC = () => {
                 rel="noopener noreferrer"
                 className="hover:transition group transition cursor-pointer rounded-md"
               >
-                <div className="mb-1 font-serif text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 dark:text-blue-200 group-hover:underline font-semibold flex gap-2 items-center">
+                <div className="mb-1 font-serif text-rose-600 hover:text-rose-800 dark:hover:text-rose-400 dark:text-rose-200 group-hover:underline font-medium flex gap-2 items-center">
                   {project.title}
                 </div>
-                <p className="dark:text-zinc-400 text-sm text-zinc-500 font-serif">
+                <p className="dark:text-zinc-400 text-sm text-zinc-500">
                   {project.description}
                 </p>
                 <div className="flex gap-2 flex-wrap mt-2">
@@ -111,7 +116,10 @@ const HomePageRoute: React.FC = () => {
         </div>
 
         <div className="mt-12">
-          <div className="mb-4 font-semibold font-serif text-xl">Connect</div>
+          <div className="mb-4 text-zinc-600 flex items-center gap-2 font-semibold font-serif text-xl">
+            <IoShareSocialOutline />
+            Connect
+          </div>
           <p className="mt-2 dark:text-zinc-400 text-zinc-600">
             Find me on{' '}
             <a

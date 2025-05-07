@@ -1,14 +1,12 @@
 import './globals.css'
 
-import NextTopLoader from 'nextjs-toploader'
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { Bricolage_Grotesque, DM_Mono, Inter } from 'next/font/google'
+import { Bricolage_Grotesque, Inconsolata, KoHo } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
-import { VercelToolbar } from '@vercel/toolbar/next'
 import Providers from './providers'
 
-const sansSerifFont = Inter({
+const sansSerifFont = KoHo({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
@@ -20,7 +18,7 @@ const displayFont = Bricolage_Grotesque({
   subsets: ['latin'],
 })
 
-const monoFont = DM_Mono({
+const monoFont = Inconsolata({
   variable: '--font-mono',
   display: 'swap',
   weight: ['300', '400', '500'],
@@ -30,7 +28,7 @@ const monoFont = DM_Mono({
 export const metadata: Metadata = {
   title: 'fuongz',
   description:
-    'Personal website of Phuong Phung, topics: technology, slice of life.',
+    'Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.',
 }
 
 export default function RootLayout({
@@ -38,7 +36,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const shouldInjectToolbar = process.env.NODE_ENV === 'development'
   return (
     <html
       lang="en"
@@ -69,14 +66,8 @@ gtag('config', 'G-4R32XCF1J4');
         suppressHydrationWarning={true}
         className={`${monoFont.variable} ${displayFont.variable} relative`}
       >
-        <NextTopLoader easing="ease" speed={500} />
-        <Providers>
-          <main role="main" className="md:mt-0 mt-16">
-            {children}
-          </main>
-        </Providers>
+        <Providers>{children}</Providers>
         <Analytics />
-        {shouldInjectToolbar && <VercelToolbar />}
       </body>
     </html>
   )
