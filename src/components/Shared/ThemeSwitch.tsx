@@ -39,7 +39,7 @@ const ThemeSwitchButton = ({
   )
 }
 
-export default function ThemeSwitch() {
+export function ThemeSwitch() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 

@@ -1,5 +1,5 @@
 import { IoIosHeart } from 'react-icons/io'
-import ThemeSwitch from '../../Shared/ThemeSwitch'
+import { ThemeSwitch } from '../../Shared'
 
 const Copyright: React.FC = () => {
   return (

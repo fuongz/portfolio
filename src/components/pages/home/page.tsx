@@ -2,7 +2,7 @@
 
 import styles from './style.module.css'
 import { AnimatedGroup } from '@/components/core/Animation/animated-group'
-import Container from '@/components/Shared/Container'
+import { Container } from '@/components/Shared'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
 import { IoMdImage, IoIosAnalytics, IoIosPin, IoIosHeart } from 'react-icons/io'
 import { TbBrandOpenai } from 'react-icons/tb'
