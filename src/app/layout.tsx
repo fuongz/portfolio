@@ -2,11 +2,11 @@ import './globals.css'
 
 import { Metadata } from 'next'
 import Script from 'next/script'
-import { Bricolage_Grotesque, Inconsolata, KoHo } from 'next/font/google'
+import { Bricolage_Grotesque, Inconsolata, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Providers from './providers'
 
-const sansSerifFont = KoHo({
+const sansSerifFont = Inter({
   display: 'swap',
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
@@ -64,7 +64,7 @@ gtag('config', 'G-4R32XCF1J4');
       </head>
       <body
         suppressHydrationWarning={true}
-        className={`${monoFont.variable} ${displayFont.variable} relative`}
+        className={`${monoFont.variable} ${displayFont.variable} antialiased relative`}
       >
         <Providers>{children}</Providers>
         <Analytics />

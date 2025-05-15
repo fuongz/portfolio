@@ -5,13 +5,9 @@ interface ContainerProps {
   lg?: boolean
 }
 
-const Container: React.FC<ContainerProps> = ({ children, lg }) => {
+const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
-    <div
-      className={`container max-w-xl md:my-24 mb-4 mx-auto px-4 py-4 xl:p-0 ${
-        lg ? 'prose-lg' : ''
-      }`}
-    >
+    <div className={`container max-w-xl mb-4 mx-auto px-4 py-4 xl:p-0`}>
       {children}
     </div>
   )
