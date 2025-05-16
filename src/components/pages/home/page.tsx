@@ -2,9 +2,18 @@
 
 import { Container } from '@/components/Shared'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
-import { IoMdImage, IoIosAnalytics, IoIosPin, IoIosHeart } from 'react-icons/io'
+import {
+  IoMdImage,
+  IoIosAnalytics,
+  IoIosPin,
+  IoIosHeart,
+  IoLogoFacebook,
+} from 'react-icons/io'
 import { TbBrandOpenai } from 'react-icons/tb'
 import { Copyright } from '@/components/layout'
+import Link from 'next/link'
+import { VscGithub } from 'react-icons/vsc'
+import { IoMail } from 'react-icons/io5'
 
 interface Contact {
   [key: string]: string
@@ -80,69 +89,57 @@ const HomePageRoute: React.FC = () => {
         </p>
       </div>
 
+      <div className="flex gap-2 mt-4">
+        <Link
+          href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
+        >
+          <VscGithub className="h-4 w-4 mr-2" />
+          GitHub
+        </Link>
+        <Link
+          href={`https://www.facebook.com/${contacts.facebook}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
+        >
+          <IoLogoFacebook className="h-4 w-4 mr-2" />
+          Facebook
+        </Link>
+        <Link
+          href={`mailto:${contacts.email}`}
+          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
+        >
+          <IoMail className="h-4 w-4 mr-2" />
+          Email
+        </Link>
+      </div>
+
       <div className="mt-12">
         <div className="mb-4 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
           Projects
         </div>
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1">
           {projects.map((project) => (
             <a
               href={`${project.url}?rel=phuongphung.com`}
               key={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:transition group transition cursor-pointer rounded-md"
+              className="hover:transition duration-400 hover:duration-400 hover:scale-102 group transition p-4 hover:bg-zinc-50 dark:hover:bg-zinc-800 cursor-pointer rounded-md"
             >
-              <div className="mb-1 font-serif text-zinc-800 hover:text-zinc-800 dark:hover:text-zinc-400 dark:text-zinc-200 group-hover:underline font-medium flex gap-2 items-center">
+              <div className="mb-1 font-serif text-zinc-900 dark:text-white font-semibold flex gap-2 items-center">
                 {project.title}
               </div>
-              <p className="dark:text-zinc-400 text-sm text-zinc-600">
+              <p className="dark:text-zinc-500 font-medium text-sm text-zinc-500">
                 {project.description}
               </p>
             </a>
           ))}
         </div>
       </div>
-
-      <div className="mt-12">
-        <div className="mb-4 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
-          Connect
-        </div>
-        <p className="mt-2 dark:text-zinc-400 text-sm text-zinc-600">
-          Find me on{' '}
-          <a
-            href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="dark:text-white text-black font-serif font-medium hover:underline"
-          >
-            GitHub
-          </a>
-          ,{' '}
-          <a
-            href={`https://www.facebook.com/${contacts.facebook}`}
-            rel="noopener noreferrer"
-            target="_blank"
-            className="dark:text-white text-black font-serif font-medium hover:underline"
-          >
-            Facebook
-          </a>
-          .
-        </p>
-        <p className="mt-2 dark:text-zinc-400 text-sm text-zinc-600">
-          Mail me at{' '}
-          <a
-            href={`mailto:${contacts.email}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="dark:text-white text-black font-serif font-medium hover:underline"
-          >
-            {contacts.email}
-          </a>
-          .
-        </p>
-      </div>
-
       <Copyright />
     </Container>
   )
