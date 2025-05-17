@@ -2,18 +2,11 @@
 
 import { Container } from '@/components/Shared'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
-import {
-  IoMdImage,
-  IoIosAnalytics,
-  IoIosPin,
-  IoIosHeart,
-  IoLogoFacebook,
-} from 'react-icons/io'
-import { TbBrandOpenai } from 'react-icons/tb'
 import { Copyright } from '@/components/layout'
 import Link from 'next/link'
-import { VscGithub } from 'react-icons/vsc'
-import { IoMail } from 'react-icons/io5'
+import { PiFacebookLogo } from 'react-icons/pi'
+import { VscGithubAlt, VscMail } from 'react-icons/vsc'
+import { Button } from '@/components/ui'
 
 interface Contact {
   [key: string]: string
@@ -29,14 +22,12 @@ const HomePageRoute: React.FC = () => {
   const projects = [
     {
       url: 'https://www.trinhvaphuong.com/',
-      icon: <IoIosHeart />,
       description: 'My wedding website.',
       title: 'Trinh & Phương',
       technologies: ['nextjs', 'cloudflare', 'vercel'],
     },
     {
       url: 'https://github.com/phake-studio/mcp-dichvucong',
-      icon: <TbBrandOpenai />,
       description:
         'MCP (Model Context Protocol) Server for Dịch Vụ Công - Việt Nam!',
       title: 'Dịch Vụ Công - MCP Server',
@@ -44,14 +35,12 @@ const HomePageRoute: React.FC = () => {
     },
     {
       url: 'https://bieudovang.net/',
-      icon: <IoIosAnalytics />,
       description: 'Việt Nam gold/currencies price charts!',
       title: 'Biểu Đồ Vàng',
       technologies: ['nextjs', 'hono', 'cloudflare', 'vercel', 'sqlite'],
     },
     {
       url: 'https://mavel.phake.app/',
-      icon: <IoIosPin />,
       description:
         'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
       title: 'Mavel',
@@ -59,7 +48,6 @@ const HomePageRoute: React.FC = () => {
     },
     {
       url: 'https://image.phake.app/',
-      icon: <IoMdImage />,
       description: 'A simple image converter API.',
       title: 'Image-Proxy',
       technologies: ['python', 'docker'],
@@ -94,31 +82,32 @@ const HomePageRoute: React.FC = () => {
           href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
         >
-          <VscGithub className="h-4 w-4 mr-2" />
-          GitHub
+          <Button>
+            <VscGithubAlt className="h-4 w-4 mr-2" />
+            GitHub
+          </Button>
         </Link>
         <Link
           href={`https://www.facebook.com/${contacts.facebook}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
         >
-          <IoLogoFacebook className="h-4 w-4 mr-2" />
-          Facebook
+          <Button>
+            <PiFacebookLogo className="h-4 w-4 mr-2" />
+            Facebook
+          </Button>
         </Link>
-        <Link
-          href={`mailto:${contacts.email}`}
-          className="flex gap-1 hover:bg-zinc-100 hover:scale-103 duration-400 hover:duration-400 hover:transition transition dark:hover:bg-zinc-700 items-center border border-transparent text-sm rounded px-4 py-1 text-zinc-700 bg-zinc-200 font-semibold dark:bg-zinc-800 dark:text-zinc-200"
-        >
-          <IoMail className="h-4 w-4 mr-2" />
-          Email
+        <Link href={`mailto:${contacts.email}`}>
+          <Button>
+            <VscMail className="h-4 w-4 mr-2" />
+            Email
+          </Button>
         </Link>
       </div>
 
       <div className="mt-12">
-        <div className="mb-4 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
+        <div className="mb-2 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
           Projects
         </div>
         <div className="grid grid-cols-1">
