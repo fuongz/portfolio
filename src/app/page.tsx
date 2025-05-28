@@ -1,5 +1,5 @@
 import { HomePageRoute } from '@/components/pages/home'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

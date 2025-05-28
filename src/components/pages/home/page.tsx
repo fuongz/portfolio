@@ -3,10 +3,10 @@
 import { Container } from '@/components/Shared'
 import { TextScramble } from '@/components/core/Animation/text-scramble'
 import { Copyright } from '@/components/layout'
+import { Button } from '@/components/ui'
 import Link from 'next/link'
 import { PiFacebookLogo } from 'react-icons/pi'
 import { VscGithubAlt, VscMail } from 'react-icons/vsc'
-import { Button } from '@/components/ui'
 
 interface Contact {
   [key: string]: string

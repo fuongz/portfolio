@@ -23,6 +23,7 @@ const ThemeSwitchButton = ({
   onClick,
 }: ThemeSwitchButtonProps) => {
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
     <span
       className={mc(
         ['rounded-full p-1 cursor-pointer'],

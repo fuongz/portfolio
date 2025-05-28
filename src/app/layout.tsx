@@ -1,14 +1,14 @@
 import './globals.css'
 
-import { Metadata } from 'next'
-import Script from 'next/script'
-import { Bricolage_Grotesque, Inconsolata, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
+import type { Metadata } from 'next'
+import { Bricolage_Grotesque, Inconsolata, Space_Mono } from 'next/font/google'
+import Script from 'next/script'
 import Providers from './providers'
 
-const sansSerifFont = Inter({
+const sansSerifFont = Space_Mono({
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '700'],
   subsets: ['latin'],
 })
 
@@ -33,9 +33,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
@@ -53,7 +51,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"
-        ></Script>
+        />
         <Script id="google-analytic-manager" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -61,6 +59,11 @@ gtag('js', new Date());
 gtag('config', 'G-4R32XCF1J4');
 `}
         </Script>
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="c5ba75a5-e8f2-4345-b594-afb017b9704d"
+        />
       </head>
       <body
         suppressHydrationWarning={true}

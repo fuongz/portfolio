@@ -9,9 +9,7 @@ interface ProvidersProps {
 export default function Providers({ children }: ProvidersProps) {
   return (
     <ThemeProvider attribute="class">
-      <main role="main" className="md:mt-0 mt-16">
-        {children}
-      </main>
+      <main className="md:mt-0 mt-16">{children}</main>
     </ThemeProvider>
   )
 }
