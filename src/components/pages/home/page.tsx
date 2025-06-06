@@ -21,10 +21,16 @@ const HomePageRoute: React.FC = () => {
 
   const projects = [
     {
+      url: 'https://pet.phake.app/',
+      description: 'Pet Identity Management system.',
+      title: 'Pet Identity Management',
+      technologies: ['nextjs', 'supabase'],
+    },
+    {
       url: 'https://www.trinhvaphuong.com/',
       description: 'My wedding website.',
       title: 'Trinh & Phương',
-      technologies: ['nextjs', 'cloudflare', 'vercel'],
+      technologies: ['nextjs', 'cloudflare'],
     },
     {
       url: 'https://github.com/phake-studio/mcp-dichvucong',
@@ -37,14 +43,14 @@ const HomePageRoute: React.FC = () => {
       url: 'https://bieudovang.net/',
       description: 'Việt Nam gold/currencies price charts!',
       title: 'Biểu Đồ Vàng',
-      technologies: ['nextjs', 'hono', 'cloudflare', 'vercel', 'sqlite'],
+      technologies: ['nextjs', 'hono', 'cloudflare', 'sqlite'],
     },
     {
       url: 'https://mavel.phake.app/',
       description:
         'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
       title: 'Mavel',
-      technologies: ['nextjs', 'python', 'supabase', 'vercel'],
+      technologies: ['nextjs', 'python', 'supabase'],
     },
     {
       url: 'https://image.phake.app/',
