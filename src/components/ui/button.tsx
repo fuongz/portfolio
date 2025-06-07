@@ -4,12 +4,12 @@ import { type VariantProps, cva } from 'class-variance-authority'
 import React from 'react'
 
 const buttonVariants = cva(
-  'cursor-pointer flex gap-1 hover:scale-103 duration-400 hover:duration-400 hover:transition transition items-center border rounded font-semibold',
+  'cursor-pointer flex gap-1 hover:scale-103 duration-400 hover:duration-400 hover:transition transition items-center border rounded font-medium',
   {
     variants: {
       variant: {
         default:
-          'bg-white border-zinc-200 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-200',
+          'bg-white border-zinc-200 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800 text-zinc-800 dark:bg-zinc-900 dark:text-zinc-200',
       },
       size: {
         default: 'text-sm px-4 py-1',

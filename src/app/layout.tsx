@@ -2,18 +2,18 @@ import './globals.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque, Inconsolata, Space_Mono } from 'next/font/google'
+import { Averia_Serif_Libre, DM_Sans, Inconsolata } from 'next/font/google'
 import Script from 'next/script'
 import Providers from './providers'
 
-const sansSerifFont = Space_Mono({
+const sansSerifFont = DM_Sans({
   display: 'swap',
-  weight: ['400', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
 })
 
-const displayFont = Bricolage_Grotesque({
-  weight: ['300', '400', '500', '600', '700'],
+const displayFont = Averia_Serif_Libre({
+  weight: ['300', '400', '700'],
   variable: '--font-serif',
   subsets: ['latin'],
 })
