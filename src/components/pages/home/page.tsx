@@ -125,32 +125,31 @@ const HomePageRoute: React.FC = () => {
         <div className="mb-2 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
           Projects
         </div>
-        <div className="grid grid-cols-1">
+        <div className="grid grid-cols-1 gap-6 md:gap-0">
           {projects.map((project, index: number) => (
             <Link
               href={`${project.url}?rel=phuongphung.com`}
               key={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:transition w-full duration-400 items-center text-lg flex gap-4 hover:duration-400 hover:scale-102 group transition p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer rounded-xl"
+              className="hover:transition w-full duration-400 items-center text-lg flex flex-col md:flex-row gap-4 hover:duration-400 hover:scale-102 group transition p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer rounded-xl"
             >
               {project.thumbnailUrl && (
-                <div className="rounded relative overflow-hidden w-[180px] h-[100px]">
+                <div className="rounded relative overflow-hidden w-full h-[200px] md:w-[180px] md:h-[100px]">
                   <Image
                     src={project.thumbnailUrl}
-                    width={180}
-                    height={100}
+                    fill
                     className="w-full h-full object-cover"
                     alt=""
                   />
                 </div>
               )}
               <div className="flex flex-col w-full">
-                <div className="mb-1 font-serif text-balance text-zinc-800 dark:text-white font-semibold flex gap-2 items-center">
+                <div className="mb-1 font-serif text-zinc-800 dark:text-white font-semibold flex gap-2 items-center">
                   {index === 0 && <NewBadge />}
                   {project.title}
                 </div>
-                <p className="dark:text-zinc-500 text-balance font-medium text-sm text-zinc-500">
+                <p className="dark:text-zinc-500 font-medium text-sm text-zinc-500">
                   {project.description}
                 </p>
                 <p className="mt-2 flex items-center gap-2 dark:text-zinc-500 text-balance font-medium text-sm text-zinc-400">

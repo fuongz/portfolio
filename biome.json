@@ -7,7 +7,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", "dist", ".vercel", "certificates"]
+    "ignore": [
+      "node_modules",
+      "dist",
+      ".vercel",
+      "certificates",
+      ".next",
+      "tsconfig.json"
+    ]
   },
   "formatter": {
     "enabled": true,
