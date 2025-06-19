@@ -6,10 +6,23 @@ import { Copyright } from '@/components/layout'
 import { Button } from '@/components/ui'
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  BiLogoJavascript,
+  BiLogoPython,
+  BiLogoTypescript,
+} from 'react-icons/bi'
 import { IoIosLink } from 'react-icons/io'
 import { PiFacebookLogo } from 'react-icons/pi'
+import { SiReaddotcv } from 'react-icons/si'
 import { VscGithubAlt, VscMail } from 'react-icons/vsc'
-import { NewBadge } from './components/new-badge/new-badge'
+
+const LANGUAGE_ICONS: {
+  [key: string]: React.ReactNode
+} = {
+  python: <BiLogoPython className="w-5 h-5" />,
+  typescript: <BiLogoTypescript className="w-5 h-5" />,
+  javascript: <BiLogoJavascript className="w-5 h-5" />,
+}
 
 interface Contact {
   [key: string]: string
@@ -24,10 +37,18 @@ const HomePageRoute: React.FC = () => {
 
   const projects = [
     {
+      url: 'https://github.com/fuongz/ecommerce-api-wrapper',
+      description: 'This is an unofficial Python SDK for Tokopedia and Lazada',
+      thumbnailUrl: '/projects/ecommerce-api-wrapper.png',
+      title: 'Ecommerce API Wrapper',
+      languages: ['python'],
+    },
+    {
       url: 'https://pet.phake.app/',
       description: 'Pet Identity Management system',
       thumbnailUrl: '/projects/pet-phake-app.png',
       title: 'Pet Identity Management',
+      languages: ['typescript'],
       technologies: ['nextjs', 'supabase'],
     },
     {
@@ -35,6 +56,7 @@ const HomePageRoute: React.FC = () => {
       description: 'Our Wedding Invitation and Photo Gallery',
       thumbnailUrl: '/projects/trinhvaphuong-com.png',
       title: 'Our wedding',
+      languages: ['typescript'],
       technologies: ['nextjs', 'cloudflare'],
     },
     {
@@ -43,6 +65,7 @@ const HomePageRoute: React.FC = () => {
         'MCP (Model Context Protocol) Server for Dịch Vụ Công - Việt Nam',
       title: 'DichVuCong - MCP Server',
       thumbnailUrl: '/projects/mcp-dichvucong.png',
+      languages: ['typescript'],
       technologies: ['nodejs'],
     },
     {
@@ -50,6 +73,7 @@ const HomePageRoute: React.FC = () => {
       description: 'Việt Nam gold/currencies price charts',
       title: 'BieuDoVang',
       technologies: ['nextjs', 'hono', 'cloudflare', 'sqlite'],
+      languages: ['typescript'],
       thumbnailUrl: '/projects/bieudovang-com.png',
     },
     {
@@ -58,6 +82,7 @@ const HomePageRoute: React.FC = () => {
         'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
       title: 'Mavel',
       technologies: ['nextjs', 'python', 'supabase'],
+      languages: ['typescript'],
       thumbnailUrl: '/projects/mavel-phake-app.png',
     },
     {
@@ -65,6 +90,7 @@ const HomePageRoute: React.FC = () => {
       description: 'A simple image converter API.',
       title: 'Image-Proxy',
       technologies: ['python', 'docker'],
+      languages: ['python'],
       thumbnailUrl: '/projects/image-proxy.png',
     },
   ]
@@ -119,20 +145,26 @@ const HomePageRoute: React.FC = () => {
             Email
           </Button>
         </Link>
+        <Link href="/04-2025-CV-PHUNG-THE-PHUONG.pdf">
+          <Button variant="secondary">
+            <SiReaddotcv className="h-4 w-4 mr-2" />
+            Resume
+          </Button>
+        </Link>
       </div>
 
       <div className="mt-12">
         <div className="mb-2 text-zinc-900 dark:text-white font-bold text-lg font-serif flex gap-2 items-center">
-          Projects
+          Projects ({projects.length})
         </div>
         <div className="grid grid-cols-1 gap-6 md:gap-0">
-          {projects.map((project, index: number) => (
+          {projects.map((project) => (
             <Link
               href={`${project.url}?rel=phuongphung.com`}
               key={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:transition w-full duration-400 items-center text-lg flex flex-col md:flex-row gap-4 hover:duration-400 hover:scale-102 group transition p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer rounded-xl"
+              className="hover:transition w-full duration-400 items-start text-lg flex flex-col md:flex-row gap-4 hover:duration-400 hover:scale-102 group transition p-4 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer rounded-xl"
             >
               {project.thumbnailUrl && (
                 <div className="rounded relative overflow-hidden w-full h-[200px] md:w-[180px] md:h-[100px]">
@@ -146,15 +178,26 @@ const HomePageRoute: React.FC = () => {
               )}
               <div className="flex flex-col w-full">
                 <div className="mb-1 font-serif text-zinc-800 dark:text-white font-semibold flex gap-2 items-center">
-                  {index === 0 && <NewBadge />}
                   {project.title}
+                  <div className="flex items-center gap-2">
+                    {project.languages.map((lang) => (
+                      <span
+                        key={project.url + lang}
+                        className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition hover:transition"
+                      >
+                        {LANGUAGE_ICONS[lang]}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <p className="dark:text-zinc-500 font-medium text-sm text-zinc-500">
+                <div>
+                  <p className="mb-2 inline-flex hover:underline hover:text-blue-500 hover:transition transition items-center gap-2 dark:text-zinc-400 font-medium text-sm text-zinc-400">
+                    <IoIosLink className="h-4 w-4" />
+                    {project.url}
+                  </p>
+                </div>
+                <p className="dark:text-zinc-400 font-medium text-sm text-zinc-500">
                   {project.description}
-                </p>
-                <p className="mt-2 flex items-center gap-2 dark:text-zinc-500 text-balance font-medium text-sm text-zinc-400">
-                  <IoIosLink className="h-4 w-4" />
-                  {project.url}
                 </p>
               </div>
             </Link>
