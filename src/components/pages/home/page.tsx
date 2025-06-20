@@ -118,14 +118,14 @@ const HomePageRoute: React.FC = () => {
         </p>
       </div>
 
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-4 flex-wrap">
         <Link
           href={`https://github.com/${contacts.github}?rel=phuongphung.com`}
           target="_blank"
           rel="noopener noreferrer"
         >
           <Button>
-            <VscGithubAlt className="h-4 w-4 mr-2" />
+            <VscGithubAlt className="h-4 w-4 mr-1 md:mr-2" />
             GitHub
           </Button>
         </Link>
@@ -135,19 +135,19 @@ const HomePageRoute: React.FC = () => {
           rel="noopener noreferrer"
         >
           <Button>
-            <PiFacebookLogo className="h-4 w-4 mr-2" />
+            <PiFacebookLogo className="h-4 w-4 mr-1 md:mr-2" />
             Facebook
           </Button>
         </Link>
         <Link href={`mailto:${contacts.email}`}>
           <Button>
-            <VscMail className="h-4 w-4 mr-2" />
+            <VscMail className="h-4 w-4 mr-1 md:mr-2" />
             Email
           </Button>
         </Link>
-        <Link href="/04-2025-CV-PHUNG-THE-PHUONG.pdf">
+        <Link href="https://cdn.phuongphung.com/04-2025-CV-PHUNG-THE-PHUONG.pdf">
           <Button variant="secondary">
-            <SiReaddotcv className="h-4 w-4 mr-2" />
+            <SiReaddotcv className="h-4 w-4 mr-1 md:mr-2" />
             Resume
           </Button>
         </Link>

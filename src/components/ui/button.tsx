@@ -14,7 +14,7 @@ const buttonVariants = cva(
           'bg-blue-100 border-blue-200 hover:bg-blue-200 dark:border-blue-700 dark:hover:bg-blue-800 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
       },
       size: {
-        default: 'text-sm px-4 py-1',
+        default: 'text-sm px-2 md:px-4 py-0.5 md:py-1',
       },
     },
     defaultVariants: {
