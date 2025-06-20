@@ -1,1 +1,1 @@
-export * from './Copyright/Copyright'
+export * from "./Copyright/Copyright";

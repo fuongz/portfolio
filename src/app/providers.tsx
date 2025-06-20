@@ -1,15 +1,18 @@
-'use client'
+"use client";
 
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from "next-themes";
+import { ApolloWrapper } from "@/lib/apollo/apollo-provider";
 
 interface ProvidersProps {
-  children: React.ReactNode
+	children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
-  return (
-    <ThemeProvider attribute="class">
-      <main className="mt-0">{children}</main>
-    </ThemeProvider>
-  )
+	return (
+		<ApolloWrapper>
+			<ThemeProvider attribute="class">
+				<main className="mt-0">{children}</main>
+			</ThemeProvider>
+		</ApolloWrapper>
+	);
 }
