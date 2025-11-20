@@ -43,21 +43,6 @@ const HomePageRoute: React.FC<Props> = ({ contributes }) => {
 
 	const projects = [
 		{
-			url: "https://github.com/fuongz/ecommerce-api-wrapper",
-			description: "This is an unofficial Python SDK for Tokopedia and Lazada",
-			thumbnailUrl: "/projects/ecommerce-api-wrapper.png",
-			title: "Ecommerce API Wrapper",
-			languages: ["python"],
-		},
-		{
-			url: "https://pet.phake.app/",
-			description: "Pet Identity Management system",
-			thumbnailUrl: "/projects/pet-phake-app.png",
-			title: "Pet Identity Management",
-			languages: ["typescript"],
-			technologies: ["nextjs", "supabase"],
-		},
-		{
 			url: "https://www.trinhvaphuong.com/",
 			description: "Our Wedding Invitation and Photo Gallery",
 			thumbnailUrl: "/projects/trinhvaphuong-com.png",
@@ -66,30 +51,12 @@ const HomePageRoute: React.FC<Props> = ({ contributes }) => {
 			technologies: ["nextjs", "cloudflare"],
 		},
 		{
-			url: "https://github.com/phake-studio/mcp-dichvucong",
-			description:
-				"MCP (Model Context Protocol) Server for Dịch Vụ Công - Việt Nam",
-			title: "DichVuCong - MCP Server",
-			thumbnailUrl: "/projects/mcp-dichvucong.png",
-			languages: ["typescript"],
-			technologies: ["nodejs"],
-		},
-		{
 			url: "https://bieudovang.net/",
 			description: "Việt Nam gold/currencies price charts",
 			title: "BieuDoVang",
 			technologies: ["nextjs", "hono", "cloudflare", "sqlite"],
 			languages: ["typescript"],
 			thumbnailUrl: "/projects/bieudovang-com.png",
-		},
-		{
-			url: "https://mavel.phake.app/",
-			description:
-				'Mavel aka. "My Travel", a travel guide website about places to go in Việt Nam!',
-			title: "Mavel",
-			technologies: ["nextjs", "python", "supabase"],
-			languages: ["typescript"],
-			thumbnailUrl: "/projects/mavel-phake-app.png",
 		},
 		{
 			url: "https://image.phake.app/",
