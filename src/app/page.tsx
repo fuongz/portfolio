@@ -37,7 +37,7 @@ export default async function HomePage() {
 	const fromDate = new Date(today);
 	fromDate.setDate(fromDate.getDate() - 35 * 7);
 	const from = fromDate.toISOString();
-	const { data } = await query({
+	const { data }: any = await query({
 		query: QUERY,
 		variables: { from, to },
 		context: {
