@@ -11,7 +11,12 @@ export default function Providers({ children }: ProvidersProps) {
 	return (
 		<ApolloWrapper>
 			<ThemeProvider attribute="class">
-				<main className="mt-0">{children}</main>
+				<main className="mt-0 relative">
+					<div className="absolute top-0 -z-10 h-full w-full bg-white">
+						<div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-purple-200 opacity-50 blur-[80px]"></div>
+					</div>
+					{children}
+				</main>
 			</ThemeProvider>
 		</ApolloWrapper>
 	);

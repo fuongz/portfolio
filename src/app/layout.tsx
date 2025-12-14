@@ -2,12 +2,16 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Averia_Serif_Libre, DM_Sans, Inconsolata } from "next/font/google";
+import {
+	Averia_Serif_Libre,
+	Inconsolata,
+	Space_Grotesk,
+} from "next/font/google";
 import Script from "next/script";
 import { useId } from "react";
 import Providers from "./providers";
 
-const sansSerifFont = DM_Sans({
+const sansSerifFont = Space_Grotesk({
 	display: "swap",
 	weight: ["300", "400", "500", "600", "700"],
 	subsets: ["latin"],
@@ -72,7 +76,7 @@ gtag('config', 'G-4R32XCF1J4');
 			</head>
 			<body
 				suppressHydrationWarning={true}
-				className={`${monoFont.variable} ${displayFont.variable} antialiased relative`}
+				className={`${monoFont.variable} ${displayFont.variable} antialiased relative selection:text-purple-900 selection:bg-purple-100 dark:selection:purple-900 dark:selection:bg-purple-900/50`}
 			>
 				<Providers>{children}</Providers>
 				<Analytics />

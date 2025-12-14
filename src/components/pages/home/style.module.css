@@ -1,7 +1,0 @@
-.wrapper a {
-  @apply transition;
-}
-
-:global(.dark) .wrapper a:hover {
-  color: #fff;
-}
