@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { TContributeGraph } from "types/contribute-graph";
 import { Badge } from "@/components/components/ui/badge";
-import { Container, ThemeSwitch } from "@/components/shared";
+import { Container } from "@/components/shared/container";
+import { ThemeSwitch } from "@/components/shared/theme-switcher";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 interface Props {
