@@ -4,14 +4,14 @@ import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import {
 	Averia_Serif_Libre,
+	Bricolage_Grotesque,
 	Inconsolata,
-	Space_Grotesk,
 } from "next/font/google";
 import Script from "next/script";
 import { useId } from "react";
 import Providers from "./providers";
 
-const sansSerifFont = Space_Grotesk({
+const sansSerifFont = Bricolage_Grotesque({
 	display: "swap",
 	weight: ["300", "400", "500", "600", "700"],
 	subsets: ["latin"],
@@ -47,7 +47,7 @@ export default function RootLayout({
 		<html
 			lang="en"
 			className={sansSerifFont.className}
-			suppressHydrationWarning={true}
+			suppressHydrationWarning
 		>
 			<head>
 				<Script id={googleTagManagerId} strategy="afterInteractive">

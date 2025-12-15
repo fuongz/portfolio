@@ -1,2 +1,2 @@
-export * from "./Container";
-export * from "./ThemeSwitch";
+export * from "./container";
+export * from "./theme-switcher";

@@ -1,10 +1,11 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { TContributeGraph } from "types/contribute-graph";
-import { Container } from "@/components/Shared";
+import { Badge } from "@/components/components/ui/badge";
+import { Container, ThemeSwitch } from "@/components/shared";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 interface Props {
@@ -16,6 +17,7 @@ const projects = [
 		id: "lichtrinhbay",
 		name: "Flights Schedule - Lịch Trình Bay",
 		description: "Flight schedule web application",
+		status: "live",
 		logo: "/projects/lichtrinhbay.svg",
 		website: "https://flights.phake.app",
 		since: "12-2025 - Present",
@@ -25,6 +27,7 @@ const projects = [
 		name: "Gold Chart - Biểu Đồ Vàng",
 		description: "A gold price chart web application",
 		logo: "/projects/bieudovang.svg",
+		status: "live",
 		website: "https://www.bieudovang.net/",
 		since: "03-2024 - Present",
 	},
@@ -32,9 +35,11 @@ const projects = [
 		id: "trinhvaphuong",
 		name: "Our Wedding",
 		description: "Our wedding website",
+		status: "live",
 		logo: "/projects/trinhvaphuong.svg",
 		website: "https://www.trinhvaphuong.com/",
-		since: "05-2025 - 06-2025",
+		since: "05-2025",
+		isNoEndDate: true,
 	},
 ];
 
@@ -42,9 +47,10 @@ const experiences = [
 	{
 		id: "hiip",
 		company: "Hiip",
+		status: "live",
 		logo: "/exps/hiip.png",
 		website: "https://www.hiip.asia",
-		period: "2022 — Today",
+		period: "2022 — Present",
 		position: "Senior Software Engineer",
 	},
 	{
@@ -93,24 +99,34 @@ const HomePageRoute: React.FC<Props> = () => {
 
 					<p>
 						I'm currently living in{" "}
-						<span className="font-semibold text-foreground tracking-tight">
-							Hồ Chí Minh City, Việt Nam
-						</span>{" "}
-						<Image
-							src="/vn.png"
-							alt="VN"
-							width="20"
-							height="10"
-							className="inline-block rounded mb-0.5 vertical-middle"
-						/>{" "}
+						<Link href="https://share.google/KZ7gQia5fTV6R9qS6" target="_blank">
+							<span className="border-dashed border-b border-foreground hover:border-none font-semibold text-foreground hover:text-zinc-900 dark:hover:text-zinc-200 transition">
+								Hồ Chí Minh City, Việt Nam
+							</span>
+							<Image
+								src="/vn.png"
+								alt="VN"
+								width="20"
+								height="10"
+								className="inline-block rounded mb-0.5 ml-1 vertical-middle"
+							/>
+						</Link>{" "}
 						and working on full-stack development at{" "}
-						<Link
-							href="https://hiip.asia"
-							className="underline font-semibold text-foreground hover:text-zinc-900 dark:hover:text-zinc-200 transition"
-							target="_blank"
-						>
-							Hiip
-						</Link>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<Link
+									href="https://hiip.asia"
+									className="border-dashed border-b border-foreground hover:border-none font-semibold text-foreground hover:text-zinc-900 dark:hover:text-zinc-200 transition"
+									target="_blank"
+								>
+									Hiip
+									<ArrowUpRight className="inline-block size-4" />
+								</Link>
+							</TooltipTrigger>
+							<TooltipContent>
+								<span>https://hiip.asia</span>
+							</TooltipContent>
+						</Tooltip>
 						.
 					</p>
 				</div>
@@ -119,7 +135,7 @@ const HomePageRoute: React.FC<Props> = () => {
 			{/* Projects Section */}
 			<div className="mb-8 sm:mb-12">
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
-					Projects
+					Projects ({projects.length})
 				</h2>
 				<div className="space-y-4 sm:space-y-6">
 					{projects.map((project) => (
@@ -138,22 +154,48 @@ const HomePageRoute: React.FC<Props> = () => {
 							</div>
 							<div className="flex-1 min-w-0">
 								<div className="flex flex-col sm:flex-row sm:gap-2 items-start sm:items-baseline justify-between gap-1 flex-wrap">
-									{project.website ? (
-										<Link
-											href={project.website}
-											target="_blank"
-											className="flex items-center gap-1.5 sm:gap-2 font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 hover:underline hover:text-foreground transition"
-										>
-											<span className="truncate">{project.name}</span>
-											<ExternalLink className="size-3 flex-shrink-0" />
-										</Link>
-									) : (
-										<h3 className="font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 truncate">
-											{project.name}
-										</h3>
-									)}
+									<div className="flex items-center gap-2">
+										{project.website ? (
+											<Tooltip>
+												<TooltipTrigger asChild>
+													<Link
+														href={project.website}
+														target="_blank"
+														className="flex items-center gap-1.5 sm:gap-2 font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 hover:underline hover:text-foreground transition"
+													>
+														<span className="truncate">{project.name}</span>
+														<ArrowUpRight className="size-3 flex-shrink-0" />
+													</Link>
+												</TooltipTrigger>
+												<TooltipContent>
+													<span>{project.website}</span>
+												</TooltipContent>
+											</Tooltip>
+										) : (
+											<h3 className="font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 truncate">
+												{project.name}
+											</h3>
+										)}
+										{project.status === "live" && (
+											<Badge
+												variant="default"
+												className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
+											>
+												Live
+											</Badge>
+										)}
+									</div>
 									<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
 										{project.since}
+										{project.isNoEndDate ? (
+											<>
+												{" "}
+												-{" "}
+												<InfinityIcon className="inline-block size-4 mb-0.5 text-purple-500" />
+											</>
+										) : (
+											""
+										)}
 									</span>
 								</div>
 								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 sm:mt-1">
@@ -190,11 +232,19 @@ const HomePageRoute: React.FC<Props> = () => {
 											<Tooltip>
 												<TooltipTrigger>
 													<Link href={exp.website}>
-														<ExternalLink className="size-3 flex-shrink-0" />
+														<ArrowUpRight className="size-3 flex-shrink-0" />
 													</Link>
 												</TooltipTrigger>
 												<TooltipContent>{exp.website}</TooltipContent>
 											</Tooltip>
+										)}
+										{exp.status === "live" && (
+											<Badge
+												variant="default"
+												className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
+											>
+												Present
+											</Badge>
 										)}
 									</div>
 									<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
@@ -213,9 +263,8 @@ const HomePageRoute: React.FC<Props> = () => {
 			{/* Footer */}
 			<div className="border-t border-zinc-200 dark:border-zinc-800 pt-6 sm:pt-8 pb-8 sm:pb-12">
 				<div className="flex justify-between items-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-					<div className="flex gap-1">
-						<span>© 2025</span>
-					</div>
+					<span>© 2025</span>
+					<ThemeSwitch />
 				</div>
 			</div>
 		</Container>

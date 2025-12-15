@@ -6,10 +6,10 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const ThemeIcons: { [key: string]: React.ReactNode } = {
-	dark: <MoonStar />,
-	light: <Sun />,
-	system: <Monitor />,
-	default: <Sun />,
+	dark: <MoonStar className="size-4" />,
+	light: <Sun className="size-4" />,
+	system: <Monitor className="size-4" />,
+	default: <Sun className="size-4" />,
 };
 
 interface ThemeSwitchButtonProps {
