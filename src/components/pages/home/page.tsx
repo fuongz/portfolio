@@ -4,9 +4,9 @@ import { ArrowUpRight, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { TContributeGraph } from "types/contribute-graph";
+import { Container } from "@/components/common/container";
+import { ThemeSwitch } from "@/components/common/theme-switcher";
 import { Badge } from "@/components/components/ui/badge";
-import { Container } from "@/components/shared/container";
-import { ThemeSwitch } from "@/components/shared/theme-switcher";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 interface Props {
