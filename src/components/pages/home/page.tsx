@@ -4,8 +4,6 @@ import { ArrowUpRight, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { TContributeGraph } from "types/contribute-graph";
-import { Container } from "@/components/common/container";
-import { ThemeSwitch } from "@/components/common/theme-switcher";
 import { Badge } from "@/components/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
@@ -74,19 +72,7 @@ const experiences = [
 
 const HomePageRoute: React.FC<Props> = () => {
 	return (
-		<Container>
-			{/* Profile Section */}
-			<div className="pt-4 sm:pt-8 mb-8 sm:mb-12 flex items-center gap-4">
-				<div className="flex flex-col flex-1">
-					<h1 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-						fuongz
-					</h1>
-					<p className="text-muted-foreground text-sm mt-0.5">
-						Software Engineer
-					</p>
-				</div>
-			</div>
-
+		<>
 			{/* About Section */}
 			<div className="mb-8 sm:mb-12">
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">
@@ -260,15 +246,7 @@ const HomePageRoute: React.FC<Props> = () => {
 					))}
 				</div>
 			</div>
-
-			{/* Footer */}
-			<div className="border-t border-zinc-200 dark:border-zinc-800 pt-6 sm:pt-8 pb-8 sm:pb-12">
-				<div className="flex justify-between items-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-					<span>© 2025</span>
-					<ThemeSwitch />
-				</div>
-			</div>
-		</Container>
+		</>
 	);
 };
 
