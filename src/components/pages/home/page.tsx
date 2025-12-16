@@ -3,13 +3,8 @@
 import { ArrowUpRight, InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import type { TContributeGraph } from "types/contribute-graph";
 import { Badge } from "@/components/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
-
-interface Props {
-	contributes: TContributeGraph;
-}
 
 const projects = [
 	{
@@ -70,7 +65,7 @@ const experiences = [
 	},
 ];
 
-const HomePageRoute: React.FC<Props> = () => {
+const HomePageRoute: React.FC = () => {
 	return (
 		<>
 			{/* About Section */}
