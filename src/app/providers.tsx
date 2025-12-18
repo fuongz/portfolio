@@ -3,6 +3,7 @@
 import { ThemeProvider } from "next-themes";
 import { Container } from "@/components/common/container";
 import { Navigation } from "@/components/common/navigation";
+import PageTransition from "@/components/common/page-transition";
 import { ThemeSwitch } from "@/components/common/theme-switcher";
 import { ApolloWrapper } from "@/lib/apollo/apollo-provider";
 
@@ -29,7 +30,7 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 						{/* Profile Section */}
 						<div className="pt-4 sm:pt-8 mb-8 sm:mb-12 flex items-center gap-4">
 							<div className="flex flex-col flex-1">
-								<h1 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+								<h1 className="text-lg font-serif sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
 									fuongz
 								</h1>
 								<p className="text-muted-foreground text-sm mt-0.5">
@@ -37,7 +38,8 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 								</p>
 							</div>
 						</div>
-						{children}
+
+						<PageTransition>{children}</PageTransition>
 
 						{/* Footer */}
 						<div className="border-t border-zinc-200 dark:border-zinc-800 pt-6 sm:pt-8 pb-8 sm:pb-12">

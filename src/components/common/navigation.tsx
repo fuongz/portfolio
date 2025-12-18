@@ -14,7 +14,7 @@ export function Navigation() {
 	return (
 		<nav className="bg-background/95 sticky top-0 z-1 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 			<Container>
-				<div className="flex items-center justify-between h-14">
+				<div className="flex items-center justify-between sm:h-14">
 					{/* Navigation Links */}
 					<div className="flex items-center gap-6">
 						{navItems.map((item) => {

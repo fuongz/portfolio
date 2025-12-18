@@ -38,7 +38,7 @@ const projects = [
 		id: "trinhvaphuong",
 		name: "Our Wedding",
 		description: "Our wedding website",
-		status: "live",
+		status: "infinity",
 		logo: "/projects/trinhvaphuong.svg",
 		website: "https://www.trinhvaphuong.com/",
 		since: "05-2025",
@@ -128,7 +128,7 @@ const HomePageRoute: React.FC = () => {
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
 					Projects ({projects.length})
 				</h2>
-				<div className="space-y-4 sm:space-y-6">
+				<div className="space-y-6">
 					{projects.map((project) => (
 						<div key={project.id} className="flex gap-3 sm:gap-4">
 							<div className="w-[58px] h-[58px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -144,8 +144,8 @@ const HomePageRoute: React.FC = () => {
 								)}
 							</div>
 							<div className="flex-1 min-w-0">
-								<div className="flex flex-col sm:flex-row sm:gap-2 items-start sm:items-baseline justify-between gap-1 flex-wrap">
-									<div className="flex items-center gap-2">
+								<div className="flex flex-col sm:flex-row sm:gap-2 items-start sm:items-baseline justify-between gap-0.5 flex-wrap">
+									<div className="flex items-center flex-wrap gap-2">
 										{project.website ? (
 											<Tooltip>
 												<TooltipTrigger asChild>
@@ -175,6 +175,11 @@ const HomePageRoute: React.FC = () => {
 												Live
 											</Badge>
 										)}
+										{project.status === "infinity" && (
+											<Badge className="bg-purple-500 rounded-xs px-1 py-0 hover:bg-purple-600 text-white border-purple-500">
+												Ongoing Forever
+											</Badge>
+										)}
 									</div>
 									<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
 										{project.since}
@@ -189,7 +194,7 @@ const HomePageRoute: React.FC = () => {
 										)}
 									</span>
 								</div>
-								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 sm:mt-1">
+								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 sm:mt-1">
 									{project.description}
 								</p>
 							</div>
