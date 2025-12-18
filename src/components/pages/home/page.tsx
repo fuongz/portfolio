@@ -8,6 +8,15 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 const projects = [
 	{
+		id: "hotwheels-collection",
+		name: "Hot Wheels Collection",
+		description: "Let's build your Hot Wheels Collection!",
+		status: "live",
+		logo: "/projects/hotwheels-collection.svg",
+		website: "https://hotwheels.phake.app",
+		since: "12-2025 - Present",
+	},
+	{
 		id: "lichtrinhbay",
 		name: "Flights Schedule - Lịch Trình Bay",
 		description: "Flight schedule web application",
