@@ -42,9 +42,28 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 						<PageTransition>{children}</PageTransition>
 
 						{/* Footer */}
-						<div className="border-t border-zinc-200 dark:border-zinc-800 pt-6 sm:pt-8 pb-8 sm:pb-12">
+						<div className="relative pt-6 sm:pt-8 pb-8 sm:pb-12">
+							<svg
+								aria-hidden="true"
+								className="pointer-events-none z-10 text-zinc-300 dark:text-zinc-700 h-px w-full absolute top-0 left-0"
+								data-direction="top"
+								data-variant="container"
+								preserveAspectRatio="none"
+								viewBox="0 0 100 1"
+							>
+								<line
+									stroke="currentColor"
+									stroke-dasharray="6 6"
+									stroke-width="1"
+									vector-effect="non-scaling-stroke"
+									x1="0"
+									x2="100"
+									y1="0.5"
+									y2="0.5"
+								/>
+							</svg>
 							<div className="flex justify-between items-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
-								<span>© 2025</span>
+								<span>© 2026</span>
 								<ThemeSwitch />
 							</div>
 						</div>

@@ -1,6 +1,5 @@
 import "./globals.css";
 
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import {
 	Averia_Serif_Libre,
@@ -79,7 +78,6 @@ gtag('config', 'G-4R32XCF1J4');
 				className={`${monoFont.variable} ${displayFont.variable} antialiased relative selection:text-purple-900 selection:bg-purple-100 dark:selection:purple-900 dark:selection:bg-purple-900/50`}
 			>
 				<Providers>{children}</Providers>
-				<Analytics />
 			</body>
 		</html>
 	);

@@ -1,7 +1,16 @@
-import { Plus } from "lucide-react";
+import { ExternalLink, Plus } from "lucide-react";
+import Link from "next/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
+
+type UseItem = {
+	id: string;
+	name: string;
+	category: string;
+	href?: string;
+};
 
 export default function UsesPage() {
-	const hardware = [
+	const hardware: UseItem[] = [
 		{
 			id: "macbook",
 			name: "Macbook Pro 13-inch M1 2020",
@@ -29,20 +38,20 @@ export default function UsesPage() {
 		},
 	];
 
-	const code = [
+	const code: UseItem[] = [
 		{
-			id: "vscode",
+			id: "editor-vscode",
 			name: "Visual Studio Code (theme: GitHub Light Colorblind)",
 			category: "Editor",
 		},
 		{
-			id: "terminal",
-			name: "iTerm (zsh)",
+			id: "terminal-ghostty",
+			name: "Ghostty (zsh)",
 			category: "Terminal",
 		},
 	];
 
-	const software = [
+	const software: UseItem[] = [
 		{
 			id: "window",
 			name: "Raycast, Rectangle",
@@ -70,7 +79,7 @@ export default function UsesPage() {
 		},
 	];
 
-	const hobbies = [
+	const hobbies: UseItem[] = [
 		{
 			id: "hotwheels",
 			name: "Hot Wheels Cars",
@@ -88,10 +97,7 @@ export default function UsesPage() {
 		},
 	];
 
-	const renderSection = (
-		title: string,
-		items: Array<{ id: string; name: string; category: string }>
-	) => (
+	const renderSection = (title: string, items: Array<UseItem>) => (
 		<div className="mb-8">
 			<h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">
 				{title}
@@ -105,6 +111,16 @@ export default function UsesPage() {
 						<span className="flex text-foreground sm:text-inherit items-baseline sm:items-center gap-2">
 							<Plus className="size-3 hidden sm:inline-block flex-shrink-0" />
 							{item.name}
+							{item.href && (
+								<Tooltip>
+									<TooltipTrigger>
+										<Link href={item.href} target="_blank">
+											<ExternalLink className="size-3 text-purple-600 hover:text-purple-800" />
+										</Link>
+									</TooltipTrigger>
+									<TooltipContent>Visit {item.href}</TooltipContent>
+								</Tooltip>
+							)}
 						</span>
 						<span className="text-xs bg-accent text-accent-foreground rounded-xs px-1 whitespace-nowrap">
 							{item.category}

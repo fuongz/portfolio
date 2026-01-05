@@ -79,10 +79,10 @@ const HomePageRoute: React.FC = () => {
 		<>
 			{/* About Section */}
 			<div className="mb-8 sm:mb-12">
-				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-3 sm:mb-4">
+				<h2 className="text-base font-medium text-foreground mb-3 sm:mb-4">
 					About
 				</h2>
-				<div className="text-zinc-600 dark:text-zinc-400 space-y-4 sm:space-y-6 text-sm sm:text-base leading-relaxed">
+				<div className="text-foreground space-y-4 sm:space-y-6 text-sm sm:text-base leading-relaxed">
 					<p>
 						A software engineer with 7+ years of experience, who found his true
 						passion in programming.
@@ -124,7 +124,45 @@ const HomePageRoute: React.FC = () => {
 			</div>
 
 			{/* Projects Section */}
-			<div className="mb-8 sm:mb-12">
+			<div className="pb-8 sm:mb-12 relative pt-8">
+				<svg
+					aria-hidden="true"
+					className="pointer-events-none z-10 text-zinc-300 dark:text-zinc-700 h-px w-full absolute top-0 left-0"
+					data-direction="top"
+					data-variant="container"
+					preserveAspectRatio="none"
+					viewBox="0 0 100 1"
+				>
+					<line
+						stroke="currentColor"
+						stroke-dasharray="6 6"
+						stroke-width="1"
+						vector-effect="non-scaling-stroke"
+						x1="0"
+						x2="100"
+						y1="0.5"
+						y2="0.5"
+					/>
+				</svg>
+				<svg
+					aria-hidden="true"
+					className="pointer-events-none z-10 text-zinc-300 dark:text-zinc-700 h-px w-full absolute bottom-0 left-0"
+					data-direction="top"
+					data-variant="container"
+					preserveAspectRatio="none"
+					viewBox="0 0 100 1"
+				>
+					<line
+						stroke="currentColor"
+						stroke-dasharray="6 6"
+						stroke-width="1"
+						vector-effect="non-scaling-stroke"
+						x1="0"
+						x2="100"
+						y1="0.5"
+						y2="0.5"
+					/>
+				</svg>
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
 					Projects ({projects.length})
 				</h2>
@@ -152,7 +190,7 @@ const HomePageRoute: React.FC = () => {
 													<Link
 														href={project.website}
 														target="_blank"
-														className="flex items-center gap-1.5 sm:gap-2 font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 hover:underline hover:text-foreground transition"
+														className="flex items-center gap-1.5 sm:gap-2 font-semibold hover:underline decoration-purple-800 underline-offset-4 hover:text-foreground transition"
 													>
 														<span className="truncate">{project.name}</span>
 														<ArrowUpRight className="size-3 flex-shrink-0" />
@@ -163,7 +201,7 @@ const HomePageRoute: React.FC = () => {
 												</TooltipContent>
 											</Tooltip>
 										) : (
-											<h3 className="font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 truncate">
+											<h3 className="font-semibold text-sm sm:text-base text-foreground truncate">
 												{project.name}
 											</h3>
 										)}
@@ -194,7 +232,7 @@ const HomePageRoute: React.FC = () => {
 										)}
 									</span>
 								</div>
-								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1 sm:mt-1">
+								<p className="text-foreground mt-1 sm:mt-1">
 									{project.description}
 								</p>
 							</div>
@@ -221,9 +259,7 @@ const HomePageRoute: React.FC = () => {
 							<div className="flex-1 min-w-0">
 								<div className="flex items-start sm:items-baseline justify-between gap-2 sm:gap-1 flex-wrap">
 									<div className="flex items-center gap-1.5 sm:gap-2">
-										<h3 className="font-semibold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 truncate">
-											{exp.company}
-										</h3>
+										<h3 className="font-semibold truncate">{exp.company}</h3>
 										{exp.website && (
 											<Tooltip>
 												<TooltipTrigger>
@@ -247,9 +283,7 @@ const HomePageRoute: React.FC = () => {
 										{exp.period}
 									</span>
 								</div>
-								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 sm:mt-1">
-									{exp.position}
-								</p>
+								<p className="mt-0.5 sm:mt-1">{exp.position}</p>
 							</div>
 						</div>
 					))}

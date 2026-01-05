@@ -1,4 +1,3 @@
-// components/PageTransition.tsx or app/components/PageTransition.tsx
 "use client";
 
 import { AnimatePresence, motion, type Variants } from "motion/react";
