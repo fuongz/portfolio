@@ -53,9 +53,9 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 							>
 								<line
 									stroke="currentColor"
-									stroke-dasharray="6 6"
-									stroke-width="1"
-									vector-effect="non-scaling-stroke"
+									strokeDasharray="6 6"
+									strokeWidth="1"
+									vectorEffect="non-scaling-stroke"
 									x1="0"
 									x2="100"
 									y1="0.5"

@@ -8,10 +8,27 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 const projects = [
 	{
+		id: "muck-clone",
+		name: "Muck Clone",
+		description:
+			"I like the game Muck on Steam, but the developers abandoned it, so I cloned it.",
+		tags: ["Game"],
+		logo: "/projects/muck-clone.svg",
+		website: "https://muck.phake.app",
+		since: "02-2026 - Present",
+	},
+	{
+		id: "subscriptions-management",
+		name: "Subscriptions Management",
+		description: "A clean, fast subscription tracker.",
+		logo: "/projects/subscriptions-management.svg",
+		website: "https://sub.phake.app",
+		since: "02-2026 - Present",
+	},
+	{
 		id: "hotwheels-collection",
 		name: "Hot Wheels Collection",
 		description: "Let's build your Hot Wheels Collection!",
-		status: "live",
 		logo: "/projects/hotwheels-collection.svg",
 		website: "https://hotwheels.phake.app",
 		since: "12-2025 - Present",
@@ -20,7 +37,6 @@ const projects = [
 		id: "lichtrinhbay",
 		name: "Flights Schedule - Lịch Trình Bay",
 		description: "Flight schedule web application",
-		status: "live",
 		logo: "/projects/lichtrinhbay.svg",
 		website: "https://flights.phake.app",
 		since: "12-2025 - Present",
@@ -30,7 +46,6 @@ const projects = [
 		name: "Gold Chart - Biểu Đồ Vàng",
 		description: "A gold price chart web application",
 		logo: "/projects/bieudovang.svg",
-		status: "live",
 		website: "https://www.bieudovang.net/",
 		since: "03-2024 - Present",
 	},
@@ -38,7 +53,6 @@ const projects = [
 		id: "trinhvaphuong",
 		name: "Our Wedding",
 		description: "Our wedding website",
-		status: "infinity",
 		logo: "/projects/trinhvaphuong.svg",
 		website: "https://www.trinhvaphuong.com/",
 		since: "05-2025",
@@ -135,9 +149,9 @@ const HomePageRoute: React.FC = () => {
 				>
 					<line
 						stroke="currentColor"
-						stroke-dasharray="6 6"
-						stroke-width="1"
-						vector-effect="non-scaling-stroke"
+						strokeDasharray="6 6"
+						strokeWidth="1"
+						vectorEffect="non-scaling-stroke"
 						x1="0"
 						x2="100"
 						y1="0.5"
@@ -154,9 +168,9 @@ const HomePageRoute: React.FC = () => {
 				>
 					<line
 						stroke="currentColor"
-						stroke-dasharray="6 6"
-						stroke-width="1"
-						vector-effect="non-scaling-stroke"
+						strokeDasharray="6 6"
+						strokeWidth="1"
+						vectorEffect="non-scaling-stroke"
 						x1="0"
 						x2="100"
 						y1="0.5"
@@ -205,19 +219,13 @@ const HomePageRoute: React.FC = () => {
 												{project.name}
 											</h3>
 										)}
-										{project.status === "live" && (
-											<Badge
-												variant="default"
-												className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
-											>
-												Live
-											</Badge>
-										)}
-										{project.status === "infinity" && (
-											<Badge className="bg-purple-500 rounded-xs px-1 py-0 hover:bg-purple-600 text-white border-purple-500">
-												Ongoing Forever
-											</Badge>
-										)}
+										{project.tags &&
+											project.tags.length > 0 &&
+											project.tags.map((tag) => (
+												<Badge key={`${project.id}-${tag}`} variant="outline">
+													{tag}
+												</Badge>
+											))}
 									</div>
 									<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
 										{project.since}
