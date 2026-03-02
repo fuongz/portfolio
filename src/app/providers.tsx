@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { Container } from "@/components/common/container";
+import { FooterStatus } from "@/components/common/footer-status";
 import { Navigation } from "@/components/common/navigation";
 import PageTransition from "@/components/common/page-transition";
 import { ThemeSwitch } from "@/components/common/theme-switcher";
@@ -64,6 +65,7 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 							</svg>
 							<div className="flex justify-between items-center text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
 								<span>© 2026</span>
+								<FooterStatus />
 								<ThemeSwitch />
 							</div>
 						</div>
