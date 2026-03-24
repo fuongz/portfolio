@@ -34,6 +34,15 @@ const projects: {
 	};
 }[] = [
 	{
+		id: "my-spec-kit-extensions",
+		name: "My Spec Kit Extensions",
+		description: "A collection of my extensions for spec-kit",
+		tags: ["AI"],
+		logo: "/projects/Spec-Kit-Ext-Logo.svg",
+		website: "https://github.com/fuongz/spec-kit-ext",
+		since: "03-2026 - Present",
+	},
+	{
 		id: "file-viewers",
 		name: "File Viewers",
 		description:
