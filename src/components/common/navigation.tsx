@@ -7,6 +7,7 @@ import { Container } from "./container";
 const navItems = [
 	{ href: "/", label: "/ home" },
 	{ href: "/uses", label: "/ uses" },
+	{ href: "https://blog.phuongphung.com", label: "/ blog" },
 ];
 
 export function Navigation() {
@@ -19,7 +20,15 @@ export function Navigation() {
 					<div className="flex items-center gap-6">
 						{navItems.map((item) => {
 							const isActive = pathname === item.href;
-							return (
+							return item.href.startsWith("http") ? (
+								<a
+									key={item.href}
+									href={item.href}
+									className="text-sm text-zinc-600 dark:text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+								>
+									{item.label}
+								</a>
+							) : (
 								<Link
 									key={item.href}
 									href={item.href}

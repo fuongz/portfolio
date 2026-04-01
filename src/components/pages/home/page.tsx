@@ -3,10 +3,12 @@
 import { PreviewCard } from "@base-ui/react/preview-card";
 import {
 	ArrowUpRight,
+	Bot,
 	Download,
 	Gamepad2,
 	InfinityIcon,
 	MapPin,
+	Package,
 	PackageCheck,
 	Users,
 	X,
@@ -35,7 +37,8 @@ const projects: {
 	id: string;
 	name: string;
 	description: string;
-	logo: string;
+	logo?: string;
+	icon?: React.ComponentType<{ className?: string }>;
 	website: string;
 	since: string;
 	isNoEndDate?: boolean;
@@ -48,6 +51,16 @@ const projects: {
 		users?: number;
 	};
 }[] = [
+	{
+		id: "phake-mcp",
+		name: "@phake/mcp",
+		description:
+			"A TypeScript library for building MCP (Model Context Protocol) servers, designed to run on Cloudflare Workers and Node.js.",
+		tags: ["npm"],
+		logo: "/projects/Phake-MCP-Logo.svg",
+		website: "https://github.com/fuongz/phake-mcp",
+		since: "04-2026 - Present",
+	},
 	{
 		id: "my-spec-kit-extensions",
 		name: "My Spec Kit Extensions",
@@ -127,7 +140,7 @@ const projects: {
 		website:
 			"https://chromewebstore.google.com/detail/your-newtab/jfflfcaobccnpijfocpfcholcpnkeomg",
 		since: "07-2023 - Present",
-		metrics: { installed: 4 },
+		metrics: { installed: 9 },
 	},
 ];
 
@@ -171,7 +184,11 @@ function TagBadge({ tag, projectId }: { tag: string; projectId: string }) {
 						? "gap-1 bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-950 dark:text-zinc-300 dark:border-zinc-800"
 						: tag === "Game"
 							? "gap-1 bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-950 dark:text-violet-300 dark:border-violet-800"
-							: "gap-1"
+							: tag === "AI"
+								? "gap-1 bg-pink-50 text-pink-700 border-pink-200 dark:bg-pink-950 dark:text-pink-300 dark:border-pink-800"
+								: tag === "npm"
+									? "gap-1 bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-950 dark:text-orange-300 dark:border-orange-800"
+									: "gap-1"
 			}
 		>
 			{tag === "Extension" && (
@@ -203,6 +220,8 @@ function TagBadge({ tag, projectId }: { tag: string; projectId: string }) {
 			{tag === "Game" && (
 				<Gamepad2 width={12} height={12} fill="currentColor" stroke="none" />
 			)}
+			{tag === "AI" && <Bot width={12} height={12} />}
+			{tag === "npm" && <Package width={12} height={12} />}
 			{tag}
 		</Badge>
 	);
@@ -313,7 +332,7 @@ const HomePageRoute: React.FC = () => {
 			<div className="pb-8 sm:mb-12 relative pt-8">
 				<svg
 					aria-hidden="true"
-					className="pointer-events-none z-10 text-zinc-300 dark:text-zinc-700 h-px w-full absolute top-0 left-0"
+					className="pointer-events-none z-0 text-zinc-300 dark:text-zinc-700 h-px w-full absolute top-0 left-0"
 					data-direction="top"
 					data-variant="container"
 					preserveAspectRatio="none"
@@ -358,7 +377,9 @@ const HomePageRoute: React.FC = () => {
 							<DialogTrigger className="w-full text-left cursor-pointer">
 								<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:!opacity-100 hover:!grayscale-0">
 									<div className="w-[58px] h-[58px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
-										{project.logo.startsWith("/") ? (
+										{project.icon ? (
+											<project.icon className="w-6 h-6" />
+										) : project.logo?.startsWith("/") ? (
 											<Image
 												src={project.logo}
 												alt={project.name}
@@ -448,7 +469,9 @@ const HomePageRoute: React.FC = () => {
 											</DialogClose>
 											<div className="flex items-start gap-4">
 												<div className="w-14 h-14 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-xl flex items-center justify-center flex-shrink-0">
-													{project.logo.startsWith("/") ? (
+													{project.icon ? (
+														<project.icon className="w-8 h-8" />
+													) : project.logo?.startsWith("/") ? (
 														<Image
 															src={project.logo}
 															alt={project.name}
@@ -485,23 +508,38 @@ const HomePageRoute: React.FC = () => {
 											{project.description}
 										</DialogDescription>
 										{project.metrics && (
-											<div className="flex items-center gap-4 mb-4">
+											<div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-4 px-4 text-sm">
 												{project.metrics.downloads && (
-													<span className="flex items-center gap-1.5 text-sm text-zinc-700 dark:text-zinc-300">
-														<Download className="size-4 stroke-violet-700 fill-violet-200 dark:fill-violet-900 dark:stroke-violet-500" />
-														{formatMetric(project.metrics.downloads)} downloads
+													<span className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+														<Download className="size-4 text-violet-600 dark:text-violet-400" />
+														<span className="font-semibold">
+															{formatMetric(project.metrics.downloads)}
+														</span>
+														<span className="text-zinc-500 dark:text-zinc-400">
+															downloads
+														</span>
 													</span>
 												)}
 												{project.metrics.users && (
-													<span className="flex items-center gap-1.5 text-sm text-zinc-700 dark:text-zinc-300">
-														<Users className="size-4 stroke-violet-700 fill-violet-200 dark:fill-violet-900 dark:stroke-violet-500" />
-														{formatMetric(project.metrics.users)} users
+													<span className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+														<Users className="size-4 text-violet-600 dark:text-violet-400" />
+														<span className="font-semibold">
+															{formatMetric(project.metrics.users)}
+														</span>
+														<span className="text-zinc-500 dark:text-zinc-400">
+															users
+														</span>
 													</span>
 												)}
 												{project.metrics.installed && (
-													<span className="flex items-center gap-1.5 text-sm text-zinc-700 dark:text-zinc-300">
-														<PackageCheck className="size-4 stroke-violet-700 fill-violet-200 dark:fill-violet-900 dark:stroke-violet-500" />
-														{formatMetric(project.metrics.installed)} installed
+													<span className="flex items-center gap-2 text-zinc-700 dark:text-zinc-300">
+														<PackageCheck className="size-4 text-violet-600 dark:text-violet-400" />
+														<span className="font-semibold">
+															{formatMetric(project.metrics.installed)}
+														</span>
+														<span className="text-zinc-500 dark:text-zinc-400">
+															installed
+														</span>
 													</span>
 												)}
 											</div>
