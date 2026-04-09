@@ -7,7 +7,7 @@ import { Container } from "./container";
 const navItems = [
 	{ href: "/", label: "/ home" },
 	{ href: "/uses", label: "/ uses" },
-	{ href: "https://blog.phuongphung.com", label: "/ blog" },
+	{ href: "/blog", label: "/ blog" },
 ];
 
 export function Navigation() {

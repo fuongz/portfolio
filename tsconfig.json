@@ -28,19 +28,18 @@
         "name": "next"
       }
     ],
-    "baseUrl": "./src",
     "paths": {
       "@/components/*": [
-        "components/*"
+        "./src/components/*"
       ],
       "@/styles/*": [
-        "styles/*"
+        "./src/styles/*"
       ],
       "@/services/*": [
-        "services/*"
+        "./src/services/*"
       ],
       "@/lib/*": [
-        "lib/*"
+        "./src/lib/*"
       ]
     }
   },

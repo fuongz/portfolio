@@ -28,18 +28,6 @@ export default function Providers({ children, ...props }: ProvidersProps) {
 						<div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-purple-200 dark:bg-purple-950 opacity-50 blur-[80px]"></div>
 					</div>
 					<Container>
-						{/* Profile Section */}
-						<div className="pt-4 sm:pt-8 mb-8 sm:mb-12 flex items-center gap-4">
-							<div className="flex flex-col flex-1">
-								<h1 className="text-lg font-serif sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-									fuongz
-								</h1>
-								<p className="text-muted-foreground text-sm mt-0.5">
-									Software Engineer
-								</p>
-							</div>
-						</div>
-
 						<PageTransition>{children}</PageTransition>
 
 						{/* Footer */}

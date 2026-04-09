@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { PageHeader } from "@/components/common/page-header";
 import { Badge } from "@/components/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 import { Button } from "@/components/ui/button";
@@ -230,6 +231,7 @@ function TagBadge({ tag, projectId }: { tag: string; projectId: string }) {
 const HomePageRoute: React.FC = () => {
 	return (
 		<>
+			<PageHeader title="fuongz" description="Software Engineer" />
 			{/* About Section */}
 			<div className="mb-8 sm:mb-12">
 				<h2 className="text-base font-medium text-foreground mb-3 sm:mb-4">

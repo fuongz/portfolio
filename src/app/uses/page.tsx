@@ -1,5 +1,6 @@
 import { ExternalLink, Plus } from "lucide-react";
 import Link from "next/link";
+import { PageHeader } from "@/components/common/page-header";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 
 type UseItem = {
@@ -211,6 +212,10 @@ export default function UsesPage() {
 
 	return (
 		<div>
+			<PageHeader
+				title="Uses"
+				description="The gear, software, and tools I use daily."
+			/>
 			{renderSection("Workstation", hardware)}
 			{renderSection("Dev Setup", code)}
 			{renderSection("Apps", software)}
