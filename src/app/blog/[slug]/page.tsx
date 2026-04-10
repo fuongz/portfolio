@@ -33,6 +33,34 @@ export async function generateMetadata({
 		title: post.title,
 		description: post.description,
 		keywords: post.tags,
+		metadataBase: new URL("https://fuongz.com"),
+		openGraph: {
+			title: post.title,
+			description: post.description,
+			type: "article",
+			publishedTime: post.date,
+			modifiedTime: post.dateModified,
+			tags: post.tags,
+			authors: ["Phuong Phung"],
+			url: `https://fuongz.com/blog/${slug}`,
+			images: [
+				{
+					url: post.image || "/og-default.png",
+					width: 1200,
+					height: 630,
+					alt: post.title,
+				},
+			],
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: post.title,
+			description: post.description,
+			images: [post.image || "/og-default.png"],
+		},
+		alternates: {
+			canonical: `/blog/${slug}`,
+		},
 	};
 }
 
@@ -50,6 +78,33 @@ export default async function PostPage({ params, searchParams }: Props) {
 
 	return (
 		<article className="py-2">
+			<head>
+				<script
+					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: no need
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Article",
+							headline: post.title,
+							description: post.description,
+							datePublished: post.date,
+							dateModified: post.dateModified,
+							image: post.image || "https://fuongz.com/og-default.png",
+							author: {
+								"@type": "Person",
+								name: "Phuong Phung",
+								url: "https://fuongz.com",
+							},
+							keywords: post.tags.join(", "),
+							mainEntityOfPage: {
+								"@type": "WebPage",
+								"@id": `https://fuongz.com/blog/${slug}`,
+							},
+						}),
+					}}
+				/>
+			</head>
 			<header className="mb-8 pb-8 border-b border-zinc-100 dark:border-zinc-800">
 				<Link
 					href="/blog"

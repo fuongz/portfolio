@@ -1,5 +1,6 @@
 import "./globals.css";
 
+import { env } from "node:process";
 import type { Metadata } from "next";
 import {
 	Averia_Serif_Libre,
@@ -7,7 +8,6 @@ import {
 	Inconsolata,
 } from "next/font/google";
 import Script from "next/script";
-import { useId } from "react";
 import Providers from "./providers";
 
 const sansSerifFont = Bricolage_Grotesque({
@@ -30,9 +30,54 @@ const monoFont = Inconsolata({
 });
 
 export const metadata: Metadata = {
-	title: "fuongz",
+	title: {
+		default: "fuongz",
+		template: "%s | fuongz",
+	},
 	description:
 		"Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.",
+	metadataBase: new URL("https://fuongz.com"),
+	alternates: {
+		canonical: "/",
+		languages: {
+			en: "https://fuongz.com",
+		},
+	},
+	openGraph: {
+		title: "fuongz",
+		description:
+			"Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.",
+		url: "https://fuongz.com",
+		siteName: "fuongz",
+		locale: "en_US",
+		type: "website",
+		images: [
+			{
+				url: "/og-default.png",
+				width: 1200,
+				height: 630,
+				alt: "fuongz",
+			},
+		],
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "fuongz",
+		description:
+			"Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.",
+		images: ["/og-default.png"],
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
 };
 
 export default function RootLayout({
@@ -40,8 +85,10 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const googleTagManagerId = useId();
-	const googleAnalyticsId = useId();
+	const gtmId = env.NEXT_PUBLIC_GTM_ID;
+	const gaId = env.NEXT_PUBLIC_GA_ID;
+	const umamiId = env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+
 	return (
 		<html
 			lang="en"
@@ -49,29 +96,54 @@ export default function RootLayout({
 			suppressHydrationWarning
 		>
 			<head>
-				<Script id={googleTagManagerId} strategy="afterInteractive">
-					{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				<script
+					type="application/ld+json"
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: no need
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify({
+							"@context": "https://schema.org",
+							"@type": "Person",
+							name: "Phuong Phung",
+							url: "https://fuongz.com",
+							jobTitle: "Software Engineer",
+							sameAs: [
+								"https://github.com/fuongz",
+								"https://twitter.com/fuongz",
+							],
+						}),
+					}}
+				/>
+				{gtmId && (
+					<Script id="gtm" strategy="afterInteractive">
+						{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WQ5GTT6');`}
-				</Script>
-				<Script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-4R32XCF1J4"
-				/>
-				<Script id={googleAnalyticsId} strategy="afterInteractive">
-					{`window.dataLayer = window.dataLayer || [];
+})(window,document,'script','dataLayer','${gtmId}');`}
+					</Script>
+				)}
+				{gaId && (
+					<>
+						<Script
+							async
+							src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+						/>
+						<Script id="ga" strategy="afterInteractive">
+							{`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-4R32XCF1J4');
+gtag('config', '${gaId}');
 `}
-				</Script>
-				<Script
-					defer
-					src="https://cloud.umami.is/script.js"
-					data-website-id="c5ba75a5-e8f2-4345-b594-afb017b9704d"
-				/>
+						</Script>
+					</>
+				)}
+				{umamiId && (
+					<Script
+						defer
+						src="https://cloud.umami.is/script.js"
+						data-website-id={umamiId}
+					/>
+				)}
 			</head>
 			<body
 				suppressHydrationWarning={true}

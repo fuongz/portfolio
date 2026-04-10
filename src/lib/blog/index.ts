@@ -8,6 +8,8 @@ export type Post = {
 	title: string;
 	description: string;
 	date: string;
+	dateModified?: string;
+	image?: string;
 	tags: string[];
 	content: string;
 };
@@ -55,6 +57,8 @@ export function getPostBySlug(
 		title: data.title || "",
 		description: data.description || "",
 		date: data.date || "",
+		dateModified: data.dateModified || undefined,
+		image: data.image || undefined,
 		tags: data.tags || [],
 		content,
 	};
