@@ -36,39 +36,25 @@ export const metadata: Metadata = {
 	},
 };
 
+const blogSchema = {
+	"@context": "https://schema.org",
+	"@type": "Blog",
+	name: "fuongz Blog",
+	description:
+		"Writing about technology, programming, and life. Vietnamese & English content.",
+	url: "https://fuongz.com/blog",
+};
+
 export default function BlogPage() {
 	const posts = getAllPosts("en");
 
 	return (
-		<div>
-			<head>
-				<script
-					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: no need
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "Blog",
-							name: "fuongz Blog",
-							description:
-								"Writing about technology, programming, and life. Vietnamese & English content.",
-							url: "https://fuongz.com/blog",
-							blogPost: posts.map((post) => ({
-								"@type": "BlogPosting",
-								headline: post.title,
-								description: post.description,
-								datePublished: post.date,
-								url: `https://fuongz.com/blog/${post.slug}`,
-								author: {
-									"@type": "Person",
-									name: "Phuong Phung",
-									url: "https://fuongz.com",
-								},
-							})),
-						}),
-					}}
-				/>
-			</head>
+		<>
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: JSON.stringify of static object is safe
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+			/>
 			<PageHeader
 				title="Blog"
 				description="Writing about technology, programming, and life."
@@ -119,6 +105,6 @@ export default function BlogPage() {
 					))
 				)}
 			</div>
-		</div>
+		</>
 	);
 }

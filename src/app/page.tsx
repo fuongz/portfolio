@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { HomePageRoute } from "@/components/pages/home";
+import { experiences, projects } from "@/components/pages/home/data";
+
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
 	return {
@@ -12,5 +15,5 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-	return <HomePageRoute />;
+	return <HomePageRoute projects={projects} experiences={experiences} />;
 }

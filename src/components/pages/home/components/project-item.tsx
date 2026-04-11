@@ -20,11 +20,16 @@ import Link from "next/link";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import {
-	fetchLatestCommit,
-	fetchReadme,
-	type LatestCommit,
-} from "@/app/actions/fetch-readme";
+import { fetchLatestCommit, fetchReadme } from "@/app/actions/fetch-readme";
+
+type LatestCommit = {
+	sha: string;
+	message: string;
+	date: string;
+	author: string;
+	authorAvatar?: string;
+};
+
 import { Badge } from "@/components/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
 import { Button } from "@/components/ui/button";
@@ -164,6 +169,7 @@ function ProjectItem({ project }: { project: Project }) {
 								src={project.logo}
 								alt={project.name}
 								fill
+								sizes="58px"
 								className="object-cover"
 							/>
 						) : (
@@ -222,6 +228,7 @@ function ProjectItem({ project }: { project: Project }) {
 											src={project.logo}
 											alt={project.name}
 											fill
+											sizes="56px"
 											className="object-cover"
 										/>
 									) : (

@@ -76,112 +76,112 @@ export default async function PostPage({ params, searchParams }: Props) {
 
 	const relatedPost = getRelatedPost(slug, safeLang);
 
-	return (
-		<article className="py-2">
-			<head>
-				<script
-					type="application/ld+json"
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: no need
-					dangerouslySetInnerHTML={{
-						__html: JSON.stringify({
-							"@context": "https://schema.org",
-							"@type": "Article",
-							headline: post.title,
-							description: post.description,
-							datePublished: post.date,
-							dateModified: post.dateModified,
-							image: post.image || "https://fuongz.com/og-default.png",
-							author: {
-								"@type": "Person",
-								name: "Phuong Phung",
-								url: "https://fuongz.com",
-							},
-							keywords: post.tags.join(", "),
-							mainEntityOfPage: {
-								"@type": "WebPage",
-								"@id": `https://fuongz.com/blog/${slug}`,
-							},
-						}),
-					}}
-				/>
-			</head>
-			<header className="mb-8 pb-8 border-b border-zinc-100 dark:border-zinc-800">
-				<Link
-					href="/blog"
-					className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 mb-6"
-				>
-					<ArrowLeft className="size-3" />
-					Back to blog
-				</Link>
+	const articleSchema = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		headline: post.title,
+		description: post.description,
+		datePublished: post.date,
+		dateModified: post.dateModified,
+		image: post.image || "https://fuongz.com/og-default.png",
+		author: {
+			"@type": "Person",
+			name: "Phuong Phung",
+			url: "https://fuongz.com",
+		},
+		keywords: post.tags.join(", "),
+		mainEntityOfPage: {
+			"@type": "WebPage",
+			"@id": `https://fuongz.com/blog/${slug}`,
+		},
+	};
 
-				<div className="flex items-center gap-2 mb-3">
-					<span className="text-xs bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 px-2 py-0.5 rounded">
-						{safeLang === "en" ? "English" : "Tiếng Việt"}
-					</span>
-					{relatedPost && (
+	return (
+		<>
+			<script
+				type="application/ld+json"
+				// biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+			/>
+			<article className="py-2">
+				<header className="mb-8 pb-8 border-b border-zinc-100 dark:border-zinc-800">
+					<Link
+						href="/blog"
+						className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 mb-6"
+					>
+						<ArrowLeft className="size-3" />
+						Back to blog
+					</Link>
+
+					<div className="flex items-center gap-2 mb-3">
+						<span className="text-xs bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 px-2 py-0.5 rounded">
+							{safeLang === "en" ? "English" : "Tiếng Việt"}
+						</span>
+						{relatedPost && (
+							<Link
+								href={`/blog/${slug}?lang=${relatedPost.lang}`}
+								className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+							>
+								<Globe className="size-3" />
+								{relatedPost.lang === "en"
+									? "Read in English"
+									: "Đọc bằng Tiếng Việt"}
+							</Link>
+						)}
+					</div>
+
+					<h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+						{post.title}
+					</h1>
+
+					<div className="mt-4 flex items-center gap-4 text-xs text-zinc-500">
+						<time>
+							{new Date(post.date).toLocaleDateString(
+								safeLang === "vi" ? "vi-VN" : "en-US",
+								{
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								}
+							)}
+						</time>
+						{post.tags.length > 0 && (
+							<div className="flex gap-1.5">
+								{post.tags.map((tag) => (
+									<span
+										key={tag}
+										className="bg-accent text-accent-foreground px-1.5 py-0.5 rounded"
+									>
+										{tag}
+									</span>
+								))}
+							</div>
+						)}
+					</div>
+				</header>
+
+				<div className="prose prose-zinc dark:prose-invert max-w-none">
+					<ReactMarkdown remarkPlugins={[remarkGfm]}>
+						{post.content}
+					</ReactMarkdown>
+				</div>
+
+				{relatedPost && (
+					<div className="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
 						<Link
 							href={`/blog/${slug}?lang=${relatedPost.lang}`}
-							className="inline-flex items-center gap-1 text-xs text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+							className="block p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-purple-500 dark:hover:border-purple-500 transition-colors"
 						>
-							<Globe className="size-3" />
-							{relatedPost.lang === "en"
-								? "Read in English"
-								: "Đọc bằng Tiếng Việt"}
+							<p className="text-xs text-zinc-500 mb-1">
+								{safeLang === "en" ? "Also available in" : "Cũng có bản tiếng"}
+							</p>
+							<p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+								{relatedPost.title}
+							</p>
 						</Link>
-					)}
-				</div>
-
-				<h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-					{post.title}
-				</h1>
-
-				<div className="mt-4 flex items-center gap-4 text-xs text-zinc-500">
-					<time>
-						{new Date(post.date).toLocaleDateString(
-							safeLang === "vi" ? "vi-VN" : "en-US",
-							{
-								year: "numeric",
-								month: "long",
-								day: "numeric",
-							}
-						)}
-					</time>
-					{post.tags.length > 0 && (
-						<div className="flex gap-1.5">
-							{post.tags.map((tag) => (
-								<span
-									key={tag}
-									className="bg-accent text-accent-foreground px-1.5 py-0.5 rounded"
-								>
-									{tag}
-								</span>
-							))}
-						</div>
-					)}
-				</div>
-			</header>
-
-			<div className="prose prose-zinc dark:prose-invert max-w-none">
-				<ReactMarkdown remarkPlugins={[remarkGfm]}>
-					{post.content}
-				</ReactMarkdown>
-			</div>
-
-			{relatedPost && (
-				<div className="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
-					<Link
-						href={`/blog/${slug}?lang=${relatedPost.lang}`}
-						className="block p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:border-purple-500 dark:hover:border-purple-500 transition-colors"
-					>
-						<p className="text-xs text-zinc-500 mb-1">
-							{safeLang === "en" ? "Also available in" : "Cũng có bản tiếng"}
-						</p>
-						<p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-							{relatedPost.title}
-						</p>
-					</Link>
-				</div>
-			)}
-		</article>
+					</div>
+				)}
+			</article>
+		</>
 	);
 }

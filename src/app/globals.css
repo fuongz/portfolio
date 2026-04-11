@@ -189,3 +189,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+code {
+  counter-reset: line;
+}
+
+code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: gray;
+}
+
+code > [data-line] {
+  display: block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-left: 2px solid transparent;
+}
+
+code > [data-line]:nth-child(n + 2) {
+  border-left: 2px solid transparent;
+}
+
+code > [data-highlighted-line] {
+  background-color: hsl(var(--primary) / 0.1);
+  border-left-color: hsl(var(--primary));
+}
+
+pre > code {
+  counter-reset: none;
+}
+
+pre > code > [data-line]::before {
+  display: none;
+}
