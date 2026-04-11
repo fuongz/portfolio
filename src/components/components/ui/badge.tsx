@@ -5,7 +5,7 @@ import type * as React from "react";
 import { cn } from "@/components/lib/utils";
 
 const badgeVariants = cva(
-	"inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
+	"inline-flex items-center justify-center rounded-full border w-fit whitespace-nowrap shrink-0 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden font-medium",
 	{
 		variants: {
 			variant: {
@@ -18,9 +18,20 @@ const badgeVariants = cva(
 				outline:
 					"text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
 			},
+			size: {
+				default: "px-2 py-0.5 text-xs gap-1 [&>svg]:size-3",
+				xs: "px-1.5 py-px text-[0.65rem] gap-0.5 [&>svg]:size-2.5",
+				sm: "px-1.5 py-0.5 text-xs gap-1 [&>svg]:size-3",
+				lg: "px-2.5 py-1 text-sm gap-1 [&>svg]:size-3.5",
+				icon: "size-5 [&>svg]:size-3",
+				"icon-xs": "size-4 [&>svg]:size-2.5",
+				"icon-sm": "size-[1.125rem] [&>svg]:size-3",
+				"icon-lg": "size-6 [&>svg]:size-3.5",
+			},
 		},
 		defaultVariants: {
 			variant: "default",
+			size: "default",
 		},
 	}
 );
@@ -28,6 +39,7 @@ const badgeVariants = cva(
 function Badge({
 	className,
 	variant,
+	size,
 	asChild = false,
 	...props
 }: React.ComponentProps<"span"> &
@@ -37,7 +49,7 @@ function Badge({
 	return (
 		<Comp
 			data-slot="badge"
-			className={cn(badgeVariants({ variant }), className)}
+			className={cn(badgeVariants({ variant, size }), className)}
 			{...props}
 		/>
 	);
