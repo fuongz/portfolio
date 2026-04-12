@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
+import { CodeBlock } from "@/components/common/code-block";
 
 async function getReadme() {
 	const res = await fetch(
@@ -19,7 +21,15 @@ export default async function SpecKitExtPage() {
 
 	return (
 		<div className="mx-auto max-w-3xl px-4 py-12 prose dark:prose-invert prose-sm sm:prose-base">
-			<ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+			<ReactMarkdown
+				remarkPlugins={[remarkGfm]}
+				rehypePlugins={[rehypeHighlight]}
+				components={{
+					code: CodeBlock,
+				}}
+			>
+				{content}
+			</ReactMarkdown>
 		</div>
 	);
 }

@@ -19,8 +19,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import { fetchLatestCommit, fetchReadme } from "@/app/actions/fetch-readme";
+import { CodeBlock } from "@/components/common/code-block";
 
 type LatestCommit = {
 	sha: string;
@@ -311,7 +313,13 @@ function ProjectItem({ project }: { project: Project }) {
 									</div>
 								) : readme ? (
 									<div className="prose prose-sm dark:prose-invert max-w-none max-h-100 overflow-y-auto">
-										<ReactMarkdown remarkPlugins={[remarkGfm]}>
+										<ReactMarkdown
+											remarkPlugins={[remarkGfm]}
+											rehypePlugins={[rehypeHighlight]}
+											components={{
+												code: CodeBlock,
+											}}
+										>
 											{readme}
 										</ReactMarkdown>
 									</div>

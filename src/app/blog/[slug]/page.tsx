@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
+import { CodeBlock } from "@/components/common/code-block";
 import { getPostBySlug, getPostSlugs, getRelatedPost } from "@/lib/blog";
 
 type Props = {
@@ -161,7 +163,13 @@ export default async function PostPage({ params, searchParams }: Props) {
 				</header>
 
 				<div className="prose prose-zinc dark:prose-invert max-w-none">
-					<ReactMarkdown remarkPlugins={[remarkGfm]}>
+					<ReactMarkdown
+						remarkPlugins={[remarkGfm]}
+						rehypePlugins={[rehypeHighlight]}
+						components={{
+							code: CodeBlock,
+						}}
+					>
 						{post.content}
 					</ReactMarkdown>
 				</div>
