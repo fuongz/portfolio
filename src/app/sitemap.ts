@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-	const baseUrl = "https://fuongz.com";
+	const baseUrl = "https://phuongphung.com";
 	const posts = getAllPosts("en");
 	const staticPages: MetadataRoute.Sitemap = [
 		{
