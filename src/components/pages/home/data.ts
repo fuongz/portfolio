@@ -188,5 +188,5 @@ const experiences: Experience[] = [
 	},
 ];
 
-export { projects, experiences };
-export type { Project, Experience };
+export type { Experience, Project };
+export { experiences, projects };

@@ -4,6 +4,7 @@ import { PreviewCard } from "@base-ui/react/preview-card";
 import { ArrowUpRight, MapPin, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { StaggeredItem, StaggeredList } from "@/components/common/animations";
 import { PageHeader } from "@/components/common/page-header";
 import { Badge } from "@/components/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
@@ -171,11 +172,13 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
 					Projects ({projects.length})
 				</h2>
-				<div className="space-y-6 group/list">
+				<StaggeredList className="space-y-6 group/list">
 					{projects.map((project) => (
-						<ProjectItem key={project.id} project={project} />
+						<StaggeredItem key={project.id}>
+							<ProjectItem project={project} />
+						</StaggeredItem>
 					))}
-				</div>
+				</StaggeredList>
 			</div>
 
 			{/* Experiences Section */}
@@ -183,108 +186,112 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
 					Experiences ({experiences.length})
 				</h2>
-				<div className="space-y-4 sm:space-y-6 group/list">
+				<StaggeredList className="space-y-4 sm:space-y-6 group/list">
 					{experiences.map((exp) => (
-						<Dialog key={exp.id}>
-							<DialogTrigger className="w-full text-left cursor-pointer">
-								<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:!opacity-100 hover:!grayscale-0">
-									<div className="w-[38px] h-[38px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded flex items-center justify-center flex-shrink-0">
-										{exp.logo.startsWith("/") ? (
-											<Image
-												src={exp.logo}
-												alt={exp.company}
-												fill
-												sizes="48px"
-											/>
-										) : (
-											<span className="font-semibold text-xl">{exp.logo}</span>
-										)}
-									</div>
-									<div className="flex-1 min-w-0">
-										<div className="flex items-start sm:items-baseline justify-between gap-2 sm:gap-1 flex-wrap">
-											<div className="flex items-center gap-1.5 sm:gap-2">
-												<h3 className="font-semibold truncate">
-													{exp.company}
-												</h3>
-												{exp.status === "live" && (
-													<Badge
-														variant="default"
-														className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
-													>
-														Present
-													</Badge>
-												)}
-											</div>
-											<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
-												{exp.period}
-											</span>
+						<StaggeredItem key={exp.id}>
+							<Dialog>
+								<DialogTrigger className="w-full text-left cursor-pointer">
+									<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:!opacity-100 hover:!grayscale-0">
+										<div className="w-[38px] h-[38px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded flex items-center justify-center flex-shrink-0">
+											{exp.logo.startsWith("/") ? (
+												<Image
+													src={exp.logo}
+													alt={exp.company}
+													fill
+													sizes="48px"
+												/>
+											) : (
+												<span className="font-semibold text-xl">
+													{exp.logo}
+												</span>
+											)}
 										</div>
-										<p className="mt-0.5 sm:mt-1 text-sm text-zinc-700 dark:text-zinc-300">
-											{exp.position}
-										</p>
-									</div>
-								</div>
-							</DialogTrigger>
-							<DialogPortal>
-								<DialogOverlay />
-								<DialogPopup>
-									<div className="relative p-6">
-										<DialogClose className="absolute top-3 right-3 inline-flex items-center justify-center rounded-lg p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:hover:text-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer">
-											<X className="size-4" />
-										</DialogClose>
-										<div className="flex items-start gap-4">
-											<div className="w-14 h-14 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-xl flex items-center justify-center flex-shrink-0">
-												{exp.logo.startsWith("/") ? (
-													<Image
-														src={exp.logo}
-														alt={exp.company}
-														fill
-														sizes="56px"
-													/>
-												) : (
-													<span className="font-semibold text-2xl">
-														{exp.logo}
-													</span>
-												)}
-											</div>
-											<div className="flex-1 min-w-0 pr-6">
-												<div className="flex items-center gap-2 flex-wrap">
-													<DialogTitle>{exp.company}</DialogTitle>
+										<div className="flex-1 min-w-0">
+											<div className="flex items-start sm:items-baseline justify-between gap-2 sm:gap-1 flex-wrap">
+												<div className="flex items-center gap-1.5 sm:gap-2">
+													<h3 className="font-semibold truncate">
+														{exp.company}
+													</h3>
 													{exp.status === "live" && (
 														<Badge
 															variant="default"
 															className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
 														>
-															Present
+															Now
 														</Badge>
 													)}
 												</div>
-												<p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
-													{exp.position}
-												</p>
+												<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
+													{exp.period}
+												</span>
 											</div>
-										</div>
-										<div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
-											<span className="text-xs text-zinc-400 dark:text-zinc-500">
-												{exp.period}
-											</span>
-											{exp.website && (
-												<Button
-													nativeButton={false}
-													size="lg"
-													render={<Link href={exp.website} target="_blank" />}
-												>
-													Visit
-													<ArrowUpRight />
-												</Button>
-											)}
+											<p className="mt-0.5 sm:mt-1 text-sm text-zinc-700 dark:text-zinc-300">
+												{exp.position}
+											</p>
 										</div>
 									</div>
-								</DialogPopup>
-							</DialogPortal>
-						</Dialog>
+								</DialogTrigger>
+								<DialogPortal>
+									<DialogOverlay />
+									<DialogPopup>
+										<div className="relative p-6">
+											<DialogClose className="absolute top-3 right-3 inline-flex items-center justify-center rounded-lg p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 dark:hover:text-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer">
+												<X className="size-4" />
+											</DialogClose>
+											<div className="flex items-start gap-4">
+												<div className="w-14 h-14 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-xl flex items-center justify-center flex-shrink-0">
+													{exp.logo.startsWith("/") ? (
+														<Image
+															src={exp.logo}
+															alt={exp.company}
+															fill
+															sizes="56px"
+														/>
+													) : (
+														<span className="font-semibold text-2xl">
+															{exp.logo}
+														</span>
+													)}
+												</div>
+												<div className="flex-1 min-w-0 pr-6">
+													<div className="flex items-center gap-2 flex-wrap">
+														<DialogTitle>{exp.company}</DialogTitle>
+														{exp.status === "live" && (
+															<Badge
+																variant="default"
+																className="bg-green-500 rounded-xs px-1 py-0 hover:bg-green-600 text-white border-green-500"
+															>
+																Now
+															</Badge>
+														)}
+													</div>
+													<p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
+														{exp.position}
+													</p>
+												</div>
+											</div>
+											<div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
+												<span className="text-xs text-zinc-400 dark:text-zinc-500">
+													{exp.period}
+												</span>
+												{exp.website && (
+													<Button
+														nativeButton={false}
+														size="lg"
+														render={<Link href={exp.website} target="_blank" />}
+													>
+														Visit
+														<ArrowUpRight />
+													</Button>
+												)}
+											</div>
+										</div>
+									</DialogPopup>
+								</DialogPortal>
+							</Dialog>
+						</StaggeredItem>
 					))}
-				</div>
+				</StaggeredList>
 			</div>
 		</>
 	);
