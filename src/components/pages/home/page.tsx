@@ -271,7 +271,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 												</div>
 											</div>
 											<div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
-												<span className="text-xs text-zinc-400 dark:text-zinc-500">
+												<span className="text-xs text-zinc-500 dark:text-zinc-400">
 													{exp.period}
 												</span>
 												{exp.website && (

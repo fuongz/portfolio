@@ -212,7 +212,7 @@ function ProjectItem({ project }: { project: Project }) {
 							{project.description}
 						</p>
 						{project.lastCommit && (
-							<p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+							<p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
 								Last commit:{" "}
 								{new Date(project.lastCommit).toLocaleDateString("en-US", {
 									month: "short",
@@ -271,7 +271,7 @@ function ProjectItem({ project }: { project: Project }) {
 											)}
 											{project.name}
 										</span>
-										<span className="text-xs text-zinc-400 dark:text-zinc-500">
+										<span className="text-xs text-zinc-500 dark:text-zinc-400">
 											{project.since}
 											{project.isNoEndDate && (
 												<>
@@ -298,7 +298,7 @@ function ProjectItem({ project }: { project: Project }) {
 												<p className="text-xs font-medium text-zinc-700 dark:text-zinc-300 truncate">
 													{latestCommit.message.split("\n")[0]}
 												</p>
-												<p className="text-xs text-zinc-400 dark:text-zinc-500">
+												<p className="text-xs text-zinc-500 dark:text-zinc-400">
 													{new Date(latestCommit.date).toLocaleDateString(
 														"en-US",
 														{

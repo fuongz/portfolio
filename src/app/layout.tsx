@@ -17,6 +17,7 @@ const sansSerifFont = Bricolage_Grotesque({
 });
 
 const displayFont = Averia_Serif_Libre({
+	display: "swap",
 	weight: ["300", "400", "700"],
 	variable: "--font-serif",
 	subsets: ["latin"],
