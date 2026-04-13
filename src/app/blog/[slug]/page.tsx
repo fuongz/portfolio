@@ -35,7 +35,7 @@ export async function generateMetadata({
 		title: post.title,
 		description: post.description,
 		keywords: post.tags,
-		metadataBase: new URL("https://fuongz.com"),
+		metadataBase: new URL("https://phuongphung.com"),
 		openGraph: {
 			title: post.title,
 			description: post.description,
@@ -44,7 +44,7 @@ export async function generateMetadata({
 			modifiedTime: post.dateModified,
 			tags: post.tags,
 			authors: ["Phuong Phung"],
-			url: `https://fuongz.com/blog/${slug}`,
+			url: `https://phuongphung.com/blog/${slug}`,
 			images: [
 				{
 					url: post.image || "/og-default.png",
@@ -85,16 +85,16 @@ export default async function PostPage({ params, searchParams }: Props) {
 		description: post.description,
 		datePublished: post.date,
 		dateModified: post.dateModified,
-		image: post.image || "https://fuongz.com/og-default.png",
+		image: post.image || "https://phuongphung.com/og-default.png",
 		author: {
 			"@type": "Person",
 			name: "Phuong Phung",
-			url: "https://fuongz.com",
+			url: "https://phuongphung.com",
 		},
 		keywords: post.tags.join(", "),
 		mainEntityOfPage: {
 			"@type": "WebPage",
-			"@id": `https://fuongz.com/blog/${slug}`,
+			"@id": `https://phuongphung.com/blog/${slug}`,
 		},
 	};
 

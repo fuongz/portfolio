@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	description:
 		"Writing about technology, programming, and life. Vietnamese & English content.",
 	keywords: ["blog", "technology", "programming", "viết", "công nghệ"],
-	metadataBase: new URL("https://fuongz.com"),
+	metadataBase: new URL("https://phuongphung.com"),
 	alternates: {
 		canonical: "/blog",
 	},
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 		title: "Blog | fuongz",
 		description:
 			"Writing about technology, programming, and life. Vietnamese & English content.",
-		url: "https://fuongz.com/blog",
+		url: "https://phuongphung.com/blog",
 		type: "website",
 		images: [
 			{
@@ -42,7 +42,7 @@ const blogSchema = {
 	name: "fuongz Blog",
 	description:
 		"Writing about technology, programming, and life. Vietnamese & English content.",
-	url: "https://fuongz.com/blog",
+	url: "https://phuongphung.com/blog",
 };
 
 export default function BlogPage() {

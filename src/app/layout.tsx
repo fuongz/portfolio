@@ -36,18 +36,18 @@ export const metadata: Metadata = {
 	},
 	description:
 		"Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.",
-	metadataBase: new URL("https://fuongz.com"),
+	metadataBase: new URL("https://phuongphung.com"),
 	alternates: {
 		canonical: "/",
 		languages: {
-			en: "https://fuongz.com",
+			en: "https://phuongphung.com",
 		},
 	},
 	openGraph: {
 		title: "fuongz",
 		description:
 			"Personal website of Phuong Phung, a software engineer who found his true passion in programming, topics: technology, slice of life.",
-		url: "https://fuongz.com",
+		url: "https://phuongphung.com",
 		siteName: "fuongz",
 		locale: "en_US",
 		type: "website",
@@ -104,7 +104,7 @@ export default function RootLayout({
 							"@context": "https://schema.org",
 							"@type": "Person",
 							name: "Phuong Phung",
-							url: "https://fuongz.com",
+							url: "https://phuongphung.com",
 							jobTitle: "Software Engineer",
 							sameAs: [
 								"https://github.com/fuongz",
