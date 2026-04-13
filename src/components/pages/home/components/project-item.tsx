@@ -62,6 +62,7 @@ type Project = {
 	icon?: React.ComponentType<{ className?: string }>;
 	links?: ProjectLink[];
 	since: string;
+	lastCommit?: string;
 	isNoEndDate?: boolean;
 	isPrivate?: boolean;
 	tags?: string[];
@@ -210,6 +211,16 @@ function ProjectItem({ project }: { project: Project }) {
 						<p className="text-foreground text-zinc-700 dark:text-zinc-300 text-sm mt-1 sm:mt-1 sm:pr-30">
 							{project.description}
 						</p>
+						{project.lastCommit && (
+							<p className="text-xs text-zinc-400 dark:text-zinc-500 mt-1">
+								Last commit:{" "}
+								{new Date(project.lastCommit).toLocaleDateString("en-US", {
+									month: "short",
+									day: "numeric",
+									year: "numeric",
+								})}
+							</p>
+						)}
 					</div>
 				</div>
 			</DialogTrigger>

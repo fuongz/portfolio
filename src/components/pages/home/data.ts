@@ -112,12 +112,13 @@ const unsortedProjects: Project[] = [
 		lastCommit: "2026-02-24",
 	},
 	{
-		id: "trinhvaphuong",
-		name: "Our Wedding",
-		description: "Our wedding website",
+		id: "mayfamily",
+		name: "May Family",
+		description: "Family website",
 		logo: "/projects/trinhvaphuong.svg",
-		links: [{ url: "https://www.trinhvaphuong.com/", type: "web" }],
-		since: "05-2025",
+		links: [{ url: "https://www.mayfamily.top/", type: "web" }],
+		since: "12-2025",
+		lastCommit: "2025-12-18",
 		isNoEndDate: true,
 	},
 	{
