@@ -4,7 +4,6 @@ import { getAllPosts } from "@/lib/blog";
 export default function sitemap(): MetadataRoute.Sitemap {
 	const baseUrl = "https://fuongz.com";
 	const posts = getAllPosts("en");
-
 	const staticPages: MetadataRoute.Sitemap = [
 		{
 			url: baseUrl,
@@ -31,13 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			priority: 0.6,
 		},
 	];
-
 	const blogPosts: MetadataRoute.Sitemap = posts.map((post) => ({
 		url: `${baseUrl}/blog/${post.slug}`,
 		lastModified: new Date(post.dateModified || post.date),
-		changeFrequency: "monthly",
+		changeFrequency: "weekly",
 		priority: 0.8,
 	}));
-
 	return [...staticPages, ...blogPosts];
 }
