@@ -11,6 +11,7 @@ type Project = {
 	icon?: React.ComponentType<{ className?: string }>;
 	links?: ProjectLink[];
 	since: string;
+	lastCommit?: string;
 	isNoEndDate?: boolean;
 	isPrivate?: boolean;
 	tags?: string[];
@@ -33,7 +34,7 @@ type Experience = {
 	position: string;
 };
 
-const projects: Project[] = [
+const unsortedProjects: Project[] = [
 	{
 		id: "phake-mcp",
 		name: "@phake/mcp",
@@ -46,15 +47,7 @@ const projects: Project[] = [
 			{ url: "https://github.com/fuongz/phake-mcp", type: "github" },
 		],
 		since: "04-2026 - Present",
-	},
-	{
-		id: "my-spec-kit-extensions",
-		name: "My Spec Kit Extensions",
-		description: "A collection of my extensions for spec-kit",
-		tags: ["AI"],
-		logo: "/projects/Spec-Kit-Ext-Logo.svg",
-		links: [{ url: "https://github.com/fuongz/spec-kit-ext", type: "github" }],
-		since: "03-2026 - Present",
+		lastCommit: "2026-04-07",
 	},
 	{
 		id: "file-viewers",
@@ -68,6 +61,32 @@ const projects: Project[] = [
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
 		],
 		since: "03-2026 - Present",
+		lastCommit: "2026-04-05",
+	},
+	{
+		id: "my-spec-kit-extensions",
+		name: "My Spec Kit Extensions",
+		description: "A collection of my extensions for spec-kit",
+		tags: ["AI"],
+		logo: "/projects/Spec-Kit-Ext-Logo.svg",
+		links: [{ url: "https://github.com/fuongz/spec-kit-ext", type: "github" }],
+		since: "03-2026 - Present",
+		lastCommit: "2026-03-24",
+	},
+	{
+		id: "subscription-management",
+		name: "Subscriptions Management",
+		description: "A clean, fast subscription tracker.",
+		logo: "/projects/subscriptions-management.svg",
+		links: [
+			{ url: "https://sub.phake.app", type: "web" },
+			{
+				url: "https://github.com/fuongz/subscription-management",
+				type: "github",
+			},
+		],
+		since: "02-2026 - Present",
+		lastCommit: "2026-03-21",
 	},
 	{
 		id: "muck-clone",
@@ -81,20 +100,7 @@ const projects: Project[] = [
 			{ url: "https://github.com/fuongz/muck-clone", type: "github" },
 		],
 		since: "02-2026 - Present",
-	},
-	{
-		id: "subscriptions-management",
-		name: "Subscriptions Management",
-		description: "A clean, fast subscription tracker.",
-		logo: "/projects/subscriptions-management.svg",
-		links: [
-			{ url: "https://sub.phake.app", type: "web" },
-			{
-				url: "https://github.com/fuongz/subscriptions-management",
-				type: "github",
-			},
-		],
-		since: "02-2026 - Present",
+		lastCommit: "2026-02-09",
 	},
 	{
 		id: "hotwheels-collection",
@@ -103,14 +109,7 @@ const projects: Project[] = [
 		logo: "/projects/hotwheels-collection.svg",
 		links: [{ url: "https://hotwheels.phake.app", type: "web" }],
 		since: "12-2025 - Present",
-	},
-	{
-		id: "lichtrinhbay",
-		name: "Flights Schedule - Lịch Trình Bay",
-		description: "Flight schedule web application",
-		logo: "/projects/lichtrinhbay.svg",
-		links: [{ url: "https://flights.phake.app", type: "web" }],
-		since: "12-2025 - Present",
+		lastCommit: "2026-02-24",
 	},
 	{
 		id: "trinhvaphuong",
@@ -128,6 +127,7 @@ const projects: Project[] = [
 		logo: "/projects/bieudovang.svg",
 		links: [{ url: "https://www.bieudovang.net/", type: "web" }],
 		since: "03-2024 - Present",
+		lastCommit: "2026-04-11",
 	},
 	{
 		id: "newtab",
@@ -142,9 +142,16 @@ const projects: Project[] = [
 			},
 		],
 		since: "07-2023 - Present",
-		metrics: { installed: 9 },
+		lastCommit: "2026-03-06",
 	},
 ];
+
+const projects = unsortedProjects.sort((a, b) => {
+	if (!a.lastCommit && !b.lastCommit) return 0;
+	if (!a.lastCommit) return 1;
+	if (!b.lastCommit) return -1;
+	return new Date(b.lastCommit).getTime() - new Date(a.lastCommit).getTime();
+});
 
 const experiences: Experience[] = [
 	{
