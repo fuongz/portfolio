@@ -46,7 +46,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://www.npmjs.com/package/@phake/mcp", type: "npm" },
 			{ url: "https://github.com/fuongz/phake-mcp", type: "github" },
 		],
-		since: "04-2026 - Present",
+		since: "04-2026 - Now",
 		lastCommit: "2026-04-07",
 	},
 	{
@@ -57,10 +57,10 @@ const unsortedProjects: Project[] = [
 		tags: ["Application"],
 		logo: "/projects/file-viewers.png",
 		links: [
-			{ url: "https://viewers.phake.app", type: "web" },
+			{ url: "https://files.phake.app", type: "web" },
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
 		],
-		since: "03-2026 - Present",
+		since: "03-2026 - Now",
 		lastCommit: "2026-04-05",
 	},
 	{
@@ -70,7 +70,7 @@ const unsortedProjects: Project[] = [
 		tags: ["AI"],
 		logo: "/projects/Spec-Kit-Ext-Logo.svg",
 		links: [{ url: "https://github.com/fuongz/spec-kit-ext", type: "github" }],
-		since: "03-2026 - Present",
+		since: "03-2026 - Now",
 		lastCommit: "2026-03-24",
 	},
 	{
@@ -85,7 +85,7 @@ const unsortedProjects: Project[] = [
 				type: "github",
 			},
 		],
-		since: "02-2026 - Present",
+		since: "02-2026 - Now",
 		lastCommit: "2026-03-21",
 	},
 	{
@@ -99,7 +99,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://muck.phake.app", type: "web" },
 			{ url: "https://github.com/fuongz/muck-clone", type: "github" },
 		],
-		since: "02-2026 - Present",
+		since: "02-2026",
 		lastCommit: "2026-02-09",
 	},
 	{
@@ -108,15 +108,18 @@ const unsortedProjects: Project[] = [
 		description: "Let's build your Hot Wheels Collection!",
 		logo: "/projects/hotwheels-collection.svg",
 		links: [{ url: "https://hotwheels.phake.app", type: "web" }],
-		since: "12-2025 - Present",
+		since: "12-2025 - Now",
 		lastCommit: "2026-02-24",
 	},
 	{
 		id: "mayfamily",
-		name: "May Family",
-		description: "Family website",
+		name: "Trinh & Phương",
+		description: "Our wedding website",
 		logo: "/projects/trinhvaphuong.svg",
-		links: [{ url: "https://www.mayfamily.top/", type: "web" }],
+		links: [
+			{ url: "https://www.trinhvaphuong.com", type: "web" },
+			{ url: "https://github.com/fuongz/mayfamily", type: "github" },
+		],
 		since: "12-2025",
 		lastCommit: "2025-12-18",
 		isNoEndDate: true,
@@ -127,7 +130,7 @@ const unsortedProjects: Project[] = [
 		description: "A gold price chart web application",
 		logo: "/projects/bieudovang.svg",
 		links: [{ url: "https://www.bieudovang.net/", type: "web" }],
-		since: "03-2024 - Present",
+		since: "03-2024 - Now",
 		lastCommit: "2026-04-11",
 	},
 	{
@@ -141,8 +144,12 @@ const unsortedProjects: Project[] = [
 				url: "https://chromewebstore.google.com/detail/your-newtab/jfflfcaobccnpijfocpfcholcpnkeomg",
 				type: "chrome_extension",
 			},
+			{
+				url: "https://github.com/fuongz/newtab",
+				type: "github",
+			},
 		],
-		since: "07-2023 - Present",
+		since: "07-2023 - Now",
 		lastCommit: "2026-03-06",
 	},
 ];
@@ -158,10 +165,9 @@ const experiences: Experience[] = [
 	{
 		id: "hiip",
 		company: "Hiip",
-		status: "live",
 		logo: "/exps/hiip.png",
 		website: "https://www.hiip.asia",
-		period: "2022 — Present",
+		period: "2022 — Now",
 		position: "Senior Software Engineer",
 	},
 	{

@@ -138,7 +138,7 @@ function ProjectItem({ project }: { project: Project }) {
 
 	const githubLink = project.links?.find((l) => l.type === "github");
 	const isPrivate =
-		project.isPrivate ?? (!githubLink && project.since.includes("Present"));
+		project.isPrivate ?? (!githubLink && project.since.includes("Now"));
 
 	const handleOpenChange = async (open: boolean) => {
 		setIsOpen(open);
@@ -164,7 +164,7 @@ function ProjectItem({ project }: { project: Project }) {
 		<Dialog key={project.id} open={isOpen} onOpenChange={handleOpenChange}>
 			<DialogTrigger className="w-full text-left cursor-pointer">
 				<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:!opacity-100 hover:!grayscale-0">
-					<div className="w-[58px] h-[58px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
+					<div className="w-[58px] h-[58px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
 						{project.icon ? (
 							<project.icon className="w-6 h-6" />
 						) : project.logo?.startsWith("/") ? (
