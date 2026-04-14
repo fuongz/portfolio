@@ -48,7 +48,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/phake-mcp", type: "github" },
 		],
 		since: "04-2026 - Now",
-		lastCommit: "2026-04-07",
+		lastCommit: "2026-04-07T14:14:25Z",
 	},
 	{
 		id: "file-viewers",
@@ -62,7 +62,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
 		],
 		since: "03-2026 - Now",
-		lastCommit: "2026-04-05",
+		lastCommit: "2026-04-14T08:20:53Z",
 	},
 	{
 		id: "my-spec-kit-extensions",
@@ -72,7 +72,7 @@ const unsortedProjects: Project[] = [
 		logo: "/projects/Spec-Kit-Ext-Logo.svg",
 		links: [{ url: "https://github.com/fuongz/spec-kit-ext", type: "github" }],
 		since: "03-2026 - Now",
-		lastCommit: "2026-03-24",
+		lastCommit: "2026-03-24T07:11:01Z",
 	},
 	{
 		id: "subscription-management",
@@ -87,7 +87,7 @@ const unsortedProjects: Project[] = [
 			},
 		],
 		since: "02-2026 - Now",
-		lastCommit: "2026-03-21",
+		lastCommit: "2026-03-21T04:50:35Z",
 	},
 	{
 		id: "muck-clone",
@@ -101,7 +101,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/muck-clone", type: "github" },
 		],
 		since: "02-2026",
-		lastCommit: "2026-02-09",
+		lastCommit: "2026-02-09T16:20:41Z",
 	},
 	{
 		id: "hotwheels-collection",
@@ -110,7 +110,7 @@ const unsortedProjects: Project[] = [
 		logo: "/projects/hotwheels-collection.svg",
 		links: [{ url: "https://hotwheels.phake.app", type: "web" }],
 		since: "12-2025 - Now",
-		lastCommit: "2026-02-24",
+		lastCommit: "2026-02-24T09:11:18Z",
 	},
 	{
 		id: "mayfamily",
@@ -122,7 +122,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/mayfamily", type: "github" },
 		],
 		since: "12-2025",
-		lastCommit: "2025-12-18",
+		lastCommit: "2025-12-18T05:08:41Z",
 		isNoEndDate: true,
 	},
 	{
@@ -151,7 +151,7 @@ const unsortedProjects: Project[] = [
 			},
 		],
 		since: "07-2023 - Now",
-		lastCommit: "2026-03-06",
+		lastCommit: "2026-03-06T10:40:31Z",
 	},
 ];
 

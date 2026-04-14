@@ -130,6 +130,32 @@ function TagBadge({ tag, projectId }: { tag: string; projectId: string }) {
 	);
 }
 
+function formatRelativeTime(dateString: string): string {
+	const date = new Date(dateString);
+	const now = new Date();
+	const diffInMs = now.getTime() - date.getTime();
+	const diffInSeconds = Math.floor(diffInMs / 1000);
+	const diffInMinutes = Math.floor(diffInSeconds / 60);
+	const diffInHours = Math.floor(diffInMinutes / 60);
+	const diffInDays = Math.floor(diffInHours / 24);
+	const diffInWeeks = Math.floor(diffInDays / 7);
+	const diffInMonths = Math.floor(diffInDays / 30);
+	const diffInYears = Math.floor(diffInDays / 365);
+
+	if (diffInSeconds < 60) return "just now";
+	if (diffInMinutes < 60)
+		return `${diffInMinutes} minute${diffInMinutes > 1 ? "s" : ""} ago`;
+	if (diffInHours < 24)
+		return `${diffInHours} hour${diffInHours > 1 ? "s" : ""} ago`;
+	if (diffInDays < 7)
+		return `${diffInDays} day${diffInDays > 1 ? "s" : ""} ago`;
+	if (diffInWeeks < 4)
+		return `${diffInWeeks} week${diffInWeeks > 1 ? "s" : ""} ago`;
+	if (diffInMonths < 12)
+		return `${diffInMonths} month${diffInMonths > 1 ? "s" : ""} ago`;
+	return `${diffInYears} year${diffInYears > 1 ? "s" : ""} ago`;
+}
+
 function ProjectItem({ project }: { project: Project }) {
 	const [readme, setReadme] = useState<string | null>(null);
 	const [latestCommit, setLatestCommit] = useState<LatestCommit | null>(null);
@@ -212,13 +238,14 @@ function ProjectItem({ project }: { project: Project }) {
 							{project.description}
 						</p>
 						{project.lastCommit && (
-							<p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
-								Last commit:{" "}
-								{new Date(project.lastCommit).toLocaleDateString("en-US", {
-									month: "short",
-									day: "numeric",
-									year: "numeric",
-								})}
+							<p className="text-xs italic text-zinc-500 dark:text-zinc-400 mt-1 flex items-center gap-1.5">
+								<span>Last commit </span>
+								<span
+									className="font-medium text-foreground"
+									title={project.lastCommit}
+								>
+									{formatRelativeTime(project.lastCommit)}
+								</span>
 							</p>
 						)}
 					</div>
@@ -299,15 +326,8 @@ function ProjectItem({ project }: { project: Project }) {
 													{latestCommit.message.split("\n")[0]}
 												</p>
 												<p className="text-xs text-zinc-500 dark:text-zinc-400">
-													{new Date(latestCommit.date).toLocaleDateString(
-														"en-US",
-														{
-															month: "short",
-															day: "numeric",
-															year: "numeric",
-														}
-													)}{" "}
-													· {latestCommit.sha.slice(0, 7)}
+													{formatRelativeTime(latestCommit.date)} ·{" "}
+													{latestCommit.sha.slice(0, 7)}
 												</p>
 											</div>
 										</div>
