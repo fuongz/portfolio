@@ -32,6 +32,7 @@ type Experience = {
 	website: string;
 	period: string;
 	position: string;
+	overview?: string[];
 };
 
 const unsortedProjects: Project[] = [
@@ -169,6 +170,12 @@ const experiences: Experience[] = [
 		website: "https://www.hiip.asia",
 		period: "2022 — Now",
 		position: "Senior Software Engineer",
+		overview: [
+			"Lead technical development for influencer marketing platform",
+			"Design and implement scalable microservices architecture",
+			"Mentor junior developers and conduct code reviews",
+			"Collaborate with product team to define technical requirements",
+		],
 	},
 	{
 		id: "fpt",
@@ -176,7 +183,12 @@ const experiences: Experience[] = [
 		website: "https://fpt.vn",
 		logo: "/exps/fpt.png",
 		period: "2020 — 2022",
-		position: "Middle Software Engineer",
+		position: "Software Engineer",
+		overview: [
+			"Developed and maintained BSS/OSS systems",
+			"Participated in agile development processes",
+			"Worked on system integration and API development",
+		],
 	},
 	{
 		id: "base",
@@ -185,6 +197,11 @@ const experiences: Experience[] = [
 		logo: "/exps/base.png",
 		period: "2017 — 2020",
 		position: "Product Team Leader",
+		overview: [
+			"Led product development team for Base CRM",
+			"Coordinated between engineering and product teams",
+			"Managed product roadmap and feature prioritization",
+		],
 	},
 ];
 

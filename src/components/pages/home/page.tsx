@@ -268,6 +268,21 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 													<p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
 														{exp.position}
 													</p>
+													{exp.overview && exp.overview.length > 0 && (
+														<ul className="mt-3 space-y-1.5">
+															{exp.overview.map((item) => (
+																<li
+																	key={item}
+																	className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2"
+																>
+																	<span className="text-purple-500 mt-1">
+																		•
+																	</span>
+																	<span>{item}</span>
+																</li>
+															))}
+														</ul>
+													)}
 												</div>
 											</div>
 											<div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800">
