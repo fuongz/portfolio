@@ -20,6 +20,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tailwindcss/postcss": "^4.2.2",
     "@tailwindcss/typography": "^0.5.19",
+    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "graphql": "^16.13.2",
@@ -35,12 +36,6 @@
     "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.5.0"
   },
-  "browserslist": [
-    "chrome >= 93",
-    "firefox >= 92",
-    "safari >= 15.4",
-    "edge >= 93"
-  ],
   "devDependencies": {
     "@biomejs/biome": "2.4.11",
     "@types/node": "25.6.0",

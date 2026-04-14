@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import { env } from "node:process";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import {
 	Averia_Serif_Libre,
@@ -86,9 +86,9 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	const gtmId = env.NEXT_PUBLIC_GTM_ID;
-	const gaId = env.NEXT_PUBLIC_GA_ID;
-	const umamiId = env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+	const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+	const gaId = process.env.NEXT_PUBLIC_GA_ID;
+	const umamiId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 
 	return (
 		<html
@@ -151,6 +151,7 @@ gtag('config', '${gaId}');
 				className={`${monoFont.variable} ${displayFont.variable} antialiased relative selection:text-purple-900 selection:bg-purple-100 dark:selection:purple-900 dark:selection:bg-purple-900/50`}
 			>
 				<Providers>{children}</Providers>
+				<SpeedInsights />
 			</body>
 		</html>
 	);
