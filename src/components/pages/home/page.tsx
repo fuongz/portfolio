@@ -314,44 +314,6 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 
 			{/* Projects Section */}
 			<div className="pb-8 sm:mb-12 relative pt-8">
-				<svg
-					aria-hidden="true"
-					className="pointer-events-none z-0 text-zinc-300 dark:text-zinc-700 h-px w-full absolute top-0 left-0"
-					data-direction="top"
-					data-variant="container"
-					preserveAspectRatio="none"
-					viewBox="0 0 100 1"
-				>
-					<line
-						stroke="currentColor"
-						strokeDasharray="6 6"
-						strokeWidth="1"
-						vectorEffect="non-scaling-stroke"
-						x1="0"
-						x2="100"
-						y1="0.5"
-						y2="0.5"
-					/>
-				</svg>
-				<svg
-					aria-hidden="true"
-					className="pointer-events-none z-10 text-zinc-300 dark:text-zinc-700 h-px w-full absolute bottom-0 left-0"
-					data-direction="top"
-					data-variant="container"
-					preserveAspectRatio="none"
-					viewBox="0 0 100 1"
-				>
-					<line
-						stroke="currentColor"
-						strokeDasharray="6 6"
-						strokeWidth="1"
-						vectorEffect="non-scaling-stroke"
-						x1="0"
-						x2="100"
-						y1="0.5"
-						y2="0.5"
-					/>
-				</svg>
 				<h2 className="text-base font-semibold text-zinc-900 dark:text-zinc-100 mb-4 sm:mb-6">
 					Projects ({projects.length})
 				</h2>
