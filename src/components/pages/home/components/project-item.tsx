@@ -48,32 +48,7 @@ import {
 } from "@/components/ui/dialog";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
-
-type ProjectLink = {
-	url: string;
-	type: "npm" | "chrome_extension" | "web" | "github" | "mintlify";
-};
-
-type Project = {
-	id: string;
-	name: string;
-	description: string;
-	logo?: string;
-	icon?: React.ComponentType<{ className?: string }>;
-	links?: ProjectLink[];
-	since: string;
-	lastCommit?: string;
-	isNoEndDate?: boolean;
-	isPrivate?: boolean;
-	tags?: string[];
-	metrics?: {
-		installed?: number;
-		downloads?: number;
-		stars?: number;
-		forks?: number;
-		users?: number;
-	};
-};
+import type { Project } from "../types";
 
 function TagBadge({ tag, projectId }: { tag: string; projectId: string }) {
 	return (
@@ -163,8 +138,10 @@ function ProjectItem({ project }: { project: Project }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const githubLink = project.links?.find((l) => l.type === "github");
+	const projectAny = project as unknown as { since?: string };
 	const isPrivate =
-		project.isPrivate ?? (!githubLink && project.since.includes("Now"));
+		project.isPrivate ??
+		(!githubLink && (projectAny.since ?? "").includes("Now"));
 
 	const handleOpenChange = async (open: boolean) => {
 		setIsOpen(open);
@@ -222,12 +199,12 @@ function ProjectItem({ project }: { project: Project }) {
 									))}
 							</div>
 							<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
-								{project.since}
+								{(project as unknown as { since?: string }).since ?? ""}
 								{project.isNoEndDate ? (
 									<>
 										{" "}
 										-{" "}
-										<InfinityIcon className="inline-block size-4 mb-0.5 text-purple-500" />
+										<InfinityIcon className="inline-block size-4 mb-0.5 text-yellow-600" />
 									</>
 								) : (
 									""
@@ -299,7 +276,7 @@ function ProjectItem({ project }: { project: Project }) {
 											{project.name}
 										</span>
 										<span className="text-xs text-zinc-500 dark:text-zinc-400">
-											{project.since}
+											{(project as unknown as { since?: string }).since ?? ""}
 											{project.isNoEndDate && (
 												<>
 													{" "}
