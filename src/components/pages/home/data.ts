@@ -27,7 +27,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
 		],
 		firstCommit: "2026-03-03T10:13:59Z",
-		lastCommit: "2026-04-15T07:57:26Z",
+		lastCommit: "2026-05-13T16:30:34Z",
 	},
 	{
 		id: "my-spec-kit-extensions",

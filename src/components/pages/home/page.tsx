@@ -69,7 +69,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 										side="top"
 										align="start"
 									>
-										<PreviewCard.Popup className="z-[200] w-80 origin-(--transform-origin) rounded-xl bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-150 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 overflow-hidden">
+										<PreviewCard.Popup className="z-200 w-80 origin-(--transform-origin) rounded-xl bg-popover text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-150 outline-none data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95 overflow-hidden">
 											<div className="px-3 pt-3 pb-2 border-b border-foreground/8">
 												<p className="font-semibold text-sm text-foreground leading-tight">
 													Hồ Chí Minh City
@@ -167,7 +167,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 							nativeButton={false}
 							render={
 								<Link
-									href="https://x.com/fuongz"
+									href="https://x.com/fuong_z"
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label="X"
@@ -205,8 +205,8 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 						<StaggeredItem key={exp.id}>
 							<Dialog>
 								<DialogTrigger className="w-full text-left cursor-pointer">
-									<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:!opacity-100 hover:!grayscale-0">
-										<div className="w-[38px] h-[38px] sm:w-[48px] sm:h-[48px] relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded flex items-center justify-center flex-shrink-0">
+									<div className="flex gap-3 sm:gap-4 transition-all duration-200 group-hover/list:opacity-40 group-hover/list:grayscale hover:opacity-100! hover:grayscale-0!">
+										<div className="w-0.5 h-9.5 sm:w-12 sm:h-12 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded flex items-center justify-center shrink-0">
 											{exp.logo.startsWith("/") ? (
 												<Image
 													src={exp.logo}
@@ -235,7 +235,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 														</Badge>
 													)}
 												</div>
-												<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap flex-shrink-0">
+												<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap shrink-0">
 													{exp.period}
 												</span>
 											</div>
@@ -253,7 +253,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 												<X className="size-4" />
 											</DialogClose>
 											<div className="flex items-start gap-4">
-												<div className="w-10 h-10 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center flex-shrink-0">
+												<div className="w-10 h-10 relative bg-zinc-100 overflow-hidden dark:bg-zinc-800 rounded-lg flex items-center justify-center shrink-0">
 													{exp.logo.startsWith("/") ? (
 														<Image
 															src={exp.logo}
