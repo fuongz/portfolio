@@ -2,6 +2,31 @@ import type { Experience, Project } from "./types";
 
 const unsortedProjects: Project[] = [
 	{
+		id: "lanework",
+		name: "Lanework",
+		description:
+			"Visualize your AI coding agent's review checklists as a Kanban board!",
+		tags: ["AI"],
+		logo: "/projects/Lanework.svg",
+		links: [
+			{ url: "https://lanework.dev", type: "web" },
+			{ url: "https://github.com/fuongz/lanework", type: "github" },
+		],
+		firstCommit: "2026-06-22T06:19:48Z",
+		lastCommit: "2026-06-22T13:22:21Z",
+	},
+	{
+		id: "telehelm",
+		name: "Telehelm",
+		description:
+			"Steer your Docker containers from Telegram - your phone is the helm.",
+		tags: ["Application"],
+		logo: "/projects/Telehelm.svg",
+		links: [{ url: "https://github.com/fuongz/telehelm", type: "github" }],
+		firstCommit: "2026-06-20T09:07:26Z",
+		lastCommit: "2026-06-22T02:42:16Z",
+	},
+	{
 		id: "phake-mcp",
 		name: "@phake/mcp",
 		description:
@@ -13,7 +38,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/phake-mcp", type: "github" },
 		],
 		firstCommit: "2026-04-01T07:59:39Z",
-		lastCommit: "2026-04-15T02:55:54Z",
+		lastCommit: "2026-05-22T16:33:40Z",
 	},
 	{
 		id: "file-viewers",
