@@ -33,5 +33,6 @@ export type Experience = {
 	website: string;
 	period: string;
 	position: string;
+	duration?: string;
 	overview?: string[];
 };

@@ -5,6 +5,21 @@ import {
 	registerApolloClient,
 } from "@apollo/client-integration-nextjs";
 
+declare module "@apollo/client" {
+	// biome-ignore lint/style/noNamespace: module augmentation requires namespace syntax
+	namespace ApolloClient {
+		// biome-ignore lint/style/noNamespace: module augmentation requires namespace syntax
+		namespace DeclareDefaultOptions {
+			interface Query {
+				errorPolicy?: "all";
+			}
+			interface WatchQuery {
+				errorPolicy?: "all";
+			}
+		}
+	}
+}
+
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
 	return new ApolloClient({
 		cache: new InMemoryCache(),

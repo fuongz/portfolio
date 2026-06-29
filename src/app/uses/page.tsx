@@ -49,11 +49,18 @@ export default function UsesPage() {
 
 	const code: UseItem[] = [
 		{
-			id: "editor-vscode",
-			name: "Visual Studio Code",
-			description: "Theme: GitHub Light Colorblind",
+			id: "editor-zed",
+			name: "Zed",
+			description: "Fast, native, and collaborative. My default editor now.",
 			category: "Editor",
-			href: "https://code.visualstudio.com",
+			href: "https://zed.dev",
+		},
+		{
+			id: "prowl",
+			name: "Prowl",
+			description: "My go-to for AI coding agents.",
+			category: "Coding Agents",
+			href: "https://prowl.cat/",
 		},
 		{
 			id: "terminal-ghostty",
@@ -71,12 +78,12 @@ export default function UsesPage() {
 			href: "https://orbstack.dev",
 		},
 		{
-			id: "dbeaver",
-			name: "DBeaver",
+			id: "tablepro",
+			name: "TablePro",
 			description:
-				"Universal database GUI. Works with Postgres, MySQL, and MongoDB.",
+				"Clean, modern database GUI. Works with Postgres, MySQL, and more.",
 			category: "Database",
-			href: "https://dbeaver.io",
+			href: "https://tablepro.app/",
 		},
 		{
 			id: "yaak",

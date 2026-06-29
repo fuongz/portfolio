@@ -13,7 +13,7 @@ const unsortedProjects: Project[] = [
 			{ url: "https://github.com/fuongz/lanework", type: "github" },
 		],
 		firstCommit: "2026-06-22T06:19:48Z",
-		lastCommit: "2026-06-22T13:22:21Z",
+		lastCommit: "2026-06-26T10:56:35Z",
 	},
 	{
 		id: "telehelm",
@@ -24,7 +24,7 @@ const unsortedProjects: Project[] = [
 		logo: "/projects/Telehelm.svg",
 		links: [{ url: "https://github.com/fuongz/telehelm", type: "github" }],
 		firstCommit: "2026-06-20T09:07:26Z",
-		lastCommit: "2026-06-22T02:42:16Z",
+		lastCommit: "2026-06-29T05:05:05Z",
 	},
 	{
 		id: "phake-mcp",
@@ -182,7 +182,19 @@ const projects = unsortedProjectsWithSince.sort((a, b) => {
 	return new Date(b.lastCommit).getTime() - new Date(a.lastCommit).getTime();
 });
 
-const experiences: Experience[] = [
+const getDuration = (period: string): string => {
+	const [startStr, endStr] = period.split("—").map((s) => s.trim());
+	const startYear = Number.parseInt(startStr, 10);
+	const endYear = /now/i.test(endStr ?? "")
+		? new Date().getFullYear()
+		: Number.parseInt(endStr ?? "", 10);
+	if (Number.isNaN(startYear) || Number.isNaN(endYear)) return "";
+	const years = endYear - startYear;
+	if (years <= 0) return "<1 yr";
+	return `${years} yr${years > 1 ? "s" : ""}`;
+};
+
+const unsortedExperiences: Experience[] = [
 	{
 		id: "hiip",
 		company: "Hiip",
@@ -224,6 +236,11 @@ const experiences: Experience[] = [
 		],
 	},
 ];
+
+const experiences = unsortedExperiences.map((exp) => ({
+	...exp,
+	duration: getDuration(exp.period),
+}));
 
 export type { Experience, Project };
 export { experiences, projects };

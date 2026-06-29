@@ -234,6 +234,11 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 															Now
 														</Badge>
 													)}
+													{exp.duration && (
+														<Badge variant="secondary" size="xs">
+															{exp.duration}
+														</Badge>
+													)}
 												</div>
 												<span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 whitespace-nowrap shrink-0">
 													{exp.period}
