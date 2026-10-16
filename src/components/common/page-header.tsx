@@ -5,12 +5,14 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description }: PageHeaderProps) {
 	return (
-		<div className="pt-4 sm:pt-8 mb-8 sm:mb-12">
-			<h1 className="text-lg font-serif sm:text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+		<div className="mb-10 animate-intro">
+			<h1 className="font-semibold text-neutral-900 dark:text-neutral-100">
 				{title}
 			</h1>
 			{description && (
-				<p className="text-muted-foreground text-sm mt-0.5">{description}</p>
+				<p className="mt-1 font-light text-neutral-600 dark:text-neutral-400">
+					{description}
+				</p>
 			)}
 		</div>
 	);

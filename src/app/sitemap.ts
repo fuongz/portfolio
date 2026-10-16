@@ -1,21 +1,15 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/blog";
+import { BLOG_ENABLED, getAllPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 	const baseUrl = "https://phuongphung.com";
-	const posts = getAllPosts("en");
+	const posts = BLOG_ENABLED ? getAllPosts("en") : [];
 	const staticPages: MetadataRoute.Sitemap = [
 		{
 			url: baseUrl,
 			lastModified: new Date(),
 			changeFrequency: "weekly",
 			priority: 1,
-		},
-		{
-			url: `${baseUrl}/blog`,
-			lastModified: new Date(),
-			changeFrequency: "weekly",
-			priority: 0.9,
 		},
 		{
 			url: `${baseUrl}/uses`,
@@ -36,5 +30,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 		changeFrequency: "weekly",
 		priority: 0.8,
 	}));
-	return [...staticPages, ...blogPosts];
+	const blogIndex: MetadataRoute.Sitemap = BLOG_ENABLED
+		? [
+				{
+					url: `${baseUrl}/blog`,
+					lastModified: new Date(),
+					changeFrequency: "weekly",
+					priority: 0.9,
+				},
+			]
+		: [];
+	return [...staticPages, ...blogIndex, ...blogPosts];
 }

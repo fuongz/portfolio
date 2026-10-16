@@ -3,6 +3,7 @@
 import { Check, Copy } from "lucide-react";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type CodeBlockProps = {
 	children?: React.ReactNode;
@@ -51,16 +52,23 @@ export function CodeBlock({
 					variant="secondary"
 					onClick={handleCopy}
 				>
-					{copied ? (
-						<>
-							<Check /> Copied
-						</>
-					) : (
-						<>
-							<Copy />
-							Copy
-						</>
-					)}
+					<span className="relative size-3">
+						<Copy
+							className={cn(
+								"absolute inset-0 size-3 transition-[opacity,scale,filter] duration-200 ease-out",
+								copied &&
+									"opacity-0 motion-safe:scale-50 motion-safe:blur-[2px]"
+							)}
+						/>
+						<Check
+							className={cn(
+								"absolute inset-0 size-3 transition-[opacity,scale,filter] duration-200 ease-out",
+								!copied &&
+									"opacity-0 motion-safe:scale-50 motion-safe:blur-[2px]"
+							)}
+						/>
+					</span>
+					{copied ? "Copied" : "Copy"}
 				</Button>
 			</div>
 			<pre className={`rounded-t-none ${className}`} {...props}>

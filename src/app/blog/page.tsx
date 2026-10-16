@@ -63,23 +63,23 @@ export default function BlogPage() {
 
 			<div className="space-y-1 mb-4">
 				{posts.length === 0 ? (
-					<p className="text-sm text-zinc-500">No posts yet.</p>
+					<p className="text-sm text-neutral-500">No posts yet.</p>
 				) : (
 					<StaggeredList className="space-y-1">
 						{posts.map((post) => (
 							<StaggeredItem key={post.slug}>
 								<Link href={`/blog/${post.slug}`} className="block group">
-									<article className="py-3 not-last:border-b border-zinc-100 dark:border-zinc-800">
+									<article className="py-3 not-last:border-b border-neutral-100 dark:border-neutral-800">
 										<div className="flex items-start justify-between gap-4">
 											<div className="flex-1 min-w-0">
-												<h2 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+												<h2 className="text-sm font-medium text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
 													{post.title}
 												</h2>
-												<p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400 line-clamp-2">
+												<p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400 line-clamp-2">
 													{post.description}
 												</p>
 											</div>
-											<time className="text-xs text-zinc-500 dark:text-zinc-400 whitespace-nowrap">
+											<time className="text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap">
 												{new Date(post.date).toLocaleDateString("en-US", {
 													month: "short",
 													day: "numeric",

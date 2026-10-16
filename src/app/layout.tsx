@@ -2,25 +2,15 @@ import "./globals.css";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import {
-	Averia_Serif_Libre,
-	Bricolage_Grotesque,
-	Inconsolata,
-} from "next/font/google";
+import { Inconsolata, Inter } from "next/font/google";
 import Script from "next/script";
 import Providers from "./providers";
 
-const sansSerifFont = Bricolage_Grotesque({
+const sansSerifFont = Inter({
 	display: "swap",
-	weight: ["300", "400", "500", "600", "700"],
-	subsets: ["latin"],
-});
-
-const displayFont = Averia_Serif_Libre({
-	display: "swap",
-	weight: ["300", "400", "700"],
-	variable: "--font-serif",
-	subsets: ["latin"],
+	weight: ["300", "400", "500", "600"],
+	variable: "--font-inter",
+	subsets: ["latin", "vietnamese"],
 });
 
 const monoFont = Inconsolata({
@@ -93,7 +83,7 @@ export default function RootLayout({
 	return (
 		<html
 			lang="en"
-			className={sansSerifFont.className}
+			className={`${sansSerifFont.className} ${sansSerifFont.variable}`}
 			suppressHydrationWarning
 		>
 			<head>
@@ -148,7 +138,7 @@ gtag('config', '${gaId}');
 			</head>
 			<body
 				suppressHydrationWarning={true}
-				className={`${monoFont.variable} ${displayFont.variable} antialiased relative selection:text-purple-900 selection:bg-purple-100 dark:selection:purple-900 dark:selection:bg-purple-900/50`}
+				className={`${monoFont.variable} antialiased relative selection:bg-neutral-300 dark:selection:bg-neutral-700`}
 			>
 				<Providers>{children}</Providers>
 				<SpeedInsights />

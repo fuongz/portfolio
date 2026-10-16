@@ -8,6 +8,7 @@ const unsortedProjects: Project[] = [
 			"Visualize your AI coding agent's review checklists as a Kanban board!",
 		tags: ["AI"],
 		logo: "/projects/Lanework.svg",
+		screenshot: "/projects/screens/lanework.jpg",
 		links: [
 			{ url: "https://lanework.dev", type: "web" },
 			{ url: "https://github.com/fuongz/lanework", type: "github" },
@@ -47,6 +48,7 @@ const unsortedProjects: Project[] = [
 			"A cross-platform desktop app for viewing and editing Markdown, JSON, and CSV files.",
 		tags: ["Application"],
 		logo: "/projects/file-viewers.png",
+		screenshot: "/projects/screens/file-viewers.jpg",
 		links: [
 			{ url: "https://files.phake.app", type: "web" },
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
@@ -56,6 +58,7 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "my-spec-kit-extensions",
+		isHidden: true,
 		name: "My Spec Kit Extensions",
 		description: "A collection of my extensions for spec-kit",
 		tags: ["AI"],
@@ -66,6 +69,7 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "subscription-management",
+		isHidden: true,
 		name: "Subscriptions Management",
 		description: "A clean, fast subscription tracker.",
 		logo: "/projects/subscriptions-management.svg",
@@ -81,6 +85,7 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "muck-clone",
+		isHidden: true,
 		name: "Muck Clone",
 		description:
 			"I like the game Muck on Steam, but the developers abandoned it, so I cloned it.",
@@ -95,6 +100,7 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "hotwheels-collection",
+		isHidden: true,
 		name: "Hot Wheels Collection",
 		description: "Let's build your Hot Wheels Collection!",
 		logo: "/projects/hotwheels-collection.svg",
@@ -107,6 +113,7 @@ const unsortedProjects: Project[] = [
 		name: "Trinh & Phương",
 		description: "Our wedding website",
 		logo: "/projects/trinhvaphuong.svg",
+		screenshot: "/projects/screens/mayfamily-gallery.jpg",
 		links: [
 			{ url: "https://www.trinhvaphuong.com", type: "web" },
 			{ url: "https://github.com/fuongz/mayfamily", type: "github" },
@@ -120,6 +127,7 @@ const unsortedProjects: Project[] = [
 		name: "Gold Chart - Biểu Đồ Vàng",
 		description: "A gold price chart web application",
 		logo: "/projects/bieudovang.svg",
+		screenshot: "/projects/screens/bieudovang.jpg",
 		links: [{ url: "https://www.bieudovang.net/", type: "web" }],
 		firstCommit: "2024-07-14T15:50:11Z",
 		lastCommit: "2026-04-11T07:07:32Z",
@@ -130,6 +138,8 @@ const unsortedProjects: Project[] = [
 		description: "A NewTab extension with random quote!",
 		tags: ["Extension"],
 		logo: "/projects/newtab.svg",
+		screenshot: "/projects/screens/newtab-quote.jpg",
+		screenshotPosition: "center",
 		links: [
 			{
 				url: "https://chromewebstore.google.com/detail/your-newtab/jfflfcaobccnpijfocpfcholcpnkeomg",
@@ -175,12 +185,12 @@ const unsortedProjectsWithSince = unsortedProjects.map((p) => ({
 	since: getSince(p.firstCommit, p.lastCommit, p.isNoEndDate),
 }));
 
-const projects = unsortedProjectsWithSince.sort((a, b) => {
-	if (!a.lastCommit && !b.lastCommit) return 0;
-	if (!a.lastCommit) return 1;
-	if (!b.lastCommit) return -1;
-	return new Date(b.lastCommit).getTime() - new Date(a.lastCommit).getTime();
-});
+const projects = unsortedProjectsWithSince
+	.filter((p) => !p.isHidden)
+	.sort(
+		(a, b) =>
+			new Date(b.firstCommit).getTime() - new Date(a.firstCommit).getTime()
+	);
 
 const getDuration = (period: string): string => {
 	const [startStr, endStr] = period.split("—").map((s) => s.trim());

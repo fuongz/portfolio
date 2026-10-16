@@ -3,6 +3,8 @@ export type Project = {
 	name: string;
 	description: string;
 	logo?: string;
+	screenshot?: string;
+	screenshotPosition?: "top" | "center";
 	icon?: React.ComponentType<{ className?: string }>;
 	links?: ProjectLink[];
 	lastCommit?: string;
@@ -10,6 +12,7 @@ export type Project = {
 	since?: string;
 	isNoEndDate?: boolean;
 	isPrivate?: boolean;
+	isHidden?: boolean;
 	tags?: string[];
 	metrics?: {
 		installed?: number;

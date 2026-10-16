@@ -1,7 +1,14 @@
-import { ExternalLink, Plus } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader } from "@/components/common/page-header";
+import { pillClassName } from "@/components/common/pill";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
+import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+	title: "Uses",
+	description: "The gear, software, and tools I use daily.",
+};
 
 type UseItem = {
 	id: string;
@@ -175,54 +182,48 @@ export default function UsesPage() {
 	];
 
 	const renderSection = (title: string, items: Array<UseItem>) => (
-		<div className="mb-10">
-			<h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-3">
+		<section className="mb-10 animate-intro">
+			<h2 className="mb-3 text-sm font-light text-neutral-500 dark:text-neutral-400">
 				{title}
 			</h2>
-			<div className="text-sm text-zinc-600 dark:text-zinc-400">
-				{items.map((item) => (
-					<div
-						key={item.id}
-						className="flex not-last:border-b sm:border-none py-4 sm:py-2.5 items-start justify-between gap-4"
-					>
-						<span className="flex items-start gap-2 flex-1 min-w-0">
-							<Plus className="size-3 hidden sm:inline-block flex-shrink-0 mt-1" />
-							<span className="flex flex-col gap-0.5 min-w-0">
-								<span className="flex items-center gap-1.5 text-foreground font-medium">
-									{item.name}
-									{item.href && (
-										<Tooltip>
-											<TooltipTrigger>
-												<Link href={item.href} target="_blank">
-													<ExternalLink className="size-3 text-purple-600 hover:text-purple-800" />
-												</Link>
-											</TooltipTrigger>
-											<TooltipContent>{item.href}</TooltipContent>
-										</Tooltip>
-									)}
+			<div className="flex flex-wrap items-center gap-x-1 gap-y-2">
+				{items.map((item) => {
+					const pill = item.href ? (
+						<Link
+							href={item.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							className={pillClassName}
+						>
+							{item.name}
+							<ArrowUpRight className="text-neutral-400" />
+						</Link>
+					) : (
+						<span className={cn(pillClassName, "cursor-default")}>
+							{item.name}
+						</span>
+					);
+
+					return (
+						<Tooltip key={item.id}>
+							<TooltipTrigger asChild>{pill}</TooltipTrigger>
+							<TooltipContent className="max-w-64">
+								<span className="block text-[10px] uppercase tracking-wide opacity-60">
+									{item.category}
 								</span>
 								{item.description && (
-									<span className="text-zinc-500 dark:text-zinc-400 text-xs leading-relaxed">
-										{item.description}
-									</span>
+									<span className="mt-0.5 block">{item.description}</span>
 								)}
-							</span>
-						</span>
-						<span className="text-xs bg-accent text-accent-foreground rounded-xs px-1 whitespace-nowrap flex-shrink-0 mt-0.5">
-							{item.category}
-						</span>
-					</div>
-				))}
+							</TooltipContent>
+						</Tooltip>
+					);
+				})}
 			</div>
-		</div>
+		</section>
 	);
 
 	return (
 		<div>
-			<PageHeader
-				title="Uses"
-				description="The gear, software, and tools I use daily."
-			/>
 			{renderSection("Workstation", hardware)}
 			{renderSection("Dev Setup", code)}
 			{renderSection("Apps", software)}

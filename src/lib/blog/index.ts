@@ -2,6 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
+// Temporarily hidden: flip to true to bring /blog back.
+export const BLOG_ENABLED = false;
+
 export type Post = {
 	slug: string;
 	lang: "en" | "vi";

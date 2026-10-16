@@ -1,13 +1,14 @@
 import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface ContainerProps {
 	children: ReactNode;
-	lg?: boolean;
+	className?: string;
 }
 
-const Container: React.FC<ContainerProps> = ({ children }) => {
+const Container: React.FC<ContainerProps> = ({ children, className }) => {
 	return (
-		<div className="container max-w-2xl sm:mb-4 mx-auto px-4 sm:px-6 py-4 sm:py-6 xl:p-0">
+		<div className={cn("mx-auto w-[90vw] sm:w-[520px]", className)}>
 			{children}
 		</div>
 	);
