@@ -7,6 +7,7 @@ const unsortedProjects: Project[] = [
 		description:
 			"A Chrome extension that lets you hover over any image on the web and remix it in place.",
 		tags: ["Extension"],
+		logo: "/projects/Under-Pics.svg",
 		screenshot: "/projects/screens/under-pics.jpg",
 		links: [{ url: "https://under.pics/", type: "web" }],
 		firstCommit: "2026-08-24T10:54:21Z",
@@ -17,6 +18,7 @@ const unsortedProjects: Project[] = [
 		name: "Engames",
 		description: "A collection of fun mini games to play online.",
 		tags: ["Game"],
+		logo: "/projects/Engames.svg",
 		screenshot: "/projects/screens/engames.jpg",
 		links: [
 			{ url: "https://engames.trinhvaphuong.com/", type: "web" },
@@ -29,6 +31,7 @@ const unsortedProjects: Project[] = [
 		id: "enchat",
 		name: "Enchat",
 		description: "A real-time chat application.",
+		logo: "/projects/Enchat.svg",
 		links: [{ url: "https://enchat.trinhvaphuong.com/", type: "web" }],
 		firstCommit: "2026-10-02T13:54:47Z",
 		lastCommit: "2026-10-22T06:48:20Z",
