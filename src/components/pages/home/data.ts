@@ -2,6 +2,42 @@ import type { Experience, Project } from "./types";
 
 const unsortedProjects: Project[] = [
 	{
+		id: "under-pics",
+		name: "Under.pics",
+		description: "A simple, fast image hosting and sharing web app.",
+		links: [{ url: "https://under.pics/", type: "web" }],
+		firstCommit: "2026-08-24T10:54:21Z",
+		lastCommit: "2026-10-27T22:19:35Z",
+	},
+	{
+		id: "engames",
+		name: "Engames",
+		description: "A collection of fun mini games to play online.",
+		tags: ["Game"],
+		links: [
+			{ url: "https://engames.trinhvaphuong.com/", type: "web" },
+			{ url: "https://github.com/fuongz/engames", type: "github" },
+		],
+		firstCommit: "2026-10-23T01:43:45Z",
+		lastCommit: "2026-10-26T08:31:45Z",
+	},
+	{
+		id: "enchat",
+		name: "Enchat",
+		description: "A real-time chat application.",
+		links: [{ url: "https://enchat.trinhvaphuong.com/", type: "web" }],
+		firstCommit: "2026-10-02T13:54:47Z",
+		lastCommit: "2026-10-22T06:48:20Z",
+	},
+	{
+		id: "headflare",
+		name: "Headflare",
+		description: "Headroom for your Cloudflare flare.",
+		links: [{ url: "https://github.com/fuongz/headflare", type: "github" }],
+		firstCommit: "2026-06-29T07:35:39Z",
+		lastCommit: "2026-06-29T09:15:40Z",
+	},
+	{
 		id: "lanework",
 		name: "Lanework",
 		description:
