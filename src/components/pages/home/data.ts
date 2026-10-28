@@ -4,7 +4,10 @@ const unsortedProjects: Project[] = [
 	{
 		id: "under-pics",
 		name: "Under.pics",
-		description: "A simple, fast image hosting and sharing web app.",
+		description:
+			"A Chrome extension that lets you hover over any image on the web and remix it in place.",
+		tags: ["Extension"],
+		screenshot: "/projects/screens/under-pics.jpg",
 		links: [{ url: "https://under.pics/", type: "web" }],
 		firstCommit: "2026-08-24T10:54:21Z",
 		lastCommit: "2026-10-27T22:19:35Z",
@@ -14,6 +17,7 @@ const unsortedProjects: Project[] = [
 		name: "Engames",
 		description: "A collection of fun mini games to play online.",
 		tags: ["Game"],
+		screenshot: "/projects/screens/engames.jpg",
 		links: [
 			{ url: "https://engames.trinhvaphuong.com/", type: "web" },
 			{ url: "https://github.com/fuongz/engames", type: "github" },
