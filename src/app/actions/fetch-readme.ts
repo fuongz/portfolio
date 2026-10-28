@@ -1,6 +1,12 @@
 "use server";
 
+const REPO_PATTERN = /^[\w.-]+\/[\w.-]+$/;
+
 export async function fetchReadme(repo: string) {
+	if (!REPO_PATTERN.test(repo)) {
+		return null;
+	}
+
 	const response = await fetch(`https://api.github.com/repos/${repo}/readme`, {
 		headers: {
 			Accept: "application/vnd.github.v3+json",
@@ -39,6 +45,10 @@ export type LatestCommit = {
 export async function fetchLatestCommit(
 	repo: string
 ): Promise<LatestCommit | null> {
+	if (!REPO_PATTERN.test(repo)) {
+		return null;
+	}
+
 	const response = await fetch(
 		`https://api.github.com/repos/${repo}/commits?per_page=1`,
 		{
