@@ -40,6 +40,7 @@ const unsortedProjects: Project[] = [
 		id: "headflare",
 		name: "Headflare",
 		description: "Headroom for your Cloudflare flare.",
+		logo: "/projects/Headflare.svg",
 		links: [{ url: "https://github.com/fuongz/headflare", type: "github" }],
 		firstCommit: "2026-06-29T07:35:39Z",
 		lastCommit: "2026-06-29T09:15:40Z",
