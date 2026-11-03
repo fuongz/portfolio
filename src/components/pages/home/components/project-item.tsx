@@ -19,69 +19,20 @@ function getPrimaryLink(project: Project) {
 	return undefined;
 }
 
-function InlineLogo({ project }: { project: Project }) {
-	if (project.icon) return <project.icon className="mr-1.5 size-4 shrink-0" />;
-	if (!project.logo?.startsWith("/")) return null;
-	return (
-		<Image
-			src={project.logo}
-			alt=""
-			width={16}
-			height={16}
-			className="mr-1.5 size-4 shrink-0 rounded-[4px] object-cover"
-		/>
-	);
-}
-
 type ProjectItemProps = {
 	project: Project;
-	/** Spans both grid columns (used for a lone last item). */
-	span?: boolean;
 };
 
-function ProjectItem({ project, span = false }: ProjectItemProps) {
+function ProjectItem({ project }: ProjectItemProps) {
 	const href = getPrimaryLink(project);
 	const className = cn(
 		"group relative block w-full overflow-hidden rounded-2xl border border-neutral-200 bg-white outline-offset-2 transition-[border-color,scale] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-neutral-400 dark:border-neutral-800 dark:bg-neutral-900",
 		href &&
 			"hover:border-neutral-300 active:scale-[0.99] dark:hover:border-neutral-700",
-		span ? "aspect-[4/3] sm:col-span-2 sm:aspect-[8/3]" : "aspect-[4/3]"
+		"aspect-square"
 	);
 
-	const content = project.screenshot ? (
-		<>
-			<Image
-				src={project.screenshot}
-				alt={`${project.name} website`}
-				fill
-				sizes={
-					span
-						? "(min-width: 640px) 1024px, 95vw"
-						: "(min-width: 640px) 512px, 95vw"
-				}
-				className={cn(
-					"object-cover transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.03] motion-reduce:transition-none",
-					project.screenshotPosition === "center"
-						? "object-center"
-						: "object-top"
-				)}
-			/>
-			<div
-				aria-hidden="true"
-				className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-b from-transparent via-black/25 to-black/65"
-			/>
-			<div className="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-2 px-4 pb-3 text-white">
-				<span className="flex min-w-0 items-center gap-0.5 text-sm font-medium">
-					<InlineLogo project={project} />
-					<span className="truncate">{project.name}</span>
-					<ArrowUpRight className="size-3.5 shrink-0 text-white/70 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-				</span>
-				<span className="shrink-0 text-sm font-light tabular-nums text-white/75">
-					{new Date(project.firstCommit).getFullYear()}
-				</span>
-			</div>
-		</>
-	) : (
+	const content = (
 		<>
 			<div
 				aria-hidden="true"
@@ -109,15 +60,14 @@ function ProjectItem({ project, span = false }: ProjectItemProps) {
 					)}
 				</div>
 			</div>
-			{
-				<p className="pointer-events-none absolute inset-x-4 bottom-11 translate-y-1 text-center text-xs font-light text-neutral-500 opacity-0 transition-[opacity,translate] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 dark:text-neutral-400">
-					{project.description}
-				</p>
-			}
-			<div className="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-2 px-4 pb-3">
+			<p className="pointer-events-none absolute inset-x-4 bottom-11 hidden sm:block translate-y-1 text-center text-xs font-light text-neutral-500 opacity-0 transition-[opacity,translate] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 dark:text-neutral-400">
+				{project.description}
+			</p>
+			<div className="absolute inset-x-0 bottom-0 flex flex-col gap-0.5 px-4 pb-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-2">
 				<span className="flex min-w-0 items-center gap-0.5 text-sm font-medium">
-					<InlineLogo project={project} />
-					<span className="truncate">{project.name}</span>
+					<span className="truncate" title={project.name}>
+						{project.name}
+					</span>
 					{href && (
 						<ArrowUpRight className="size-3.5 shrink-0 text-neutral-400 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
 					)}

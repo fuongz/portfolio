@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { pillClassName } from "@/components/common/pill";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui";
@@ -16,7 +17,14 @@ type UseItem = {
 	description?: string;
 	category: string;
 	href?: string;
+	/** Path to a square icon in /public, shown before the name. */
+	icon?: string;
+	/** Something I built myself — shown with an accent pill. */
+	isMine?: boolean;
 };
+
+const minePillClassName =
+	"text-emerald-900 before:bg-emerald-100 hover:before:bg-emerald-200 active:before:bg-emerald-300 dark:text-emerald-100 dark:before:bg-emerald-950 dark:hover:before:bg-emerald-900 dark:active:before:bg-emerald-800";
 
 export default function UsesPage() {
 	const hardware: UseItem[] = [
@@ -63,11 +71,13 @@ export default function UsesPage() {
 			href: "https://zed.dev",
 		},
 		{
-			id: "prowl",
-			name: "Prowl",
-			description: "My go-to for AI coding agents.",
+			id: "lanework",
+			name: "Lanework",
+			description: "Kanban board for my AI coding agents' review checklists.",
 			category: "Coding Agents",
-			href: "https://prowl.cat/",
+			href: "https://lanework.dev",
+			icon: "/uses/lanework.png",
+			isMine: true,
 		},
 		{
 			id: "terminal-ghostty",
@@ -147,6 +157,14 @@ export default function UsesPage() {
 			category: "Bookmark Manager",
 			href: "https://raindrop.io",
 		},
+		{
+			id: "mole",
+			name: "Mole",
+			description:
+				"Native Mac cleaner. Clears caches, uninstalls apps, and shows what's eating my disk.",
+			category: "System Utility",
+			href: "https://mole.fit",
+		},
 	];
 
 	const hobbies: UseItem[] = [
@@ -188,18 +206,41 @@ export default function UsesPage() {
 			</h2>
 			<div className="flex flex-wrap items-center gap-x-1 gap-y-2">
 				{items.map((item) => {
+					const icon = item.icon && (
+						<Image
+							src={item.icon}
+							alt=""
+							width={16}
+							height={16}
+							className="size-4 shrink-0 rounded-[4px]"
+						/>
+					);
 					const pill = item.href ? (
 						<Link
 							href={item.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className={pillClassName}
+							className={cn(pillClassName, item.isMine && minePillClassName)}
 						>
+							{icon}
 							{item.name}
-							<ArrowUpRight className="text-neutral-400" />
+							<ArrowUpRight
+								className={
+									item.isMine
+										? "text-emerald-600 dark:text-emerald-400"
+										: "text-neutral-400"
+								}
+							/>
 						</Link>
 					) : (
-						<span className={cn(pillClassName, "cursor-default")}>
+						<span
+							className={cn(
+								pillClassName,
+								item.isMine && minePillClassName,
+								"cursor-default"
+							)}
+						>
+							{icon}
 							{item.name}
 						</span>
 					);
@@ -210,6 +251,7 @@ export default function UsesPage() {
 							<TooltipContent className="max-w-64">
 								<span className="block text-[10px] uppercase tracking-wide opacity-60">
 									{item.category}
+									{item.isMine && " · Built by me"}
 								</span>
 								{item.description && (
 									<span className="mt-0.5 block">{item.description}</span>

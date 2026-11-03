@@ -8,7 +8,6 @@ const unsortedProjects: Project[] = [
 			"A Chrome extension that lets you hover over any image on the web and remix it in place.",
 		tags: ["Extension"],
 		logo: "/projects/Under-Pics.svg",
-		screenshot: "/projects/screens/under-pics.jpg",
 		links: [{ url: "https://under.pics/", type: "web" }],
 		firstCommit: "2026-08-24T10:54:21Z",
 		lastCommit: "2026-10-27T22:19:35Z",
@@ -19,7 +18,6 @@ const unsortedProjects: Project[] = [
 		description: "A collection of fun mini games to play online.",
 		tags: ["Game"],
 		logo: "/projects/Engames.svg",
-		screenshot: "/projects/screens/engames.jpg",
 		links: [
 			{ url: "https://engames.trinhvaphuong.com/", type: "web" },
 			{ url: "https://github.com/fuongz/engames", type: "github" },
@@ -31,7 +29,7 @@ const unsortedProjects: Project[] = [
 		id: "enchat",
 		name: "Enchat",
 		description: "A real-time chat application.",
-		logo: "/projects/Enchat.svg",
+		logo: "/projects/Enchat.png",
 		links: [{ url: "https://enchat.trinhvaphuong.com/", type: "web" }],
 		firstCommit: "2026-10-02T13:54:47Z",
 		lastCommit: "2026-10-22T06:48:20Z",
@@ -52,7 +50,6 @@ const unsortedProjects: Project[] = [
 			"Visualize your AI coding agent's review checklists as a Kanban board!",
 		tags: ["AI"],
 		logo: "/projects/Lanework.svg",
-		screenshot: "/projects/screens/lanework.jpg",
 		links: [
 			{ url: "https://lanework.dev", type: "web" },
 			{ url: "https://github.com/fuongz/lanework", type: "github" },
@@ -92,7 +89,6 @@ const unsortedProjects: Project[] = [
 			"A cross-platform desktop app for viewing and editing Markdown, JSON, and CSV files.",
 		tags: ["Application"],
 		logo: "/projects/file-viewers.png",
-		screenshot: "/projects/screens/file-viewers.jpg",
 		links: [
 			{ url: "https://files.phake.app", type: "web" },
 			{ url: "https://github.com/fuongz/file-viewers", type: "github" },
@@ -157,7 +153,6 @@ const unsortedProjects: Project[] = [
 		name: "Trinh & Phương",
 		description: "Our wedding website",
 		logo: "/projects/trinhvaphuong.svg",
-		screenshot: "/projects/screens/mayfamily-gallery.jpg",
 		links: [
 			{ url: "https://www.trinhvaphuong.com", type: "web" },
 			{ url: "https://github.com/fuongz/mayfamily", type: "github" },
@@ -171,7 +166,6 @@ const unsortedProjects: Project[] = [
 		name: "Gold Chart - Biểu Đồ Vàng",
 		description: "A gold price chart web application",
 		logo: "/projects/bieudovang.svg",
-		screenshot: "/projects/screens/bieudovang.jpg",
 		links: [{ url: "https://www.bieudovang.net/", type: "web" }],
 		firstCommit: "2024-07-14T15:50:11Z",
 		lastCommit: "2026-04-11T07:07:32Z",
@@ -182,8 +176,6 @@ const unsortedProjects: Project[] = [
 		description: "A NewTab extension with random quote!",
 		tags: ["Extension"],
 		logo: "/projects/newtab.svg",
-		screenshot: "/projects/screens/newtab-quote.jpg",
-		screenshotPosition: "center",
 		links: [
 			{
 				url: "https://chromewebstore.google.com/detail/your-newtab/jfflfcaobccnpijfocpfcholcpnkeomg",

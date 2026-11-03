@@ -17,12 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 			changeFrequency: "monthly",
 			priority: 0.7,
 		},
-		{
-			url: `${baseUrl}/spec-kit-ext`,
-			lastModified: new Date(),
-			changeFrequency: "monthly",
-			priority: 0.6,
-		},
 	];
 	const blogPosts: MetadataRoute.Sitemap = posts.map((post) => ({
 		url: `${baseUrl}/blog/${post.slug}`,

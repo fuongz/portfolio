@@ -164,16 +164,26 @@ type HomePageRouteProps = {
 	experiences: Experience[];
 };
 
+function getYearsOfExperience(experiences: Experience[]): number {
+	const startYears = experiences
+		.map((exp) => Number.parseInt(exp.period, 10))
+		.filter((year) => !Number.isNaN(year));
+	if (startYears.length === 0) return 0;
+	return new Date().getFullYear() - Math.min(...startYears);
+}
+
 function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
+	const yearsOfExperience = getYearsOfExperience(experiences);
+
 	return (
 		<>
 			<header>
 				<h1 className="mb-6 animate-intro font-semibold">Phuong Phung</h1>
 				<div className="flex flex-col gap-y-3.5">
 					<p className="animate-intro font-light leading-snug [animation-delay:0.25s]">
-						I'm Phuong, a software engineer from <LocationPreview /> with 7+
-						years of experience, who found his true passion in programming. This
-						is where I share the things I'm building.
+						I'm Phuong, a software engineer from <LocationPreview /> with{" "}
+						{yearsOfExperience}+ years of experience, who found his true passion
+						in programming. This is where I share the things I'm building.
 					</p>
 					<p className="animate-intro font-light leading-snug [animation-delay:0.3s]">
 						I currently work on full-stack development at{" "}
@@ -188,7 +198,7 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 								alt=""
 								width={16}
 								height={16}
-								className="mr-1 mb-0.5 inline-block rounded-[4px]"
+								className="mr-1 mb-0.5 inline-block size-4 rounded-[4px] object-cover"
 							/>
 							Hiip
 						</Link>
@@ -218,13 +228,9 @@ function HomePageRoute({ projects, experiences }: HomePageRouteProps) {
 			</section>
 
 			<section className="mt-16 animate-intro [animation-delay:0.5s]">
-				<div className="relative left-1/2 grid w-[min(1024px,95vw)] -translate-x-1/2 grid-cols-1 gap-3 sm:grid-cols-2">
-					{projects.map((project, index) => (
-						<ProjectItem
-							key={project.id}
-							project={project}
-							span={projects.length % 2 === 1 && index === projects.length - 1}
-						/>
+				<div className="relative left-1/2 grid w-[min(1024px,95vw)] -translate-x-1/2 grid-cols-2 gap-3 sm:grid-cols-4">
+					{projects.map((project) => (
+						<ProjectItem key={project.id} project={project} />
 					))}
 				</div>
 			</section>

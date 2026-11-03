@@ -3,8 +3,6 @@ export type Project = {
 	name: string;
 	description: string;
 	logo?: string;
-	screenshot?: string;
-	screenshotPosition?: "top" | "center";
 	icon?: React.ComponentType<{ className?: string }>;
 	links?: ProjectLink[];
 	lastCommit?: string;

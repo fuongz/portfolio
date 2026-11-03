@@ -78,7 +78,6 @@ export default function RootLayout({
 }) {
 	const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 	const gaId = process.env.NEXT_PUBLIC_GA_ID;
-	const umamiId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
 
 	return (
 		<html
@@ -127,13 +126,6 @@ gtag('config', '${gaId}');
 `}
 						</Script>
 					</>
-				)}
-				{umamiId && (
-					<Script
-						defer
-						src="https://cloud.umami.is/script.js"
-						data-website-id={umamiId}
-					/>
 				)}
 			</head>
 			<body

@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView, type Variants } from "motion/react";
-import { type ReactNode, useRef } from "react";
+import { motion, type Variants } from "motion/react";
+import type { ReactNode } from "react";
 
 type StaggeredListProps = {
 	children: ReactNode;
@@ -60,40 +60,4 @@ function StaggeredItem({
 	);
 }
 
-type FadeInProps = {
-	children: ReactNode;
-	className?: string;
-	delay?: number;
-	direction?: "up" | "down" | "left" | "right";
-};
-
-function FadeIn({
-	children,
-	className,
-	delay = 0,
-	direction = "up",
-}: FadeInProps) {
-	const ref = useRef<HTMLDivElement>(null);
-	const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-	const directions = {
-		up: { y: 20 },
-		down: { y: -20 },
-		left: { x: 20 },
-		right: { x: -20 },
-	};
-
-	return (
-		<motion.div
-			ref={ref}
-			className={className}
-			initial={{ opacity: 0, ...directions[direction] }}
-			animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-			transition={{ duration: 0.4, delay, ease: "easeOut" }}
-		>
-			{children}
-		</motion.div>
-	);
-}
-
-export { FadeIn, StaggeredItem, StaggeredList };
+export { StaggeredItem, StaggeredList };
