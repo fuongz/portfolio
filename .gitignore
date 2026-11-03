@@ -38,4 +38,7 @@ yarn-error.log*
 
 certificates
 
+# agents & skills
 .claude
+.agents
+skills-lock.json
