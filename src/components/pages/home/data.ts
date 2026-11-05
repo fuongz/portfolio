@@ -2,6 +2,20 @@ import type { Experience, Project } from "./types";
 
 const unsortedProjects: Project[] = [
 	{
+		id: "enmirror",
+		name: "enMirror",
+		description:
+			"A free, ad-free mirror app for iPhone with ring light, zoom, and snapshots.",
+		tags: ["iOS"],
+		logo: "/projects/Enmirror.png",
+		links: [
+			{ url: "https://enmirror.trinhvaphuong.com/", type: "web" },
+			{ url: "https://github.com/fuongz/enmirror", type: "github" },
+		],
+		firstCommit: "2026-11-04T14:04:32Z",
+		lastCommit: "2026-11-05T13:18:57Z",
+	},
+	{
 		id: "under-pics",
 		name: "Under.pics",
 		description:
