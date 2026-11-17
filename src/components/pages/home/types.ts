@@ -23,7 +23,13 @@ export type Project = {
 
 export type ProjectLink = {
 	url: string;
-	type: "npm" | "chrome_extension" | "web" | "github" | "mintlify";
+	type:
+		| "npm"
+		| "chrome_extension"
+		| "web"
+		| "github"
+		| "mintlify"
+		| "app_store";
 };
 
 export type Experience = {

@@ -1,3 +1,4 @@
+import { SiAppstore } from "@icons-pack/react-simple-icons";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -5,6 +6,7 @@ import type { Project, ProjectLink } from "../types";
 
 const LINK_PRIORITY: ProjectLink["type"][] = [
 	"web",
+	"app_store",
 	"chrome_extension",
 	"npm",
 	"mintlify",
@@ -25,6 +27,7 @@ type ProjectItemProps = {
 
 function ProjectItem({ project }: ProjectItemProps) {
 	const href = getPrimaryLink(project);
+	const appStoreLink = project.links?.find((link) => link.type === "app_store");
 	const className = cn(
 		"group relative block w-full overflow-hidden rounded-2xl border border-neutral-200 bg-white outline-offset-2 transition-[border-color,scale] duration-150 ease-out focus-visible:outline-2 focus-visible:outline-neutral-400 dark:border-neutral-800 dark:bg-neutral-900",
 		href &&
@@ -87,7 +90,7 @@ function ProjectItem({ project }: ProjectItemProps) {
 		);
 	}
 
-	return (
+	const card = (
 		<a
 			href={href}
 			target="_blank"
@@ -97,6 +100,24 @@ function ProjectItem({ project }: ProjectItemProps) {
 		>
 			{content}
 		</a>
+	);
+
+	if (!appStoreLink) return card;
+
+	return (
+		<div className="relative">
+			{card}
+			<a
+				href={appStoreLink.url}
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label={`Download ${project.name} on the App Store`}
+				title="Download on the App Store"
+				className="absolute right-1 top-1 flex size-11 items-center justify-center rounded-xl text-neutral-500 transition-colors hover:bg-neutral-100 hover:text-neutral-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-400 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white"
+			>
+				<SiAppstore className="size-5" aria-hidden="true" />
+			</a>
+		</div>
 	);
 }
 

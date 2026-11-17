@@ -2,6 +2,17 @@ import type { Experience, Project } from "./types";
 
 const unsortedProjects: Project[] = [
 	{
+		id: "enaloud",
+		name: "enAloud",
+		description:
+			"An iPhone app for practicing English aloud with scrolling text, recordings, and word-by-word feedback.",
+		tags: ["iOS"],
+		logo: "/projects/Enaloud.png",
+		links: [{ url: "https://enaloud.trinhvaphuong.com/", type: "web" }],
+		firstCommit: "2026-11-15T09:33:04Z",
+		lastCommit: "2026-11-17T06:40:57Z",
+	},
+	{
 		id: "enmirror",
 		name: "enMirror",
 		description:
@@ -28,7 +39,7 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "engames",
-		name: "Engames",
+		name: "enGames",
 		description: "A collection of fun mini games to play online.",
 		tags: ["Game"],
 		logo: "/projects/Engames.svg",
@@ -41,10 +52,16 @@ const unsortedProjects: Project[] = [
 	},
 	{
 		id: "enchat",
-		name: "Enchat",
+		name: "enChat",
 		description: "A real-time chat application.",
 		logo: "/projects/Enchat.png",
-		links: [{ url: "https://enchat.trinhvaphuong.com/", type: "web" }],
+		links: [
+			{ url: "https://enchat.trinhvaphuong.com/", type: "web" },
+			{
+				url: "https://apps.apple.com/us/app/enchat-private-chat/id6818772574",
+				type: "app_store",
+			},
+		],
 		firstCommit: "2026-10-02T13:54:47Z",
 		lastCommit: "2026-10-22T06:48:20Z",
 	},
